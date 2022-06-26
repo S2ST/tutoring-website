@@ -1,3 +1,17 @@
+@import "variables";
+
 @mixin center() {
   text-align: center;
+}
+
+@mixin roudedButton() {
+  background-color: $dark;
+  border-radius: 60px;
+  font-family: $OpenSans;
+  padding: 2.4vh;
+  font-weight: 700;
+
+  &:hover {
+    background-color: $dark;
+  }
 }
