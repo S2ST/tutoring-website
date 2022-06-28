@@ -3,7 +3,6 @@
 
 .startingContainer {
   @include homepageSection;
-  
 }
 
 .subtitle {
@@ -51,6 +50,7 @@
   padding-left: 15%;
   padding-right: 15%;
   margin-bottom: 7vh;
+  font-weight: 300;
 }
 
 
@@ -85,6 +85,59 @@
 
 .enrollBubblesMobile {
   display: none;
+}
+
+.forStudentsContainer {
+  @include homepageSection;
+  @include center;
+
+  min-height: 0vh;
+  position: relative;
+  padding: 20vh 20%;
+
+  .enrollTitle {
+    margin-top: 0;
+  }
+}
+
+.forStudentsText {
+  @include center;
+  font-size: 2.4vh;
+  padding-left: 20%;
+  padding-right: 20%;
+  font-weight: 300;
+}
+
+.forStudentsHr {
+  width: 15%;
+  margin-top: 5vh;
+  color: #40514E;
+  background-color: #40514E;
+  border: none;
+  height: 3px;
+}
+
+.studentsBubblesLeft {
+  position: absolute;
+  left: 10%;
+  width: 15%;
+  top: 45%;
+  height: auto;
+}
+
+.studentsBubblesRight {
+  position: absolute;
+  right: 10%;
+  width: 15%;
+  top: 45%;
+  height: auto;
+}
+
+.studentsBubblesMid {
+  position: absolute;
+  width: 20%;
+  top: 15%;
+  height: auto;
 }
 
 @media only screen and (max-width: 600px) {
@@ -142,5 +195,33 @@
     top: 5%;
     width: 100%;
     height: auto;
+  }
+
+  .forStudentsContainer {
+    padding: 10vh 5%;
+    overflow: hidden;
+    
+  }
+
+  .forStudentsText {
+    font-size: 1.5vh;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .studentsBubblesLeft {
+    left: -15%;
+    width: 40%;
+    top: 50%;
+  }
+
+  .studentsBubblesRight {
+    right: -15%;
+    width: 40%;
+    top: 50%;
+  }
+
+  .studentsBubblesMid {
+    width: 50%;
   }
 }
