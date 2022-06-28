@@ -8,6 +8,7 @@ body {
   // font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
   //   Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background-color: $lightest;
+  font-family: $OpenSans;
 }
 
 a {
@@ -24,4 +25,16 @@ h1 {
   font-weight: 700;
   font-family: $OpenSans;
   color: $darkest;
+}
+
+h3 {
+  font-size: 3.6vh;
+  font-weight: 700;
+  font-family: $OpenSans;
+  color: $darkest;
+}
+
+p {
+  color: $darkest;
+  font-family: $OpenSans;
 }
