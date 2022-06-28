@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.scss'
-import { Container, Grid, Button } from '@mui/material';
+import { Container, Grid, Button, Stack, Card } from '@mui/material';
 
 export default function Home() {
   return (
@@ -13,22 +13,56 @@ export default function Home() {
       </Head>
 
      
-        <Container className={styles.big}>
-          <Grid container className={styles.startingContainer} alignItems="center" direction="row-reverse">
-            <Image src="/images/startingBubbles.png" layout="raw" width={100} height={100} className={styles.startingBubbles}></Image>
-            <Grid item container xs={12} sm={5} className={styles.startingRight} justifyContent="center">
-              <Image src="/images/boy.svg" layout="raw" width={100} height={100} className={styles.boyImage}></Image>
+        
+
+        <Grid container className={styles.startingContainer} alignItems="center" direction="row-reverse">
+          <Image src="/images/startingBubbles.svg" layout="raw" width={100} height={100} className={styles.startingBubbles}></Image>
+          <Grid item container xs={12} sm={5} className={styles.startingRight} justifyContent="center">
+            <Image src="/images/boy.svg" layout="raw" width={100} height={100} className={styles.boyImage}></Image>
+          </Grid>
+          <Grid item container xs={12} sm={7} className={styles.startingLeft}>
+            <h1 className={styles.title}> Students to Students Tutoring </h1>
+            <p className={styles.subtitle}>This summer, we’ll have classes suitable for all students, as well as free trial lessons and webinars open to the public!</p>
+            <Button variant="contained" className={styles.searchButton}>Search Courses</Button>
+          </Grid>
+        </Grid>
+
+        <Grid container className={styles.enrollContainer} alignItems="center" justifyContent="center">
+          <Image src="/images/enrollBubblesTop.svg" layout="raw" width={100} height={100} className={styles.enrollBubblesTop}></Image>
+          <Image src="/images/enrollBubblesBottom.svg" layout="raw" width={100} height={100} className={styles.enrollBubblesBottom}></Image>
+          <Image src="/images/enrollBubblesMobile.svg" layout="raw" width={100} height={100} className={styles.enrollBubblesMobile}></Image>
+          <Grid container item xs={12} justifyContent="center" sx={{zIndex: 2}}>
+            <Grid item>
+              <h3 className={styles.enrollTitle}>Enroll your child now!</h3>
+              <p className={styles.enrollText}> Our mission is to provide extracurricular education to as many students as possible at an affordable price. </p>
             </Grid>
-            <Grid item container xs={12} sm={7} className={styles.startingLeft}>
-              <h1 className={styles.title}> Students to Students Tutoring </h1>
-              <p className={styles.subtitle}>This summer, we’ll have classes suitable for all students, as well as free trial lessons and webinars open to the public!</p>
-              <Button variant="contained" className={styles.searchButton}>Search Courses</Button>
+            <Grid container item alignItems="center" justifyContent="center">
+              <EnrollItem src="/images/money.svg" text="Affordable prices! Each lesson varies from $4 to $14 per 45 minutes."></EnrollItem>
+              <EnrollItem src="/images/books.svg" text="Enhance your child’s skills with our courses. Each course contains 10 lessons."></EnrollItem>
+              <EnrollItem src="/images/boy2.svg" text="Course material range from elementary school to high school level."></EnrollItem>
             </Grid>
           </Grid>
-        </Container>
+        </Grid>
 
 
       
     </div>
+  )
+}
+
+function EnrollItem({src, text}) {
+  return (
+    <Grid container alignContent="center" md={4} xs={12}>
+      <div className={styles.enrollItemContainer}>
+        <Grid container spacing={2}>
+          <Grid container item xs={5} md={12} alignContent="center" justifyContent="center">
+            <Image src={src} width={100} height={100} className={styles.enrollItemImage}></Image>
+          </Grid>
+          <Grid container item xs={7} md={12} alignContent="center">
+            <p className={styles.enrollItemText}>{text}</p>  
+          </Grid>
+        </Grid>
+      </div>
+    </Grid>
   )
 }

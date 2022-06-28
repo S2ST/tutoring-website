@@ -1,18 +1,12 @@
 @import "mixins";
 @import "variables";
 
-.big {
-  padding-left: 10%;
-  padding-right: 10%;
-}
-
 .startingContainer {
-  min-height: 100vh;
+  @include homepageSection;
+  
 }
 
 .subtitle {
-  color: $darkest;
-  font-family: $OpenSans;
   font-size: 2vh;
   margin-bottom: 5vh
 }
@@ -43,21 +37,73 @@
   height: 100%;
 }
 
-@media only screen and (max-width: 768px) {
+.enrollContainer {
+  @include homepageSection;
+  @include center;
+
+  background-color: #D0F1EB;
+  position: relative;
+}
+
+.enrollText {
+  @include center;
+  font-size: 2.4vh;
+  padding-left: 15%;
+  padding-right: 15%;
+  margin-bottom: 7vh;
+}
+
+
+.enrollItemContainer {
+  background-color: $lightest;
+  border-radius: 25px;
+  padding: 8vh 5vh;
+  margin: 1vh;
+}
+
+.enrollItemText {
+  color: #6F8984;
+  font-size: 1.8vh;
+  font-weight: 400;
+}
+
+.enrollBubblesTop {
+  position: absolute;
+  left: 0;
+  top: 3%;
+  width: 40%;
+  height: auto;
+}
+
+.enrollBubblesBottom {
+  position: absolute;
+  right: 0;
+  bottom: 3%;
+  width: 22%;
+  height: auto;
+}
+
+.enrollBubblesMobile {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
   /* For mobile phones: */
   .title {
     @include center;
-    font-size: 3.8vh;
+    font-size: 2.7vh;
   }
 
   .subtitle {
     @include center;
+    font-size: 1.5vh;
   }
 
   .startingLeft {
     justify-content: center;
     margin-top: -30vh;
-    padding-right: 0;
+    padding-left: 3vh;
+    padding-right: 3vh;
   }
 
   .boyImage {
@@ -65,7 +111,36 @@
     height: 60%;
   }
 
-  .startingBubbles {
+  .startingBubbles, .enrollBubblesTop, .enrollBubblesBottom {
     display: none;
+  }
+
+  .enrollTitle {
+    font-size: 2.7vh;
+  }
+ 
+  .enrollText {
+    font-size: 1.5vh;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-bottom: 3vh;
+  }
+
+  .enrollItemText {
+    text-align: left;
+    font-size: 1.5vh;
+  }
+
+  .enrollItemContainer {
+    padding: 3vh;
+    margin: 1vh;
+  }
+
+  .enrollBubblesMobile {
+    display: block;
+    position: absolute;
+    top: 5%;
+    width: 100%;
+    height: auto;
   }
 }
