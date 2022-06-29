@@ -1,0 +1,11 @@
+@import "mixins";
+@import "variables";
+
+.navbar {
+  background-color: $dark;
+  box-shadow: none;
+}
+.navTitle {
+  text-align: center;
+  color: $lightest
+}
