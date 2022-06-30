@@ -1,0 +1,66 @@
+@import "variables";
+@import "mixins";
+
+.topSection {
+  background-color: $lightest;
+  min-height: 40vh;
+  width: 100%;
+  padding-top: 10vh;
+
+  .bubblesTopLeft {
+    position: absolute;
+    height: auto;
+    width: 30vh;
+  }
+
+  .titlesContainer {
+    @include coursesHorizontalPadding;
+    position: relative;
+
+    .title {
+      color: $dark;
+      font-size: 3.6vh;
+    }
+    .subtitle {
+      margin-top: -10px;
+      color: $darkest;
+      font-size: 2vh;
+    }
+    .arrowButton {
+      font-size: 3.5vh;
+      margin-left: 10px;
+      margin-top: 5px;
+      margin-bottom: -8px;
+      color: $light-1;
+      background-color: $dark;
+      border-radius: 50%;
+      transition: .2s ease-in-out;
+      
+
+      &:hover {
+        background-color: $light-1;
+        color: $dark;
+      }
+    }
+  }
+}
+
+.botSection {
+  min-height: 60vh;
+  background: linear-gradient(244.63deg, #30E3CA -7.2%, rgba(48, 227, 202, 0) 67.45%), #11999E;
+}
+
+@media only screen and (max-width: 600px) {
+  /* For mobile phones: */
+  .title {
+    font-size: 2.7vh;
+  }
+
+  .subtitle {
+    font-size: 1.5vh;
+  }
+
+  .bubblesTopLeft {
+    display: none;
+  }
+}
