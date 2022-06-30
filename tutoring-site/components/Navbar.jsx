@@ -19,7 +19,7 @@ import styles from '../styles/Navbar.module.scss';
 
 const drawerWidth = 240;
 const navItems = ['Home', 'Courses', 'Events', 'Calendar', 'Contact'];
-const navLink = ['/', '/courses', '/events', '/calendar', '/contact'];
+const navLink = ['/', '/Courses', '/Events', '/Calendar', '/Contact'];
 
 function Navbar(props) {
   const { window } = props;
@@ -29,7 +29,7 @@ function Navbar(props) {
     setMobileOpen(!mobileOpen);
   };
 
-  // navbar in hamburger menu
+  // Mobile Navbar Drawer
   const drawer = (
     <Box onClick={handleDrawerToggle}>
       <Typography variant="h6" className={styles.logo} sx={{ my: 2, mx: '3rem'}}>
@@ -56,8 +56,11 @@ function Navbar(props) {
 
   return (
     <Box sx={{ display: 'flex', position: 'absolute'}}>
+
+      {/* Desktop Navbar */}
       <AppBar component="nav" className={styles.navbar}>
         <Toolbar>
+          {/* Hamburger Menu */}
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -68,6 +71,7 @@ function Navbar(props) {
           >
             <MenuIcon />
           </IconButton>
+          {/* Logo */}
           <Typography
             variant="h6"
             component="div"
@@ -89,6 +93,7 @@ function Navbar(props) {
           </Box>
         </Toolbar>
       </AppBar>
+      {/* Mobile Navbar */}
       <Box component="nav">
         <Drawer
           container={container}
