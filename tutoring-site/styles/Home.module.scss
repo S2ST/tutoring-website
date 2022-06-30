@@ -53,13 +53,12 @@
   font-weight: 300;
 }
 
-
 .enrollItemContainer {
   background-color: $lightest;
   border-radius: 25px;
   padding: 8vh 5vh;
   margin: 1vh;
-  transition: 0.5s;
+  transition: 0.2s;
 
   &:hover {
     transform: translateY(-10px) scale(1.02);
@@ -236,6 +235,34 @@
   bottom: 0;
 }
 
+.discountContainer {
+  @include center;
+  @include homepageSection;
+
+  min-height: 0vh;
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+}
+
+.discountBox {
+  background-color: #F1D0D0;
+  border-radius: 28px;
+  padding: 12vh;
+  position: relative;
+}
+
+.discountImage {
+  position: absolute;
+  width: 20%;
+  height: auto;
+  top: -10%;
+  right: 10%;
+}
+
+.discountTitle, .discountText {
+  color: #514040;
+}
+
 @media only screen and (max-width: 900px) {
   .interestedContainer {
     padding-left: 0;
@@ -284,11 +311,11 @@
     display: none;
   }
 
-  .enrollTitle, .interestedTitle {
+  .enrollTitle, .interestedTitle, .discountTitle {
     font-size: 2.7vh;
   }
  
-  .enrollText, .interestedText{
+  .enrollText, .interestedText, .discountText{
     font-size: 1.5vh;
     padding-left: 5%;
     padding-right: 5%;
@@ -347,5 +374,9 @@
 
   .interestedStepText {
     font-size: 1.2vh;
+  }
+
+  .discountBox {
+    padding: 3vh;
   }
 }
