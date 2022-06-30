@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link';
 import styles from '../styles/Home.module.scss'
 import Navbar from '../components/Navbar'
 import { Container, Grid, Button, Stack, Card } from '@mui/material';
@@ -35,7 +36,7 @@ export default function Home() {
           <Grid item container xs={12} sm={7} className={styles.startingLeft}>
             <h1 className={styles.title}> Students to Students Tutoring </h1>
             <p className={styles.subtitle}>This summer, we’ll have classes suitable for all students, as well as free trial lessons and webinars open to the public!</p>
-            <Button variant="contained" className={styles.searchButton}>Search Courses</Button>
+            <Link href="/courses"><Button variant="contained" className={styles.searchButton}>Search Courses</Button></Link>
           </Grid>
         </Grid>
 
