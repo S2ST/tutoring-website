@@ -54,7 +54,7 @@ export default function Home() {
           </Grid>
         </Grid>
 
-
+        {/* Container for "For students, by students" Section */}
         <Grid container className={styles.forStudentsContainer} alignItems="center" justifyContent="center">
           <Image src="/images/studentsBubblesLeft.svg" layout="raw" width={100} height={100} className={styles.studentsBubblesLeft}></Image>
           <Image src="/images/studentsBubblesRight.svg" layout="raw" width={100} height={100} className={styles.studentsBubblesRight}></Image>
@@ -67,9 +67,51 @@ export default function Home() {
             <p className={styles.forStudentsText}>Our priority is providing students with quality tutoring. All tutors are from either a top Canadian university (UoT, UBC, UWaterloo, McGill) or part of the prestigious International Baccalaureate (IB) program.</p>
             <hr className={styles.forStudentsHr}></hr>
           </Grid>
-          
         </Grid>
-      
+
+        {/* Container for "Interested in getting started" section */}
+        <Grid container className={styles.interestedContainer} justifyContent="center">
+          <Image src="/images/interestedBubblesLeft.svg" layout="raw" width={100} height={100} className={styles.interestedBubblesLeft}></Image>
+          <Image src="/images/interestedBubblesRight.svg" layout="raw" width={100} height={100} className={styles.interestedBubblesRight}></Image>
+
+          <Grid container item className={styles.interestedBox} justifyContent="center">
+            <Grid item xs={12}>
+              <h3 className={styles.interestedTitle}>Interested in getting started?</h3>
+              <p className={styles.interestedText}>Simple. Just follow the next five steps:</p>
+            </Grid>
+            <Grid container item className={styles.interestedSteps} spacing={2}>
+              <InterestedStep 
+                step="1" 
+                title="Look through our available courses"
+                text="Navigate to the “Courses” page and use the grade filter to find the courses tailored to your child’s grade."
+              ></InterestedStep>
+              <InterestedStep 
+                step="2" 
+                title="Pick a course"
+                text="Find a course that is to you and your child’s liking. Click on “View details” for more information about the course."
+              ></InterestedStep>
+              <InterestedStep 
+                step="3" 
+                title="Attend the Trial Lesson"
+                text="Take a lesson for free to see if the course is fit for your child. Details are under “View details” of the course."
+              ></InterestedStep>
+              <InterestedStep 
+                step="4" 
+                title="Pay with e-transfer"
+                text="Send the correct amount to online2020courses@gmail.com via e-transfer. The price can be found in details of course."
+              ></InterestedStep>
+              <InterestedStep 
+                step="5" 
+                title="Send an email to us!"
+                text="Include the following information in the email to online2020courses@gmail.com."
+              ></InterestedStep>
+            </Grid>
+            <Grid item xs={12}>
+              <Image src="/images/email.svg" layout="raw" width={100} height={100} className={styles.emailImage}></Image>
+            </Grid>
+          </Grid>
+        </Grid>
+        
     </div>
   )
 }
@@ -90,4 +132,22 @@ function EnrollItem({src, text}) {
       </div>
     </Grid>
   )
+}
+
+
+function InterestedStep({step, title, text}) {
+  return(
+    <Grid container item className={styles.interestedStep} xs={12}>
+      <Grid container item xs={12} className={styles.interestedStepBox}>
+        <div className={styles.interestedStepCircle}>
+          <p className={styles.interestedStepNumber}>{step}</p>
+        </div>
+        <Grid item>
+          <p className={styles.interestedStepTitle}>{title}</p>
+          <p className={styles.interestedStepText}>{text}</p>
+        </Grid>
+      </Grid>
+    </Grid>
+  )
+  
 }

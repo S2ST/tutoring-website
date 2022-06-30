@@ -140,6 +140,117 @@
   height: auto;
 }
 
+.interestedContainer {
+  @include center;
+  @include homepageSection;
+
+  position: relative;
+}
+
+.interestedBox {
+  background-color: #D0F1EB;
+  border-radius: 28px;
+  padding: 12vh;
+}
+
+.interestedText {
+  font-size: 2.4vh;
+  padding-left: 20%;
+  padding-right: 20%;
+  font-weight: 300;
+  margin-bottom: 10vh;
+}
+
+.interestedSteps {
+  padding-left: 4vh
+}
+
+.interestedStepCircle {
+  background-color: #ADD7CF;
+  border-radius: 1000px;
+  width: 8vh;
+  height: 8vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: -4vh;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.interestedStepNumber {
+  color: #E4F9F5;
+  font-size: 3.6vh;
+  margin: 0;
+}
+
+.interestedStepBox {
+  background-color: $lightest;
+  padding: 3vh;
+  padding-left: 6vh;
+  border-radius: 21px;
+  position: relative;
+}
+
+.interestedStepTitle {
+  font-size: 1.8vh;
+  color: rgba(64, 81, 78, 0.7);
+  text-align: left;
+  margin-top: 0px;
+}
+
+.interestedStepText {
+  font-size: 1.4vh;
+  color: rgba(64, 81, 78, 0.7);
+  opacity: 0.8;
+  text-align: left;
+  margin-bottom: 0px;
+}
+
+.emailImage {
+  width: 70%;
+  height: auto;
+  margin-top: 10vh;
+}
+
+.interestedBubblesLeft {
+  position: absolute;
+  left: 0;
+  width: 17%;
+  height: auto;
+  z-index: 0;
+}
+
+.interestedBubblesRight {
+  position: absolute;
+  right: 0;
+  width: 20%;
+  height: auto;
+  z-index: 0;
+  bottom: 0;
+}
+
+@media only screen and (max-width: 900px) {
+  .interestedContainer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .interestedBox {
+    border-radius: 0;
+    padding: 3vh;
+  }
+
+  .emailImage {
+    width: 90%;
+  }
+
+  .interestedBubblesLeft, .interestedBubblesRight {
+    display: none;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   /* For mobile phones: */
   .title {
@@ -168,11 +279,11 @@
     display: none;
   }
 
-  .enrollTitle {
+  .enrollTitle, .interestedTitle {
     font-size: 2.7vh;
   }
  
-  .enrollText {
+  .enrollText, .interestedText{
     font-size: 1.5vh;
     padding-left: 5%;
     padding-right: 5%;
@@ -223,5 +334,13 @@
 
   .studentsBubblesMid {
     width: 50%;
+  }
+
+  .interestedStepTitle {
+    font-size: 1.6vh;
+  }
+
+  .interestedStepText {
+    font-size: 1.2vh;
   }
 }
