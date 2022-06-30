@@ -27,3 +27,14 @@
   }
 }
 
+@mixin navTitle() {
+  font-weight: 500;
+  font-family: $OpenSans;
+  color: $lightest;
+  text-transform: uppercase;
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    color: white;
+  }
+}

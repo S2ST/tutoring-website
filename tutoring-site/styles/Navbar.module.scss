@@ -5,7 +5,18 @@
   background-color: $dark;
   box-shadow: none;
 }
-.navTitle {
+
+.navTitleDesktop {
+  @include navTitle;
   text-align: center;
-  color: $lightest
+}
+
+.navTitleMobile {
+  @include navTitle;
+  margin-left: 2rem;
+}
+
+.logo {
+  color: $lightest;
+  font-family: $OpenSans;
 }

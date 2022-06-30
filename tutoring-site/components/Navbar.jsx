@@ -14,10 +14,12 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
+import Link from 'next/link';
 import styles from '../styles/Navbar.module.scss';
 
 const drawerWidth = 240;
 const navItems = ['Home', 'Courses', 'Events', 'Calendar', 'Contact'];
+const navLink = ['/', '/courses', '/events', '/calendar', '/contact'];
 
 function Navbar(props) {
   const { window } = props;
@@ -27,17 +29,22 @@ function Navbar(props) {
     setMobileOpen(!mobileOpen);
   };
 
+  // navbar in hamburger menu
   const drawer = (
-    <Box onClick={handleDrawerToggle} className={styles.navTitle}>
-      <Typography variant="h6" sx={{ my: 2 }}>
+    <Box onClick={handleDrawerToggle}>
+      <Typography variant="h6" className={styles.logo} sx={{ my: 2, mx: '3rem'}}>
         Logo
       </Typography>
       <Divider />
       <List>
-        {navItems.map((item) => (
+        {navItems.map((item, index) => (
           <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item} />
+            <ListItemButton>
+              <Link href={`/${navLink[index]}`} >
+                <a className={styles.navTitleMobile}>
+                  {item}
+                </a>
+              </Link>
             </ListItemButton>
           </ListItem>
         ))}
@@ -57,20 +64,26 @@ function Navbar(props) {
             edge="start"
             onClick={handleDrawerToggle}
             sx={{ mr: 2, display: { sm: 'none' } }}
+            className={styles.navTitleDesktop}
           >
             <MenuIcon />
           </IconButton>
           <Typography
             variant="h6"
             component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }}}
+            className={styles.logo}
           >
             Logo
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            {navItems.map((item) => (
-              <Button key={item} sx={{ color: '#fff' }}>
-                {item}
+            {navItems.map((item, index) => (
+              <Button key={item} className={styles.navTitleDesktop}>
+                <Link href={`/${navLink[index]}`}>
+                  <a>
+                    {item}
+                  </a>
+                </Link>
               </Button>
             ))}
           </Box>
@@ -94,8 +107,7 @@ function Navbar(props) {
         </Drawer>
       </Box>
       <Box component="main" sx={{ p: 3 }}>
-        <Toolbar />
-        
+        <Toolbar />    
       </Box>
     </Box>
   );
