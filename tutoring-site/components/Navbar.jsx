@@ -40,7 +40,7 @@ function Navbar(props) {
         {navItems.map((item, index) => (
           <ListItem key={item} disablePadding>
             <ListItemButton>
-              <Link href={`/${navLink[index]}`} >
+              <Link href={`${navLink[index]}`} >
                 <a className={styles.navTitleMobile}>
                   {item}
                 </a>
@@ -79,7 +79,7 @@ function Navbar(props) {
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item, index) => (
               <Button key={item} className={styles.navTitleDesktop}>
-                <Link href={`/${navLink[index]}`}>
+                <Link href={`${navLink[index]}`}>
                   <a>
                     {item}
                   </a>
