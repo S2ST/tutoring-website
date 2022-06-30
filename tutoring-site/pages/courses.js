@@ -1,12 +1,27 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import styles from '../styles/Courses.module.scss'
-import { Container, Grid, Button, Stack, Card, Typography } from '@mui/material'
+import { Container, Grid, Button, Stack, Card, Typography, TextField, Box, Slider} from '@mui/material'
 import Head from 'next/head'
 import Image from 'next/image'
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
+import { IoSearchCircleSharp } from "react-icons/io5";
+
+
+function valueFormat(value) {
+  if (value == 13) {
+    return 'All';
+  } else return value;
+}
 
 export default function Courses() {
+
+  const [value, setValue] = React.useState(10);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
   return (
     <>
       {/* Site Meta-Data */}
@@ -24,18 +39,37 @@ export default function Courses() {
         <Grid item className={styles.titlesContainer}>
           <h1 className={styles.title}>Courses Available</h1>
           <p className={styles.subtitle}>Interested but don’t know how to start? Click here for more info<span>
-          <BsFillArrowRightCircleFill className={styles.arrowButton}/></span></p>
+          <a href="../#interestedSection"><BsFillArrowRightCircleFill className={styles.arrowButton}/></a></span></p>
         </Grid>
-        <Grid item>
-            hi
+        <Grid container className={styles.searchContainer}>
+          <Grid item xs={12} sm={6}>
+              <TextField fullWidth id="outlined-search" type="search" placeholder="Search..."/>
+          </Grid>
+          <Grid item>
+            <Box sx={{ width: 250 }}>
+              <Typography className={styles.gradeLabel} id="linear-slider" gutterBottom>
+                Grade: {valueFormat(value)}
+              </Typography>
+              <Slider
+                value={value}
+                min={1}
+                step={1}
+                max={13}
+                valueLabelFormat={valueFormat}
+                onChange={handleChange}
+                aria-labelledby="linear-slider"
+              />
+            </Box>
+          </Grid>
+          <Grid item>
+            <IoSearchCircleSharp className={styles.searchButton}></IoSearchCircleSharp>
+          </Grid>
         </Grid>
       </Grid>
 
       {/* Bottom half section */}
       <Grid container className={styles.botSection}>
-        <Typography>
-          hi
-        </Typography>
+       
       </Grid>
     </>
   )

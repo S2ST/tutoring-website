@@ -54,7 +54,7 @@ export default function Home() {
             </Grid>
             <Grid container item alignItems="center" justifyContent="center">
               <EnrollItem src="/images/money.svg" text="Affordable prices! Each lesson varies from $4 to $14 per 45 minutes."></EnrollItem>
-              <EnrollItem src="/images/books.svg" text="Enhance your child’s skills with our courses. Each course contains 10 lessons."></EnrollItem>
+              <EnrollItem src="/images/books.svg" text="Enhance your child’s skills with our courses. Each course contains 12-14 lessons."></EnrollItem>
               <EnrollItem src="/images/boy2.svg" text="Course material range from elementary school to high school level."></EnrollItem>
             </Grid>
           </Grid>
@@ -76,7 +76,7 @@ export default function Home() {
         </Grid>
 
         {/* Container for "Interested in getting started" section */}
-        <Grid container className={styles.interestedContainer} justifyContent="center">
+        <Grid container className={styles.interestedContainer} justifyContent="center" id="interestedSection">
           <Image src="/images/interestedBubblesLeft.svg" layout="raw" width={100} height={100} className={styles.interestedBubblesLeft}></Image>
           <Image src="/images/interestedBubblesRight.svg" layout="raw" width={100} height={100} className={styles.interestedBubblesRight}></Image>
 

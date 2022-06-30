@@ -13,7 +13,7 @@
     width: 30vh;
   }
 
-  .titlesContainer {
+  .titlesContainer, .searchContainer {
     @include coursesHorizontalPadding;
     position: relative;
 
@@ -43,6 +43,27 @@
       }
     }
   }
+
+  .searchContainer {
+    margin-top: 2vh;
+
+    .gradeLabel {
+      font-family: $OpenSans;
+      color: $dark;
+      font-weight: 600;
+    }
+
+    .searchButton {
+      color: $dark;
+      font-size: 8vh;
+      border-radius: 50%;
+      transition: .2s ease-in-out;
+
+      &:hover {
+        background-color: $light-1;
+      }
+    }
+  }
 }
 
 .botSection {
@@ -64,3 +85,4 @@
     display: none;
   }
 }
+
