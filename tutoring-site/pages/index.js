@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.scss'
+import Navbar from '../components/Navbar'
 import { Container, Grid, Button, Stack, Card } from '@mui/material';
 
 export default function Home() {
@@ -21,7 +22,9 @@ export default function Home() {
           NextJS to ensure proper image loading. All images are in 
           /public/images
         */}
-     
+
+        {/* Navbar */}
+        <Navbar></Navbar>
         
         {/* Container for Starting Section */}
         <Grid container className={styles.startingContainer} alignItems="center" direction="row-reverse">

@@ -1,0 +1,22 @@
+@import "mixins";
+@import "variables";
+
+.navbar {
+  background-color: $dark;
+  box-shadow: none;
+}
+
+.navTitleDesktop {
+  @include navTitle;
+  text-align: center;
+}
+
+.navTitleMobile {
+  @include navTitle;
+  margin-left: 2rem;
+}
+
+.logo {
+  color: $lightest;
+  font-family: $OpenSans;
+}
