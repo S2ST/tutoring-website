@@ -36,6 +36,10 @@
   height: 100%;
 }
 
+.startingBubblesMobile {
+  display: none;
+}
+
 .enrollContainer {
   @include homepageSection;
   @include center;
@@ -285,6 +289,15 @@
 
 @media only screen and (max-width: 600px) {
   /* For mobile phones: */
+  .startingBubblesMobile {
+    display: block;
+    position: absolute;
+    top: 40%;
+    left: 0;
+    width: 100%;
+    height: auto;
+  }
+
   .title {
     @include center;
     font-size: 2.7vh;

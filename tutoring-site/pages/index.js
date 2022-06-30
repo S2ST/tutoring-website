@@ -30,6 +30,8 @@ export default function Home() {
         {/* Container for Starting Section */}
         <Grid container className={styles.startingContainer} alignItems="center" direction="row-reverse">
           <Image src="/images/startingBubbles.svg" layout="raw" width={100} height={100} className={styles.startingBubbles}></Image>
+          <Image src="/images/startingBubblesMobile.svg" layout="raw" width={100} height={100} className={styles.startingBubblesMobile}></Image>
+
           <Grid item container xs={12} sm={5} className={styles.startingRight} justifyContent="center">
             <Image src="/images/boy.svg" layout="raw" width={100} height={100} className={styles.boyImage}></Image>
           </Grid>
