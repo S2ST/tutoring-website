@@ -1,5 +1,7 @@
 @import "variables";
 
+// Index Page
+
 @mixin center() {
   text-align: center;
 }
@@ -37,4 +39,11 @@
   &:hover {
     color: white;
   }
+}
+
+
+// Courses Page
+@mixin coursesHorizontalPadding() {
+  padding-left: 10%;
+  padding-right: 10%;
 }
