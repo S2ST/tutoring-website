@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import Navbar from '../components/Navbar'
 import styles from '../styles/Courses.module.scss'
 import { Container, Grid, Button, Stack, Card, Typography, TextField, Box, Slider} from '@mui/material'
@@ -6,6 +6,11 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import { IoSearchCircleSharp } from "react-icons/io5";
+import CourseItem from '../components/CourseItem';
+
+//temp
+import firebase from '../firebase-config.js';
+
 
 
 function valueFormat(value) {
@@ -14,13 +19,16 @@ function valueFormat(value) {
   } else return value;
 }
 
-export default function Courses() {
+export default function courses() {
 
-  const [value, setValue] = React.useState(10);
+  const items = [1, 2, 3, 4];
+
+  const [value, setValue] = useState(10);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
 
   return (
     <>
@@ -69,7 +77,11 @@ export default function Courses() {
 
       {/* Bottom half section */}
       <Grid container className={styles.botSection}>
-       
+       <Image src='/images/coursesBubblesLeft.svg' layout="raw" width={450} height={450} className={styles.bubblesLeft}></Image>
+       <Image src='/images/coursesBubblesRight.svg' layout="raw" width={450} height={450} className={styles.bubblesRight}></Image>
+       <Grid item className={styles.coursesContainer}>
+          {items.map((item) => <CourseItem value={item}/>)}
+       </Grid>
       </Grid>
     </>
   )
