@@ -1,0 +1,53 @@
+@import "variables";
+@import "mixins";
+
+.topSection {
+  background-color: $lightest;
+  min-height: 40vh;
+  width: 100%;
+  padding-top: 10vh;
+
+  .titlesContainer {
+    @include coursesHorizontalPadding;
+    position: relative;
+
+    .title {
+      color: $dark;
+      font-size: 3.6vh;
+    }
+    .subtitle {
+      color: $darkest;
+      font-size: 2.4vh;
+    }
+
+  }
+}
+
+.eventContainer {
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+
+  .eventDateBox {
+    @include center;
+
+    background-color: $lightest;
+    width: 10vh;
+    height: 10vh;
+
+    .eventDateMonth {
+      letter-spacing: 3px;
+      font-family: "Montserrat";
+    }
+  }
+}
+
+.botSection {
+  @include coursesHorizontalPadding;
+  position: relative;
+
+  min-height: 60vh;
+  background: linear-gradient(244.63deg, #30E3CA -7.2%, rgba(48, 227, 202, 0) 67.45%), #11999E;
+
+
+}

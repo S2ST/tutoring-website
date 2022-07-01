@@ -19,7 +19,7 @@ import styles from '../styles/Navbar.module.scss';
 
 const drawerWidth = 240;
 const navItems = ['Home', 'Courses', 'Events', 'Calendar', 'Contact'];
-const navLink = ['/', '/Courses', '/Events', '/Calendar', '/Contact'];
+const navLink = ['/', '/courses', '/events', '/calendar', '/contact'];
 
 function Navbar(props) {
   const { window } = props;
