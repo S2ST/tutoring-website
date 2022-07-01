@@ -67,9 +67,30 @@
 }
 
 .botSection {
-  min-height: 60vh;
+  min-height: 100vh;
+  width: 100%;
   background: linear-gradient(244.63deg, #30E3CA -7.2%, rgba(48, 227, 202, 0) 67.45%), #11999E;
+  overflow: hidden;
+  position: fixed;
+  justify-content: center;
+
+  .bubblesLeft {
+    position: absolute;
+    left: -15vh;
+    margin-top: 8vh;
+  }
+  .bubblesRight {
+    position: absolute;
+    right: -15vh;
+  }
+
+  .coursesContainer {
+    @include coursesHorizontalPadding;
+    position: relative;
+    width: 100%;
+  }
 }
+
 
 @media only screen and (max-width: 600px) {
   /* For mobile phones: */
@@ -81,7 +102,7 @@
     font-size: 1.5vh;
   }
 
-  .bubblesTopLeft {
+  .bubblesTopLeft, .bubblesLeft, .bubblesRight{
     display: none;
   }
 }
