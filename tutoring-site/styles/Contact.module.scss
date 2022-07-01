@@ -1,0 +1,100 @@
+@import "mixins";
+@import "variables";
+
+
+.contactContainer {
+  @include homepageSection;
+}
+
+.innerContainer {
+  margin-left: 0;
+  z-index: 2;
+}
+
+.title {
+  text-align: left;
+}
+
+.subtitle {
+  font-size: 2vh;
+  margin-bottom: 5vh
+}
+
+.pencilDude {
+  position: absolute;
+  width: 40%;
+  height: auto;
+  bottom: 0;
+  right: 0;
+}
+
+.contactBubbleTop {
+  position: absolute;
+  left: 0;
+  top: 15%;
+  width: 20%;
+  height: auto;
+}
+
+.contactBubbleBottom {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 15%;
+  height: auto;
+}
+
+.emailButton {
+  @include roudedButton;
+  padding: 2vh;
+  padding-left: 4vh;
+  padding-right: 4vh;
+
+  font-weight: 300;
+  font-size: 1vmax;
+  width:90%;
+  justify-content: flex-start;
+  text-transform: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .contactContainer {
+    padding-top: 25%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: relative;
+  }
+
+  .title {
+    font-size: 2.7vh;
+  }
+
+  .subtitle {
+    font-size: 1.5vh;
+  }
+
+  .pencilDude {
+    width: 90%;
+    height: auto;
+  }
+
+  .emailButton {
+    font-size: 1.5vmax;
+  }
+
+  .contactBubbleTop {
+    left: auto;
+    right: 0;
+    top: 15%;
+    width: 60%;
+    height: auto;
+  }
+
+  .contactBubbleBottom {
+    left: 0;
+    top: 50%;
+    bottom: auto;
+    width: 50%;
+  }
+  
+}
