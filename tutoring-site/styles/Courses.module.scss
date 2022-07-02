@@ -1,6 +1,7 @@
 @import "variables";
 @import "mixins";
 
+// For top half section
 .topSection {
   background-color: $lightest;
   min-height: 40vh;
@@ -66,6 +67,7 @@
   }
 }
 
+// For bottom half section
 .botSection {
   min-height: 100vh;
   width: 100%;
@@ -86,20 +88,107 @@
 
   .coursesContainer {
     @include coursesHorizontalPadding;
-    position: relative;
+    position: fixed;
     width: 100%;
+    padding-top: 5vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    top: 40vh;
+    bottom: 0;
   }
 }
 
+// For CourseItem
+.courseItemBox {
+  @include itemContainer;
+  margin-bottom: 2.5vh;
+  border-radius: 20px;
+  box-shadow: 0px 4px 34px rgba(0, 0, 0, 0.08);
+
+  .imageContainer {
+    justify-content: center;
+    align-items: center;
+    width: 13vh;
+    height: 10vh;
+    background-color: $lightest;
+    margin: 1.5vh;
+    border-radius: 20px;
+  }
+
+  .infoContainer {
+    margin-left: 2vh;
+
+    .courseName {
+      font-weight: 600;
+      font-family: $OpenSans;
+      font-size: 2.5vh;
+      color: $darkest;
+      padding: none;
+      margin-bottom: -.8vh;
+
+      .gradeLevel {
+        background-color: $green-tag;
+        color: $green-text;
+        font-size: 1.8vh;
+        font-weight: 600;
+        border-radius: 5px;
+        padding: 5px 8px;
+        margin-left: 2vh;
+      }
+    }
+    .extraInfo {
+      font-family: $OpenSans;
+      font-size: 1.8vh;
+      color: #9AA2A1;
+      padding-bottom: 5px;
+    }
+  }
+
+  .detailsButtonContainer {
+    margin-right: 3%;    
+
+    .detailsButton {
+      @include roundedButton;
+      
+      color: white;
+      padding-left: 4vh;
+      padding-right: 4vh;
+      padding-top: 2vh;
+      padding-bottom: 2vh;
+      
+      &:hover {
+        box-shadow: 0px 4px 17px rgba(0, 0, 0, 0.25);
+      }
+    }
+  }
+}
+
+.fadeInSection {
+  opacity: 0;
+  transform: translateY(8vh);
+  visibility: hidden;
+  transition: opacity 1200ms ease-out, transform 600ms ease-out,
+  visibility 1200ms ease-out;
+  will-change: opacity, transform, visibility;
+}
+.isVisible {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+}
 
 @media only screen and (max-width: 600px) {
   /* For mobile phones: */
   .title {
-    font-size: 2.7vh;
+    font-size: 2.7vh !important;
   }
 
   .subtitle {
-    font-size: 1.5vh;
+    font-size: 1.5vh !important;
+  }
+
+  .arrowButton {
+    font-size: 2.5vh !important;
   }
 
   .bubblesTopLeft, .bubblesLeft, .bubblesRight{
