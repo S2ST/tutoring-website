@@ -90,10 +90,9 @@
     @include coursesHorizontalPadding;
     position: fixed;
     width: 100%;
-    padding-top: 5vh;
     overflow-y: auto;
     overflow-x: hidden;
-    top: 40vh;
+    top: 45vh;
     bottom: 0;
   }
 }
@@ -176,6 +175,7 @@
   transform: none;
   visibility: visible;
 }
+
 
 @media only screen and (max-width: 600px) {
   /* For mobile phones: */
