@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useRef} from 'react'
 import Navbar from '../components/Navbar'
 import styles from '../styles/Courses.module.scss'
 import { Container, Grid, Button, Stack, Card, Typography, TextField, Box, Slider} from '@mui/material'
@@ -6,22 +6,61 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import { IoSearchCircleSharp } from "react-icons/io5";
-import CourseItem from '../components/CourseItem';
-
-//temp
-import firebase from '../firebase-config.js';
-
+import { db } from '../firebase-config.js';
+import { collection, getDocs, Timestamp } from "firebase/firestore"
+import styleFunctionSx from '@mui/system/styleFunctionSx'
 
 
-function valueFormat(value) {
-  if (value == 13) {
-    return 'All';
-  } else return value;
+export async function getServerSideProps(context) {
+  const querySnapshot = await getDocs(collection(db, "courses"));
+
+  let courses = [];
+
+  querySnapshot.forEach((doc) => {
+    let course = {};
+    course['id'] = doc.id;
+    course['data'] = JSON.parse(JSON.stringify(doc.data()));   
+    courses.push(course);
+  })
+ 
+  return {
+    props: {courses}, // will be passed to the page component as props
+  }
 }
 
-export default function courses() {
+function CourseItem({course}) {
 
-  const items = [1, 2, 3, 4];
+  const [isVisible, setVisible] = useState(false);
+  const domRef = useRef();
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => setVisible(entry.isIntersecting));
+    });
+    observer.observe(domRef.current);
+  }, []);
+
+  return (
+    <Box className={`${styles.courseItemBox} ${styles.fadeInSection} ${isVisible ? styles.isVisible : styles.fadeInSection}`} ref={domRef}>
+      <Grid container direction="row" justifyContent="center" alignItems="center">
+        <div className={styles.imageContainer}></div>
+        <Grid item xs className={styles.infoContainer}>
+          <p className={styles.courseName}>{course.data.courseName}
+            <span className={styles.gradeLevel}>
+            {`Grade Level: ${(course.data.gradeLevel[0] == 1 && course.data.gradeLevel[1] == 12) ? 'All' : `${course.data.gradeLevel[0]} - ${course.data.gradeLevel[1]}`}`}
+            </span>
+          </p>
+          <p className={styles.extraInfo}>{`${course.data.lessonDays}   |   ${course.data.startDate ? `Starts on ${course.data.startDate}` : 'Join anytime!'}`}</p>
+        </Grid>
+        <Grid item auto className={styles.detailsButtonContainer}>
+         <Button variant="contained" className={styles.detailsButton}>VIEW DETAILS</Button>
+        </Grid>
+      </Grid>
+    </Box>
+  )
+}
+
+export default function courses({courses}) {
 
   const [value, setValue] = useState(10);
 
@@ -29,6 +68,11 @@ export default function courses() {
     setValue(newValue);
   };
 
+  const valueFormat = (val) => {
+    if (val == 13) {
+      return 'All';
+    } else return val;
+  }
 
   return (
     <>
@@ -80,7 +124,7 @@ export default function courses() {
        <Image src='/images/coursesBubblesLeft.svg' layout="raw" width={450} height={450} className={styles.bubblesLeft}></Image>
        <Image src='/images/coursesBubblesRight.svg' layout="raw" width={450} height={450} className={styles.bubblesRight}></Image>
        <Grid item className={styles.coursesContainer}>
-          {items.map((item) => <CourseItem value={item}/>)}
+          {courses.map((item) => <CourseItem course={item}/>)}
        </Grid>
       </Grid>
     </>

@@ -24,9 +24,7 @@
 }
 
 .eventContainer {
-  width: 100%;
-  background-color: white;
-  border-radius: 10px;
+  @include itemContainer;
 
   .eventDateBox {
     @include center;

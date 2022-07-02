@@ -6,7 +6,7 @@
   text-align: center;
 }
 
-@mixin roudedButton() {
+@mixin roundedButton() {
   background-color: $dark;
   border-radius: 60px;
   font-family: $OpenSans;
@@ -47,4 +47,10 @@
 @mixin coursesHorizontalPadding() {
   padding-left: 10%;
   padding-right: 10%;
+}
+
+@mixin itemContainer() {
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
 }
