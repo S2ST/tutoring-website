@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
-import { collection, getDocs, Timestamp } from "firebase/firestore"
+import { collection, getDocs, Timestamp, orderBy, query } from "firebase/firestore"
 import { Grid, Stack, Box } from '@mui/material'
 import { db } from "../firebase-config"
 import styles from '../styles/Events.module.scss'
 import Navbar from '../components/Navbar'
 import Head from 'next/head'
+import Image from 'next/image'
 
 export async function getServerSideProps(context) {
-  const querySnapshot = await getDocs(collection(db, "events"));
+  const querySnapshot = await getDocs(query(collection(db, "events"), orderBy("startTime")));
 
   let events = [];
 
@@ -39,8 +40,8 @@ function EventItem({event}) {
           <p className={styles.eventDateMonth}>{getMonth(startTimestamp.toDate().getMonth())}</p>
           <p className={styles.eventDateDate}>{startTimestamp.toDate().getDate()}</p>
         </Grid> 
-        <Grid container item xs className={styles.eventContentBox}>
-          <Grid container item xs="auto" alignItems="flex-end">
+        <Grid container item xs className={styles.eventContentBox} spacing={1}>
+          <Grid container item xs="auto" alignItems="flex-end" sx={{maxWidth:'100%'}}>
             <p className={styles.eventName}>{event.data.eventName}</p>
           </Grid>
           <Grid container item xs alignItems="flex-end">
@@ -48,7 +49,7 @@ function EventItem({event}) {
               <p className={styles.eventTime}>{`${startTimestamp.toDate().getHours()}:${startTimestamp.toDate().getMinutes()} - ${endTimestamp.toDate().getHours()}:${endTimestamp.toDate().getMinutes()} EST`}</p>
             </div>
           </Grid>
-          <Grid item xs={12}>
+          <Grid container item xs={12} alignItems="flex-start">
             <p className={styles.eventDetails}>{event.data.details}</p>
           </Grid>
         </Grid>
@@ -73,6 +74,9 @@ function events({events}) {
       <Navbar></Navbar>
 
       <Grid container className={styles.topSection} direction="column" justifyContent="center"> 
+        <Image src="/images/eventsTopLeftBubbles.svg" layout="raw" width={100} height={100} className={styles.bubblesTopLeft}></Image>
+        <Image src="/images/eventsTopRightBubbles.svg" layout="raw" width={100} height={100} className={styles.bubblesTopRight}></Image>
+
         <Grid item className={styles.titlesContainer}>
             <h1 className={styles.title}>Upcoming Events</h1>
             <p className={styles.subtitle}>Aside from regular lessons, our organization also hosts informational seminars for extra-motivated students, as well as free trial lessons if you are unsure about committing to a course. Check out our upcoming events below!</p>

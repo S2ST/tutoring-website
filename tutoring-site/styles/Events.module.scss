@@ -21,6 +21,22 @@
     }
 
   }
+
+  .bubblesTopLeft {
+    position: absolute;
+    left: 0;
+    width: 15%;
+    height: auto;
+    z-index: 0;
+  }
+
+  .bubblesTopRight {
+    position: absolute;
+    right: 0;
+    width: 22%;
+    height: auto;
+    z-index: 0;
+  }
 }
 
 .eventContainer {
@@ -58,6 +74,7 @@
   .eventContentBox {
 
     padding-left: 3.6vh;
+    padding: 3.6vh;
     
     .eventName {
       font-family: $OpenSans;
@@ -72,6 +89,7 @@
       background-color: #E4F9F5;
       padding: 0.8vh 1vh;
       border-radius: 5px;
+      
     }
 
     .eventTime {
@@ -88,7 +106,6 @@
       font-size: 2vh;
       color: #40514E;
       margin: 0;
-      margin-top: 10px;
     }
   }
 
@@ -98,8 +115,69 @@
   @include coursesHorizontalPadding;
   position: relative;
 
-  min-height: 60vh;
+  height: 60vh;
   background: linear-gradient(244.63deg, #30E3CA -7.2%, rgba(48, 227, 202, 0) 67.45%), #11999E;
 
   padding-top: 5%;
+  padding-bottom: 5%;
+  overflow-y: scroll;
+}
+
+@media only screen and (max-width: 600px) {
+  /* For mobile phones: */
+  .title {
+    font-size: 2.7vh !important;
+  }
+
+  .subtitle {
+    font-size: 1.5vh !important;
+  }
+
+  .eventContentBox {
+
+    padding-left: 1.8vh !important;
+    padding: 1.8vh !important;
+
+    .eventName {
+      font-size: 1.5vh !important;
+    }
+
+    .eventDetails {
+      font-size: 1.5vh !important;
+    }
+
+    .eventTimeBox {
+      background-color: #E4F9F5;
+      padding: 0.7vh 0.9vh;
+      border-radius: 5px;
+    }
+
+    .eventTime {
+      margin: 0;
+      font-size: 1.2vh !important;
+    }
+
+  }
+
+  .eventDateBox {
+    min-width: 8vh !important;
+    min-height: 8vh !important;
+
+    .eventDateMonth {
+      font-size: 1vh !important;
+    }
+
+    .eventDateDate {
+      font-size: 1.8vh !important;
+    }
+  }
+
+  .botSection {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .bubblesTopLeft, .bubblesTopRight {
+    display: none;
+  }
 }
