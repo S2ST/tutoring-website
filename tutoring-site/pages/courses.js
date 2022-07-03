@@ -1,7 +1,7 @@
 import React, {useEffect, useState, useRef} from 'react'
 import Navbar from '../components/Navbar'
 import styles from '../styles/Courses.module.scss'
-import { Container, IconButton, Grid, Button, Stack, Card, Typography, TextField, Box, Slider} from '@mui/material'
+import { Container, styled, IconButton, Grid, Button, Stack, Card, Typography, TextField, Box, Slider} from '@mui/material'
 import Head from 'next/head'
 import Image from 'next/image'
 import { BsFillArrowRightCircleFill, BsArrowLeftShort } from "react-icons/bs";
@@ -48,7 +48,7 @@ function DetailsItem({course, isOnPage, setOnPage}) {
             </p>
 
             <p className={styles.descriptionDetails}>{course.data.description}</p>
-            <p className={styles.trialDetails}>{course.data.trialLessonDate ? `Trial Lesson: ${course.data.trialLessonDate}` : ''}</p>
+            <p className={styles.trialDetails}>{course.data.trialLessonDate ? `Trial Lesson: ${course.data.trialLessonDate}` : 'No Trial Lesson Available'}</p>
 
         </Grid>
         <Grid item auto>
@@ -81,16 +81,21 @@ function CourseItem({course, selectCourse, isOnPage, setOnPage}) {
       <Box className={`${styles.courseItemBox} ${styles.fadeInSection} ${isVisible ? styles.isVisible : ''}`} ref={domRef}>
         <Grid container direction="row" justifyContent="center" alignItems="center">
           <div className={styles.imageContainer}></div>
-          <Grid item xs className={styles.infoContainer}>
-            <p className={styles.courseName}>{course.data.courseName}
-              <span className={styles.gradeLevel}>
+          <Grid container item xs spacing={1} className={styles.infoContainer}>
+            <Grid container item xs="auto" alignItems="flex-end">
+              <p className={styles.courseName}>{course.data.courseName}</p>
+            </Grid>
+            <Grid container item xs="auto" alignItems="flex-end">
+              <p className={styles.gradeLevel}>
               {`Grade Level: ${(course.data.gradeLevel[0] == 1 && course.data.gradeLevel[1] == 12) ? 'All' : `${course.data.gradeLevel[0]} - ${course.data.gradeLevel[1]}`}`}
-              </span>
-            </p>
-            <p className={styles.extraInfo}>{`${course.data.lessonDays}   |   ${course.data.startDate ? `Starts on ${course.data.startDate}` : 'Join anytime!'}`}</p>
+              </p>
+            </Grid>
+            <Grid container item xs={12} alignItems="flex-start">
+             <p className={styles.extraInfo}>{`${course.data.lessonDays}   |   ${course.data.startDate ? `Starts on ${course.data.startDate}` : 'Join anytime!'}`}</p>
+            </Grid>
           </Grid>
           <Grid item auto className={styles.detailsButtonContainer}>
-          <Button variant="contained" className={styles.detailsButton} onClick={openDetails}>VIEW DETAILS</Button>
+            <Button variant="contained" className={styles.detailsButton} onClick={openDetails}>VIEW DETAILS</Button>
           </Grid>
         </Grid>
       </Box>
@@ -141,25 +146,29 @@ export default function courses({courses}) {
           <p className={styles.subtitle}>Interested but don’t know how to start? Click here for more info<span>
           <a href="../#interestedSection"><BsFillArrowRightCircleFill className={styles.arrowButton}/></a></span></p>
         </Grid>
-        <Grid container className={styles.searchContainer}>
-          <Grid item xs={12} sm={6}>
-              <TextField fullWidth id="outlined-search" type="search" placeholder="Search..." value={searchValue} onChange={(e) => setSearchValue(e.target.value)}/>
+        <Grid container className={styles.searchContainer} alignItems="center">
+          <Grid item xs={12} sm={8} sx={{paddingRight: '3vh'}}>
+            <SearchField fullWidth id="outlined-search" type="search" placeholder="Search..." value={searchValue} onChange={(e) => setSearchValue(e.target.value)}/>
           </Grid>
-          <Grid item>
-            <Box sx={{ width: 250 }}>
-              <Typography className={styles.gradeLabel} id="linear-slider" gutterBottom>
-                Grade: {valueFormat(value)}
-              </Typography>
-              <Slider
-                value={value}
-                min={1}
-                step={1}
-                max={13}
-                valueLabelFormat={valueFormat}
-                onChange={(e) => setValue(e.target.value)}
-                aria-labelledby="linear-slider"
-              />
-            </Box>
+          <Grid item sm={4}>
+            <Grid container direction="row" alignItems="center" className={styles.gradeSliderContainer}>
+              <Grid item auto>
+                <Typography className={styles.gradeLabel} id="linear-slider" gutterBottom>
+                  Grade: {valueFormat(value)}
+                </Typography>
+              </Grid>
+              <Grid item xs>
+                <GradeSlider
+                  value={value}
+                  min={1}
+                  step={1}
+                  max={13}
+                  valueLabelFormat={valueFormat}
+                  onChange={(e) => setValue(e.target.value)}
+                  aria-labelledby="linear-slider"
+                />
+              </Grid>
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
@@ -177,3 +186,50 @@ export default function courses({courses}) {
     </>
   )
 }
+
+{/* Styles the GradeSlider*/}
+const GradeSlider = styled(Slider)({
+  color: '#11999E',
+  height: 15,
+  padding: 0,
+  '& .MuiSlider-track': {
+    border: 'none',
+  },
+  '& .MuiSlider-thumb': {
+    height: 24,
+    width: 24,
+    backgroundColor: '#E4F9F5',
+    border: '2px solid currentColor',
+    '&:focus, &:hover, &.Mui-active, &.Mui-focusVisible': {
+      boxShadow: 'inherit',
+    },
+    '&:before': {
+      display: 'none',
+    },
+  },
+});
+
+{/* Styles the SearchField*/}
+const SearchField = styled(TextField)({
+  '& label.Mui-focused': {
+    color: '#11999E',
+  },
+  '& .MuiInput-underline:after': {
+    borderBottomColor: '#11999E',
+  },
+  '& .MuiOutlinedInput-root': {
+    paddingLeft: 18,
+    paddingRight: 18,
+    color: '#40514E',
+    '& fieldset': {
+      border: '2px solid #11999E',
+      borderRadius: 30,
+    },
+    '&:hover fieldset': {
+      border: '2px solid #11999E',
+    },
+    '&.Mui-focused fieldset': {
+      borderColor: '#11999E',
+    },
+  },
+});
