@@ -34,10 +34,6 @@ function DetailsItem({course, isOnPage, setOnPage}) {
     setOnPage(false);
   }
 
-  useEffect(() => {
-    console.log(course);
-  }, [isOnPage]);
-
   return (
     <Grid container justifyContent="center" alignItems="center" sx={{overflowX: 'hidden'}}>
       <Grid container className={`${styles.detailsItemContainer} ${isOnPage ? '' : styles.hideDetailsRight}`}>
@@ -102,25 +98,29 @@ function CourseItem({course, selectCourse, isOnPage, setOnPage}) {
   )
 }
 
+
 export default function courses({courses}) {
 
-  const [value, setValue] = useState(10);
+  const [value, setValue] = useState(13);
+  const [searchValue, setSearchValue] = useState('');
   const [course, setCourse] = useState(courses[0]);
+  //const [filteredCourses, setFilteredCourses] = useState(courses);
   const [isOnPage, setOnPage] = useState(false); // For Details Component
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
+  
   const valueFormat = (val) => {
     if (val == 13) {
       return 'All';
     } else return val;
   }
 
-  useEffect(() => {
-    console.log(isOnPage);
-  }, [isOnPage])
+  const filteredCourses = [];
+  courses.forEach((course) => {
+    if (course.data.courseName.toLowerCase().includes(searchValue.toLowerCase()) &&
+     (value == 13 || value <= course.data.gradeLevel[1] && value >= course.data.gradeLevel[0])) {
+      filteredCourses.push(course);
+    }
+  })
 
   return (
     <>
@@ -143,7 +143,7 @@ export default function courses({courses}) {
         </Grid>
         <Grid container className={styles.searchContainer}>
           <Grid item xs={12} sm={6}>
-              <TextField fullWidth id="outlined-search" type="search" placeholder="Search..."/>
+              <TextField fullWidth id="outlined-search" type="search" placeholder="Search..." value={searchValue} onChange={(e) => setSearchValue(e.target.value)}/>
           </Grid>
           <Grid item>
             <Box sx={{ width: 250 }}>
@@ -156,13 +156,10 @@ export default function courses({courses}) {
                 step={1}
                 max={13}
                 valueLabelFormat={valueFormat}
-                onChange={handleChange}
+                onChange={(e) => setValue(e.target.value)}
                 aria-labelledby="linear-slider"
               />
             </Box>
-          </Grid>
-          <Grid item>
-            <IoSearchCircleSharp className={styles.searchButton}></IoSearchCircleSharp>
           </Grid>
         </Grid>
       </Grid>
@@ -172,7 +169,8 @@ export default function courses({courses}) {
        <Image src='/images/coursesBubblesLeft.svg' layout="raw" width={450} height={450} className={styles.bubblesLeft}></Image>
        <Image src='/images/coursesBubblesRight.svg' layout="raw" width={450} height={450} className={styles.bubblesRight}></Image>
        <Grid item className={`${styles.coursesContainer} ${isOnPage ? styles.hideCoursesLeft : ''}`}> 
-          {courses.map((item) => <CourseItem course={item} key={item.id} selectCourse={setCourse} isOnPage={isOnPage} setOnPage={setOnPage}/>)}
+          {filteredCourses.length != 0 ? filteredCourses.map((item) => <CourseItem course={item} key={item.id} selectCourse={setCourse} isOnPage={isOnPage} setOnPage={setOnPage}/>) : 
+          <Grid container justifyContent="center" alignItems="center"><p className={styles.noCourses}>No Courses Found</p></Grid>}
        </Grid>
       </Grid>
       <DetailsItem course={course} isOnPage={isOnPage} setOnPage={setOnPage}></DetailsItem>
