@@ -126,20 +126,9 @@
       margin-bottom: -.8vh;
 
       .gradeLevel {
-        background-color: $green-tag;
-        color: $green-text;
-        font-size: 1.8vh;
-        font-weight: 600;
-        border-radius: 5px;
-        padding: 5px 8px;
+        @include tag($green-tag, $green-text);
         margin-left: 2vh;
       }
-    }
-    .extraInfo {
-      font-family: $OpenSans;
-      font-size: 1.8vh;
-      color: #9AA2A1;
-      padding-bottom: 5px;
     }
   }
 
@@ -161,6 +150,13 @@
     }
   }
 }
+.extraInfo {
+  font-family: $OpenSans;
+  font-size: 1.8vh;
+  color: #9AA2A1;
+  padding-bottom: 5px;
+  font-weight: 400;
+}
 
 .fadeInSection {
   opacity: 0;
@@ -176,6 +172,76 @@
   visibility: visible;
 }
 
+// For details item
+.detailsItemContainer {
+  @include itemContainer;
+  //opacity: 0;
+  //visibility: hidden;
+ z-index: 3000;
+  //position: absolute;
+  width: 80%;
+  margin-top: 5%;
+
+  .detailsInfoContainer {
+    padding: 1vh;
+    padding-left: 7vh;
+    padding-right: 7vh;
+
+    .courseNameDetails {
+      font-size: 2.7vh;
+      margin-bottom: -2vh;
+      margin-left: -2vh;
+
+      .backButton {
+        color: $dark;
+        margin-right: 1vh;
+
+        &:hover {
+          background-color: $lightest;
+        }
+
+        .backButtonIcon {
+          font-size: 5vh;
+        }
+      }
+    }
+
+    .tagDetails {
+      .gradeLevelDetailsTag {
+        @include tag($green-tag, $green-text);
+        margin-right: 2vh;
+      }
+      .priceDetailsTag {
+        @include tag($yellow-tag, $yellow-text);
+        margin-right: 2vh;
+      }
+      .lessonsTotalDetailsTag {
+        @include tag($red-tag, $red-text);
+      }
+    }
+    .descriptionDetails {
+      font-family: $OpenSans;
+      font-weight: 300;
+      color: $darkest;
+      font-size: 2.1vh;
+    }
+    .trialDetails {
+      font-size: 2.1vh;
+      font-family: $OpenSans;
+      font-weight: 600;
+      color: $dark;
+    }
+  }
+  .imageDetailsContainer {
+    justify-content: center;
+    align-items: center;
+    width: 39vh;
+    height: 30vh;
+    background-color: $lightest;
+    margin: 6vh;
+    border-radius: 20px;
+  }
+}
 
 @media only screen and (max-width: 600px) {
   /* For mobile phones: */
@@ -191,7 +257,7 @@
     font-size: 2.5vh !important;
   }
 
-  .bubblesTopLeft, .bubblesLeft, .bubblesRight{
+  .bubblesTopLeft, .bubblesLeft, .bubblesRight, .imageDetailsContainer{
     display: none;
   }
 }

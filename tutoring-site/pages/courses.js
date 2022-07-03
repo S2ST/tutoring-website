@@ -1,10 +1,10 @@
 import React, {useEffect, useState, useRef} from 'react'
 import Navbar from '../components/Navbar'
 import styles from '../styles/Courses.module.scss'
-import { Container, Grid, Button, Stack, Card, Typography, TextField, Box, Slider} from '@mui/material'
+import { Container, IconButton, Grid, Button, Stack, Card, Typography, TextField, Box, Slider} from '@mui/material'
 import Head from 'next/head'
 import Image from 'next/image'
-import { BsFillArrowRightCircleFill } from "react-icons/bs";
+import { BsFillArrowRightCircleFill, BsArrowLeftShort } from "react-icons/bs";
 import { IoSearchCircleSharp } from "react-icons/io5";
 import { db } from '../firebase-config.js';
 import { collection, getDocs, Timestamp } from "firebase/firestore"
@@ -28,10 +28,45 @@ export async function getServerSideProps(context) {
   }
 }
 
-function CourseItem({course}) {
+function DetailsItem({course}) {
+
+  useEffect(() => {
+    console.log(course);
+  }, [course]);
+
+  return (
+    <Grid container justifyContent="center" alignItems="center">
+      <Grid container className={styles.detailsItemContainer}>
+        <Grid item xs className={styles.detailsInfoContainer}>
+ 
+            <h3 className={styles.courseNameDetails}><IconButton size="small" className={styles.backButton}><BsArrowLeftShort className={styles.backButtonIcon}/></IconButton>{course.data.courseName}</h3>
+            <p className={styles.extraInfo}>{`${course.data.lessonDays}   |   ${course.data.startDate ? `Starts on ${course.data.startDate}` : 'Join anytime!'}`}</p>
+            <p className={styles.tagDetails}>
+              <span className={styles.gradeLevelDetailsTag}>{`Grade Level: ${(course.data.gradeLevel[0] == 1 && course.data.gradeLevel[1] == 12) ? 'All' : `${course.data.gradeLevel[0]} - ${course.data.gradeLevel[1]}`}`}</span>
+              <span className={styles.priceDetailsTag}>{`$${course.data.pricePerLesson} per lesson`}</span>
+              <span className={styles.lessonsTotalDetailsTag}>{`${course.data.lessonsTotal} lessons total`}</span>
+            </p>
+
+            <p className={styles.descriptionDetails}>{course.data.description}</p>
+            <p className={styles.trialDetails}>{course.data.trialLessonDate ? `Trial Lesson: ${course.data.trialLessonDate}` : ''}</p>
+
+        </Grid>
+        <Grid item auto>
+          <div className={styles.imageDetailsContainer}></div>
+        </Grid>
+      </Grid>
+    </Grid>
+  )
+}
+
+function CourseItem({course, selectCourse}) {
 
   const [isVisible, setVisible] = useState(false);
   const domRef = useRef();
+
+  const openDetails = () => {
+    selectCourse(course);
+  }
   
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
@@ -41,28 +76,31 @@ function CourseItem({course}) {
   }, []);
 
   return (
-    <Box className={`${styles.courseItemBox} ${styles.fadeInSection} ${isVisible ? styles.isVisible : styles.fadeInSection}`} ref={domRef}>
-      <Grid container direction="row" justifyContent="center" alignItems="center">
-        <div className={styles.imageContainer}></div>
-        <Grid item xs className={styles.infoContainer}>
-          <p className={styles.courseName}>{course.data.courseName}
-            <span className={styles.gradeLevel}>
-            {`Grade Level: ${(course.data.gradeLevel[0] == 1 && course.data.gradeLevel[1] == 12) ? 'All' : `${course.data.gradeLevel[0]} - ${course.data.gradeLevel[1]}`}`}
-            </span>
-          </p>
-          <p className={styles.extraInfo}>{`${course.data.lessonDays}   |   ${course.data.startDate ? `Starts on ${course.data.startDate}` : 'Join anytime!'}`}</p>
+    <>
+      <Box className={`${styles.courseItemBox} ${styles.fadeInSection} ${isVisible ? styles.isVisible : styles.fadeInSection}`} ref={domRef}>
+        <Grid container direction="row" justifyContent="center" alignItems="center">
+          <div className={styles.imageContainer}></div>
+          <Grid item xs className={styles.infoContainer}>
+            <p className={styles.courseName}>{course.data.courseName}
+              <span className={styles.gradeLevel}>
+              {`Grade Level: ${(course.data.gradeLevel[0] == 1 && course.data.gradeLevel[1] == 12) ? 'All' : `${course.data.gradeLevel[0]} - ${course.data.gradeLevel[1]}`}`}
+              </span>
+            </p>
+            <p className={styles.extraInfo}>{`${course.data.lessonDays}   |   ${course.data.startDate ? `Starts on ${course.data.startDate}` : 'Join anytime!'}`}</p>
+          </Grid>
+          <Grid item auto className={styles.detailsButtonContainer}>
+          <Button variant="contained" className={styles.detailsButton} onClick={openDetails}>VIEW DETAILS</Button>
+          </Grid>
         </Grid>
-        <Grid item auto className={styles.detailsButtonContainer}>
-         <Button variant="contained" className={styles.detailsButton}>VIEW DETAILS</Button>
-        </Grid>
-      </Grid>
-    </Box>
+      </Box>
+    </>
   )
 }
 
 export default function courses({courses}) {
 
   const [value, setValue] = useState(10);
+  const [course, setCourse] = useState(courses[0]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -123,10 +161,11 @@ export default function courses({courses}) {
       <Grid container className={styles.botSection}>
        <Image src='/images/coursesBubblesLeft.svg' layout="raw" width={450} height={450} className={styles.bubblesLeft}></Image>
        <Image src='/images/coursesBubblesRight.svg' layout="raw" width={450} height={450} className={styles.bubblesRight}></Image>
-       <Grid item className={styles.coursesContainer}>
-          {courses.map((item) => <CourseItem course={item}/>)}
+       <Grid item hidden className={styles.coursesContainer}> {/* get rid of hidden */}
+          {courses.map((item) => <CourseItem course={item} key={item.id} selectCourse={setCourse}/>)}
        </Grid>
       </Grid>
+      <DetailsItem course={course}></DetailsItem>
     </>
   )
 }
