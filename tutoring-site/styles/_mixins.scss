@@ -52,7 +52,7 @@
 @mixin itemContainer() {
   width: 100%;
   background-color: white;
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 @mixin tag($background, $color) {

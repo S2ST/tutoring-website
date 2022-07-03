@@ -9,7 +9,7 @@ import { IoSearchCircleSharp } from "react-icons/io5";
 import { db } from '../firebase-config.js';
 import { collection, getDocs, Timestamp } from "firebase/firestore"
 import styleFunctionSx from '@mui/system/styleFunctionSx'
-
+import {AiFillInfoCircle} from 'react-icons/ai';
 
 export async function getServerSideProps(context) {
   const querySnapshot = await getDocs(collection(db, "courses"));
@@ -36,16 +36,28 @@ function DetailsItem({course, isOnPage, setOnPage}) {
 
   return (
     <Grid container justifyContent="center" alignItems="center" sx={{overflowX: 'hidden'}}>
-      <Grid container className={`${styles.detailsItemContainer} ${isOnPage ? '' : styles.hideDetailsRight}`}>
+      <Grid container alignItems="center" className={`${styles.detailsItemContainer} ${isOnPage ? '' : styles.hideDetailsRight}`}>
         <Grid item xs className={styles.detailsInfoContainer}>
  
             <h3 className={styles.courseNameDetails}><IconButton size="small" onClick={returnToCourses} className={styles.backButton}><BsArrowLeftShort className={styles.backButtonIcon}/></IconButton>{course.data.courseName}</h3>
             <p className={styles.extraInfo}>{`${course.data.lessonDays}   |   ${course.data.startDate ? `Starts on ${course.data.startDate}` : 'Join anytime!'}`}</p>
-            <p className={styles.tagDetails}>
-              <span className={styles.gradeLevelDetailsTag}>{`Grade Level: ${(course.data.gradeLevel[0] == 1 && course.data.gradeLevel[1] == 12) ? 'All' : `${course.data.gradeLevel[0]} - ${course.data.gradeLevel[1]}`}`}</span>
-              <span className={styles.priceDetailsTag}>{`$${course.data.pricePerLesson} per lesson`}</span>
-              <span className={styles.lessonsTotalDetailsTag}>{`${course.data.lessonsTotal} lessons total`}</span>
-            </p>
+            <Grid container spacing={1} alignItems="center" className={styles.tagDetails}>
+              <Grid item sx={{margin: 0}}>
+                <p className={styles.gradeLevelDetailsTag}>
+                  {`Grade Level: ${(course.data.gradeLevel[0] == 1 && course.data.gradeLevel[1] == 12) ? 'All' : `${course.data.gradeLevel[0]} - ${course.data.gradeLevel[1]}`}`}
+                </p>
+              </Grid>
+              <Grid item sx={{margin: 0}}>
+                <p className={styles.priceDetailsTag}>
+                  {`$${course.data.pricePerLesson} per lesson`}
+                </p>
+              </Grid>
+              <Grid item sx={{margin: 0}}>
+                <p className={styles.lessonsTotalDetailsTag}>
+                  {`${course.data.lessonsTotal} lessons total`}
+                </p>
+              </Grid>
+            </Grid>
 
             <p className={styles.descriptionDetails}>{course.data.description}</p>
             <p className={styles.trialDetails}>{course.data.trialLessonDate ? `Trial Lesson: ${course.data.trialLessonDate}` : 'No Trial Lesson Available'}</p>
@@ -96,6 +108,7 @@ function CourseItem({course, selectCourse, isOnPage, setOnPage}) {
           </Grid>
           <Grid item auto className={styles.detailsButtonContainer}>
             <Button variant="contained" className={styles.detailsButton} onClick={openDetails}>VIEW DETAILS</Button>
+            <IconButton onClick={openDetails}><AiFillInfoCircle className={styles.mobileDetailsButton}/></IconButton>
           </Grid>
         </Grid>
       </Box>
@@ -147,12 +160,12 @@ export default function courses({courses}) {
           <a href="../#interestedSection"><BsFillArrowRightCircleFill className={styles.arrowButton}/></a></span></p>
         </Grid>
         <Grid container className={styles.searchContainer} alignItems="center">
-          <Grid item xs={12} sm={8} sx={{paddingRight: '3vh'}}>
+          <Grid item xs={12} sm={6} md={8} sx={{paddingRight: '3vh'}}>
             <SearchField fullWidth id="outlined-search" type="search" placeholder="Search..." value={searchValue} onChange={(e) => setSearchValue(e.target.value)}/>
           </Grid>
-          <Grid item sm={4}>
+          <Grid item xs={8} sm={6} md={4}>
             <Grid container direction="row" alignItems="center" className={styles.gradeSliderContainer}>
-              <Grid item auto>
+              <Grid item auto >
                 <Typography className={styles.gradeLabel} id="linear-slider" gutterBottom>
                   Grade: {valueFormat(value)}
                 </Typography>
