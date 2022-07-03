@@ -94,10 +94,14 @@
     overflow-x: hidden;
     top: 45vh;
     bottom: 0;
+    transition: 1s ease-in-out;
   }
 }
 
 // For CourseItem
+.hideCoursesLeft {
+  transform: translateX(-150%);
+}
 .courseItemBox {
   @include itemContainer;
   margin-bottom: 2.5vh;
@@ -173,14 +177,15 @@
 }
 
 // For details item
+.hideDetailsRight {
+  transform: translateX(150%) !important;
+}
 .detailsItemContainer {
   @include itemContainer;
-  //opacity: 0;
-  //visibility: hidden;
- z-index: 3000;
-  //position: absolute;
+  z-index: 3000;
   width: 80%;
   margin-top: 5%;
+  transition: 1s ease-in-out;
 
   .detailsInfoContainer {
     padding: 1vh;

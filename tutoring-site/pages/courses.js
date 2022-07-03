@@ -28,18 +28,22 @@ export async function getServerSideProps(context) {
   }
 }
 
-function DetailsItem({course}) {
+function DetailsItem({course, isOnPage, setOnPage}) {
+
+  const returnToCourses = () => {
+    setOnPage(false);
+  }
 
   useEffect(() => {
     console.log(course);
-  }, [course]);
+  }, [isOnPage]);
 
   return (
-    <Grid container justifyContent="center" alignItems="center">
-      <Grid container className={styles.detailsItemContainer}>
+    <Grid container justifyContent="center" alignItems="center" sx={{overflowX: 'hidden'}}>
+      <Grid container className={`${styles.detailsItemContainer} ${isOnPage ? '' : styles.hideDetailsRight}`}>
         <Grid item xs className={styles.detailsInfoContainer}>
  
-            <h3 className={styles.courseNameDetails}><IconButton size="small" className={styles.backButton}><BsArrowLeftShort className={styles.backButtonIcon}/></IconButton>{course.data.courseName}</h3>
+            <h3 className={styles.courseNameDetails}><IconButton size="small" onClick={returnToCourses} className={styles.backButton}><BsArrowLeftShort className={styles.backButtonIcon}/></IconButton>{course.data.courseName}</h3>
             <p className={styles.extraInfo}>{`${course.data.lessonDays}   |   ${course.data.startDate ? `Starts on ${course.data.startDate}` : 'Join anytime!'}`}</p>
             <p className={styles.tagDetails}>
               <span className={styles.gradeLevelDetailsTag}>{`Grade Level: ${(course.data.gradeLevel[0] == 1 && course.data.gradeLevel[1] == 12) ? 'All' : `${course.data.gradeLevel[0]} - ${course.data.gradeLevel[1]}`}`}</span>
@@ -59,13 +63,14 @@ function DetailsItem({course}) {
   )
 }
 
-function CourseItem({course, selectCourse}) {
+function CourseItem({course, selectCourse, isOnPage, setOnPage}) {
 
   const [isVisible, setVisible] = useState(false);
   const domRef = useRef();
 
   const openDetails = () => {
     selectCourse(course);
+    setOnPage(true);
   }
   
   useEffect(() => {
@@ -77,7 +82,7 @@ function CourseItem({course, selectCourse}) {
 
   return (
     <>
-      <Box className={`${styles.courseItemBox} ${styles.fadeInSection} ${isVisible ? styles.isVisible : styles.fadeInSection}`} ref={domRef}>
+      <Box className={`${styles.courseItemBox} ${styles.fadeInSection} ${isVisible ? styles.isVisible : ''}`} ref={domRef}>
         <Grid container direction="row" justifyContent="center" alignItems="center">
           <div className={styles.imageContainer}></div>
           <Grid item xs className={styles.infoContainer}>
@@ -101,6 +106,7 @@ export default function courses({courses}) {
 
   const [value, setValue] = useState(10);
   const [course, setCourse] = useState(courses[0]);
+  const [isOnPage, setOnPage] = useState(false); // For Details Component
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -111,6 +117,10 @@ export default function courses({courses}) {
       return 'All';
     } else return val;
   }
+
+  useEffect(() => {
+    console.log(isOnPage);
+  }, [isOnPage])
 
   return (
     <>
@@ -161,11 +171,11 @@ export default function courses({courses}) {
       <Grid container className={styles.botSection}>
        <Image src='/images/coursesBubblesLeft.svg' layout="raw" width={450} height={450} className={styles.bubblesLeft}></Image>
        <Image src='/images/coursesBubblesRight.svg' layout="raw" width={450} height={450} className={styles.bubblesRight}></Image>
-       <Grid item hidden className={styles.coursesContainer}> {/* get rid of hidden */}
-          {courses.map((item) => <CourseItem course={item} key={item.id} selectCourse={setCourse}/>)}
+       <Grid item className={`${styles.coursesContainer} ${isOnPage ? styles.hideCoursesLeft : ''}`}> 
+          {courses.map((item) => <CourseItem course={item} key={item.id} selectCourse={setCourse} isOnPage={isOnPage} setOnPage={setOnPage}/>)}
        </Grid>
       </Grid>
-      <DetailsItem course={course}></DetailsItem>
+      <DetailsItem course={course} isOnPage={isOnPage} setOnPage={setOnPage}></DetailsItem>
     </>
   )
 }
