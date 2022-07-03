@@ -1,7 +1,7 @@
 import React, {useEffect, useState, useRef} from 'react'
 import Navbar from '../components/Navbar'
 import styles from '../styles/Courses.module.scss'
-import { Container, IconButton, Grid, Button, Stack, Card, Typography, TextField, Box, Slider} from '@mui/material'
+import { Container, styled, IconButton, Grid, Button, Stack, Card, Typography, TextField, Box, Slider} from '@mui/material'
 import Head from 'next/head'
 import Image from 'next/image'
 import { BsFillArrowRightCircleFill, BsArrowLeftShort } from "react-icons/bs";
@@ -48,7 +48,7 @@ function DetailsItem({course, isOnPage, setOnPage}) {
             </p>
 
             <p className={styles.descriptionDetails}>{course.data.description}</p>
-            <p className={styles.trialDetails}>{course.data.trialLessonDate ? `Trial Lesson: ${course.data.trialLessonDate}` : ''}</p>
+            <p className={styles.trialDetails}>{course.data.trialLessonDate ? `Trial Lesson: ${course.data.trialLessonDate}` : 'No Trial Lesson Available'}</p>
 
         </Grid>
         <Grid item auto>
@@ -141,25 +141,29 @@ export default function courses({courses}) {
           <p className={styles.subtitle}>Interested but don’t know how to start? Click here for more info<span>
           <a href="../#interestedSection"><BsFillArrowRightCircleFill className={styles.arrowButton}/></a></span></p>
         </Grid>
-        <Grid container className={styles.searchContainer}>
-          <Grid item xs={12} sm={6}>
-              <TextField fullWidth id="outlined-search" type="search" placeholder="Search..." value={searchValue} onChange={(e) => setSearchValue(e.target.value)}/>
+        <Grid container spacing={5} className={styles.searchContainer}>
+          <Grid item xs={12} sm={8}>
+            <SearchField fullWidth id="outlined-search" type="search" placeholder="Search..." value={searchValue} onChange={(e) => setSearchValue(e.target.value)}/>
           </Grid>
-          <Grid item>
-            <Box sx={{ width: 250 }}>
-              <Typography className={styles.gradeLabel} id="linear-slider" gutterBottom>
-                Grade: {valueFormat(value)}
-              </Typography>
-              <Slider
-                value={value}
-                min={1}
-                step={1}
-                max={13}
-                valueLabelFormat={valueFormat}
-                onChange={(e) => setValue(e.target.value)}
-                aria-labelledby="linear-slider"
-              />
-            </Box>
+          <Grid item sm={4}>
+            <Grid container spacing={3} direction="row" className={styles.gradeSliderContainer}>
+              <Grid item auto>
+                <Typography className={styles.gradeLabel} id="linear-slider" gutterBottom>
+                  Grade: {valueFormat(value)}
+                </Typography>
+              </Grid>
+              <Grid item xs>
+                <GradeSlider
+                  value={value}
+                  min={1}
+                  step={1}
+                  max={13}
+                  valueLabelFormat={valueFormat}
+                  onChange={(e) => setValue(e.target.value)}
+                  aria-labelledby="linear-slider"
+                />
+              </Grid>
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
@@ -177,3 +181,49 @@ export default function courses({courses}) {
     </>
   )
 }
+
+{/* Styles the GradeSlider*/}
+const GradeSlider = styled(Slider)({
+  color: '#11999E',
+  height: 15,
+  padding: 0,
+  '& .MuiSlider-track': {
+    border: 'none',
+  },
+  '& .MuiSlider-thumb': {
+    height: 24,
+    width: 24,
+    backgroundColor: '#E4F9F5',
+    border: '2px solid currentColor',
+    '&:focus, &:hover, &.Mui-active, &.Mui-focusVisible': {
+      boxShadow: 'inherit',
+    },
+    '&:before': {
+      display: 'none',
+    },
+  },
+});
+
+{/* Styles the SearchField*/}
+const SearchField = styled(TextField)({
+  '& label.Mui-focused': {
+    color: '#11999E',
+  },
+  '& .MuiInput-underline:after': {
+    borderBottomColor: '#11999E',
+  },
+  '& .MuiOutlinedInput-root': {
+    '& fieldset': {
+      border: '2px solid #11999E',
+      borderRadius: 30,
+      marginLeft: -10
+    },
+    '&:hover fieldset': {
+      border: '2px solid #11999E',
+      marginLeft: -10,
+    },
+    '&.Mui-focused fieldset': {
+      borderColor: '#11999E',
+    },
+  },
+});

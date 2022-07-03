@@ -46,7 +46,15 @@
   }
 
   .searchContainer {
-    margin-top: 2vh;
+    margin-top: -2vh;
+
+    .gradeSliderContainer {
+      background-color: $light-1;
+      padding-right: 50px;
+      padding-left: 10px;
+      padding-bottom: 15px;
+      border-radius: 60px;
+    }
 
     .gradeLabel {
       font-family: $OpenSans;
