@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { collection, getDocs, Timestamp, orderBy, query } from "firebase/firestore"
 import { Grid, Stack, Box } from '@mui/material'
 import { db } from "../firebase-config"
@@ -30,11 +30,22 @@ function getMonth(month) {
 }
 
 function EventItem({event}) {
+  const [isVisible, setVisible] = useState(false);
+  const domRef = useRef();
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => setVisible(entry.isIntersecting));
+    });
+    
+    observer.observe(domRef.current);
+  }, []);
+
   const startTimestamp = new Timestamp(parseInt(event.data.startTime.seconds),parseInt(event.data.startTime.nanoseconds));
   const endTimestamp = new Timestamp(parseInt(event.data.endTime.seconds),parseInt(event.data.endTime.nanoseconds));
   
   return (
-    <Box className={styles.eventContainer}>
+    <Box className={`${styles.eventContainer} ${styles.fadeInSection} ${isVisible ? styles.isVisible : styles.fadeInSection}`} ref={domRef}>
       <Grid container direction="row">
         <Grid container item xs="auto" className={styles.eventDateBox} justifyContent="center" direction="column">
           <p className={styles.eventDateMonth}>{getMonth(startTimestamp.toDate().getMonth())}</p>
@@ -44,7 +55,7 @@ function EventItem({event}) {
           <Grid container item xs="auto" alignItems="flex-end" sx={{maxWidth:'100%'}}>
             <p className={styles.eventName}>{event.data.eventName}</p>
           </Grid>
-          <Grid container item xs alignItems="flex-end">
+          <Grid container item xs="auto" alignItems="flex-end">
             <div className={styles.eventTimeBox}>
               <p className={styles.eventTime}>{`${startTimestamp.toDate().getHours()}:${startTimestamp.toDate().getMinutes()} - ${endTimestamp.toDate().getHours()}:${endTimestamp.toDate().getMinutes()} EST`}</p>
             </div>
@@ -84,7 +95,9 @@ function events({events}) {
       </Grid>
 
       <Grid container className={styles.botSection} direction="column">
-        <Grid item>
+        <Image src='/images/coursesBubblesLeft.svg' layout="raw" width={450} height={450} className={styles.bubblesLeft}></Image>
+        <Image src='/images/coursesBubblesRight.svg' layout="raw" width={450} height={450} className={styles.bubblesRight}></Image>
+        <Grid item sx={{overflowY: 'auto', paddingBottom: '30px', zIndex: 2}}>
           <Stack spacing={2}>
             {eventItems}
           </Stack>

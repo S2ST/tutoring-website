@@ -112,13 +112,38 @@
 .botSection {
   @include coursesHorizontalPadding;
   position: relative;
+  overflow: hidden;
 
   height: 60vh;
   background: linear-gradient(244.63deg, #30E3CA -7.2%, rgba(48, 227, 202, 0) 67.45%), #11999E;
 
-  padding-top: 5%;
-  padding-bottom: 5%;
-  overflow-y: scroll;
+  padding-top: 5vh;
+
+  .bubblesLeft {
+    position: absolute;
+    left: -15vh;
+    margin-top: 8vh;
+  }
+
+  .bubblesRight {
+    position: absolute;
+    right: -15vh;
+  }
+}
+
+.fadeInSection {
+  opacity: 0;
+  transform: translateY(8vh);
+  visibility: hidden;
+  transition: opacity 1200ms ease-out, transform 600ms ease-out,
+  visibility 1200ms ease-out;
+  will-change: opacity, transform, visibility;
+}
+
+.isVisible {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
 }
 
 @media only screen and (max-width: 600px) {
@@ -173,9 +198,24 @@
   .botSection {
     padding-left: 5%;
     padding-right: 5%;
+
+    .bubblesLeft {
+      position: absolute;
+      left: -15vh;
+      margin-top: 8vh;
+    }
+
+    .bubblesRight {
+      position: absolute;
+      right: -15vh;
+    }
   }
 
-  .bubblesTopLeft, .bubblesTopRight {
+  .bubblesTopLeft, .bubblesLeft, .bubblesRight {
     display: none;
+  }
+
+  .bubblesTopRight {
+    width: 50% !important;
   }
 }
