@@ -9,6 +9,7 @@ import { IoSearchCircleSharp } from "react-icons/io5";
 import { db } from '../firebase-config.js';
 import { collection, getDocs, Timestamp } from "firebase/firestore"
 import styleFunctionSx from '@mui/system/styleFunctionSx'
+import { useLanguageContext } from '../context/LangContext';
 
 
 export async function getServerSideProps(context) {
@@ -100,6 +101,7 @@ function CourseItem({course, selectCourse, isOnPage, setOnPage}) {
 
 
 export default function courses({courses}) {
+  const lang = useLanguageContext().language;
 
   const [value, setValue] = useState(13);
   const [searchValue, setSearchValue] = useState('');
@@ -137,8 +139,20 @@ export default function courses({courses}) {
       <Grid container className={styles.topSection} direction="column">
         <Image src="/images/coursesBubblesTopLeft.svg" layout="raw" width={100} height={100} className={styles.bubblesTopLeft}></Image>
         <Grid item className={styles.titlesContainer}>
-          <h1 className={styles.title}>Courses Available</h1>
-          <p className={styles.subtitle}>Interested but don’t know how to start? Click here for more info<span>
+          <h1 className={styles.title}>
+            {
+              lang == "english" 
+                ? 'Courses Available'
+                : '可用课程'
+            }
+          </h1>
+          <p className={styles.subtitle}>
+            {
+              lang == 'english'
+                ? 'Interested but don’t know how to start? Click here for more info'
+                : '有兴趣但不知道如何开始？ 点击这里获取更多信息'
+            }
+          <span>
           <a href="../#interestedSection"><BsFillArrowRightCircleFill className={styles.arrowButton}/></a></span></p>
         </Grid>
         <Grid container className={styles.searchContainer}>

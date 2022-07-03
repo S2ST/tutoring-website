@@ -13,6 +13,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import { useLanguageContext } from '../context/LangContext';
 
 import Link from 'next/link';
 import styles from '../styles/Navbar.module.scss';
@@ -24,10 +25,20 @@ const navLink = ['/', '/courses', '/events', '/calendar', '/contact'];
 function Navbar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const lang = useLanguageContext().language;
+  const changeLang = useLanguageContext().setLanguage;
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
+
+  const changeLanguage = () => {
+    if(lang == 'chinese') {
+      changeLang('english');
+    } else {
+      changeLang('chinese');
+    }
+  }
 
   // Mobile Navbar Drawer
   const drawer = (
@@ -80,6 +91,9 @@ function Navbar(props) {
           >
             Logo
           </Typography>
+          <Button onClick={changeLanguage}>
+            Language
+          </Button>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item, index) => (
               <Button key={item} className={styles.navTitleDesktop}>
