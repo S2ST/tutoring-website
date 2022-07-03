@@ -95,6 +95,12 @@
     top: 45vh;
     bottom: 0;
     transition: 1s ease-in-out;
+
+    .noCourses {
+      color: white;
+      font-family: $OpenSans;
+      font-size: 2vh;
+    }
   }
 }
 
