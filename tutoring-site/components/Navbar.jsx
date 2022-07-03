@@ -12,6 +12,7 @@ import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import { useLanguageContext } from '../context/LangContext';
 
@@ -91,9 +92,7 @@ function Navbar(props) {
           >
             Logo
           </Typography>
-          <Button onClick={changeLanguage}>
-            Language
-          </Button>
+          
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item, index) => (
               <Button key={item} className={styles.navTitleDesktop}>
@@ -104,6 +103,16 @@ function Navbar(props) {
                 </Link>
               </Button>
             ))}
+          </Box>
+          <Box onClick={changeLanguage} className={styles.toggle}>
+            <Grid container className={styles.languageToggle}>
+              <Grid item xs={6} className={styles.china} sx={lang == 'english' ? {opacity: 0.5} : {opacity: 1}}>
+                
+              </Grid>
+              <Grid item xs={6} className={styles.canada} sx={lang != 'english' ? {opacity: 0.5} : {opacity: 1}}>
+
+              </Grid>
+            </Grid>
           </Box>
         </Toolbar>
       </AppBar>
