@@ -54,7 +54,7 @@
       padding: 16.5px;
       padding-left: 25px;
       padding-right: 35px;
-
+  
       .gradeLabel {
         font-family: $OpenSans;
         color: $dark;
@@ -188,7 +188,7 @@
 
 .fadeInSection {
   opacity: 0;
-  transform: translateY(6vh);
+  transform: translateY(8vh);
   visibility: hidden;
   transition: opacity 1200ms ease-out, transform 600ms ease-out,
   visibility 1200ms ease-out;

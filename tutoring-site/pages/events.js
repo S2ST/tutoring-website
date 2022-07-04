@@ -80,8 +80,8 @@ function EventItem({event}) {
   const endTimestamp = new Timestamp(parseInt(event.data.endTime.seconds),parseInt(event.data.endTime.nanoseconds));
   
   return (
-    <Box className={`${styles.eventContainer} ${styles.fadeInSection} ${isVisible ? styles.isVisible : styles.fadeInSection}`} ref={domRef}>
-      <Grid container direction="row">
+    <Box ref={domRef}>
+      <Grid container direction="row" className={`${styles.eventContainer} ${styles.fadeInSection} ${isVisible ? styles.isVisible : styles.fadeInSection}`}>
         <Grid container item xs="auto" className={styles.eventDateBox} justifyContent="center" direction="column">
           <p className={styles.eventDateMonth}>{getMonth(startTimestamp.toDate().getMonth())}</p>
           <p className={styles.eventDateDate}>{startTimestamp.toDate().getDate()}</p>

@@ -98,8 +98,10 @@ function CourseItem({course, selectCourse, isOnPage, setOnPage}) {
     selectCourse(course);
     setOnPage(true);
   }
+
   
   useEffect(() => {
+
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => setVisible(entry.isIntersecting));
     });
@@ -108,8 +110,8 @@ function CourseItem({course, selectCourse, isOnPage, setOnPage}) {
 
   return (
     <>
-      <Box className={`${styles.courseItemBox} ${styles.fadeInSection} ${isVisible ? styles.isVisible : ''}`} ref={domRef}>
-        <Grid container direction="row" justifyContent="center" alignItems="center">
+      <Box ref={domRef}>
+        <Grid container direction="row" justifyContent="center" alignItems="center" className={`${styles.courseItemBox} ${styles.fadeInSection} ${isVisible ? styles.isVisible : ''}`}>
           <div className={styles.imageContainer}></div>
           <Grid container item xs spacing={1} className={styles.infoContainer}>
             <Grid container item xs="auto" alignItems="flex-end">
