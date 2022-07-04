@@ -34,10 +34,10 @@ function Navbar(props) {
   };
 
   const changeLanguage = () => {
-    if(lang == 'chinese') {
-      changeLang('english');
+    if(lang) {
+      changeLang(false);
     } else {
-      changeLang('chinese');
+      changeLang(true);
     }
   }
 

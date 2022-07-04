@@ -50,9 +50,16 @@ function DetailsItem({course, isOnPage, setOnPage}) {
     <Grid container justifyContent="center" alignItems="center" sx={{overflowX: 'hidden'}}>
       <Grid container alignItems="center" className={`${styles.detailsItemContainer} ${isOnPage ? '' : styles.hideDetailsRight}`}>
         <Grid item xs className={styles.detailsInfoContainer}>
-            <h3 className={styles.courseNameDetails}><IconButton size="small" onClick={returnToCourses} className={styles.backButton}><BsArrowLeftShort className={styles.backButtonIcon}/></IconButton>{course.data.courseName}</h3>
+          <Grid container alignItems="center">
+            <Grid auto item>
+              <IconButton size="small" onClick={returnToCourses} className={styles.backButton}><BsArrowLeftShort className={styles.backButtonIcon}/></IconButton>
+            </Grid>
+            <Grid xs item>
+              <h3 className={styles.courseNameDetails}>{course.data.courseName}</h3>
+            </Grid>
+          </Grid>
             <p className={styles.extraInfo}>{`${course.data.lessonDays}   |   ${course.data.startDate ? `Starts on ${course.data.startDate}` : 'Join anytime!'}`}</p>
-            <Grid container spacing={1} alignItems="center" className={styles.tagDetails}>
+            <Grid container alignItems="center" className={styles.tagDetails}>
               <Grid item sx={{margin: 0}}>
                 <p className={styles.gradeLevelDetailsTag}>
                   {`Grade Level: ${(course.data.gradeLevel[0] == 1 && course.data.gradeLevel[1] == 12) ? 'All' : `${course.data.gradeLevel[0]} - ${course.data.gradeLevel[1]}`}`}
@@ -169,14 +176,12 @@ export default function courses({courses}) {
         <Grid item className={styles.titlesContainer}>
           <h1 className={styles.title}>
             {
-              lang == "english" 
-                ? 'Courses Available'
-                : '可用课程'
+              lang ? 'Courses Available' : '可用课程'
             }
           </h1>
           <p className={styles.subtitle}>
             {
-              lang == 'english'
+              lang
                 ? 'Interested but don’t know how to start? Click here for more info'
                 : '有兴趣但不知道如何开始？ 点击这里获取更多信息'
             }
