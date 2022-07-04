@@ -15,11 +15,12 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import { useLanguageContext } from '../context/LangContext';
+import Image from 'next/image'
+import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 
 import Link from 'next/link';
 import styles from '../styles/Navbar.module.scss';
 
-const drawerWidth = 240;
 const navItems = ['Home', 'Courses', 'Events', 'Calendar', 'Contact'];
 const navLink = ['/', '/courses', '/events', '/calendar', '/contact'];
 
@@ -43,22 +44,34 @@ function Navbar(props) {
 
   // Mobile Navbar Drawer
   const drawer = (
-    <Box onClick={handleDrawerToggle}>
-      <Typography variant="h6" className={styles.logo} sx={{ my: 2, mx: '3rem'}}>
-        Logo
-      </Typography>
-      <Divider />
-      <List>
+    <Box>
+      <Image src="/images/mobileNavBubblesLeft.svg" layout="raw" width={100} height={100} className={styles.mobileNavBubblesLeft}></Image>
+      <Image src="/images/mobileNavBubblesRight.svg" layout="raw" width={100} height={100} className={styles.mobileNavBubblesRight}></Image>
+      
+      <Grid container direction="row-reverse">
+        <Grid container item xs="auto" alignItems="center">
+          <IconButton aria-label="delete" sx={{paddingX: '1.5rem'}} onClick={handleDrawerToggle}>
+            <CloseRoundedIcon sx={{color: 'white'}}/>
+          </IconButton>
+        </Grid>
+        <Grid item xs>
+        <Typography variant="h6" className={styles.logo} sx={{ my: 2, mx: '2rem'}}>
+          Students to Students Tutoring
+        </Typography>
+        </Grid>
+      </Grid>
+      {/* <Divider /> */}
+      <List sx={{position: 'absolute', top: '50%;', transform: 'translateY(-50%)', width: '100vw'}}>
         {navItems.map((item, index) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton>
-              <Link href={`${navLink[index]}`} >
-                <a className={styles.navTitleMobile}>
-                  {item}
-                </a>
-              </Link>
-            </ListItemButton>
-          </ListItem>
+          <Link href={`${navLink[index]}`} >
+            <ListItem key={item} disablePadding sx={{paddingTop: '1rem', paddingBottom: '1rem'}} onClick={handleDrawerToggle}>
+              <ListItemButton sx={{display: 'flex', justifyContent: 'center'}}>
+                  <a className={styles.navTitleMobile}>
+                    {item}
+                  </a>
+              </ListItemButton>
+            </ListItem>
+          </Link>
         ))}
       </List>
     </Box>
@@ -78,7 +91,7 @@ function Navbar(props) {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
+            sx={{ mr: 2, flexGrow: 1, display: { sm: 'none' }, justifyContent:'flex-start'}}
             className={styles.navTitleDesktop}
           >
             <MenuIcon />
@@ -124,7 +137,7 @@ function Navbar(props) {
           }}
           sx={{
             display: { xs: 'block', sm: 'none' }, 
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, backgroundColor: '#11999E'},
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: '100%', backgroundColor: '#11999E'},
           }}
         >
           {drawer}

@@ -13,12 +13,15 @@
 
 .navTitleMobile {
   @include navTitle;
-  margin-left: 2rem;
+  
 }
 
 .logo {
   color: $lightest;
   font-family: $OpenSans;
+  @media only screen and (max-width: 600px) {
+    font-size: 1.5vh;
+  }
 }
 
 .china {
@@ -48,6 +51,7 @@
   cursor: pointer;
   opacity: 0.9;
   transition: 0.2s;
+  float: right;
 
   &:hover {
     opacity: 1;
@@ -56,4 +60,22 @@
 
 .languageToggle {
   height: 100%;
+}
+
+.mobileNavBubblesLeft {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40%;
+  height: auto;
+  z-index: -1;
+}
+
+.mobileNavBubblesRight {
+  position: absolute;
+  right: 0;
+  bottom: 10%;
+  width: 40%;
+  height: auto;
+  z-index: -1;
 }
