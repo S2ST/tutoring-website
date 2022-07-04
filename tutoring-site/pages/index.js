@@ -44,7 +44,7 @@ export default function Home() {
               { 
                 lang == "english" 
                   ? 'Students to Students Tutoring' 
-                  : '学生对学生辅导'
+                  : '学生学习辅导'
               }
               </h1>
             <p className={styles.subtitle}>
