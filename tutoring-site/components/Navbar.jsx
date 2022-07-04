@@ -106,12 +106,8 @@ function Navbar(props) {
           </Box>
           <Box onClick={changeLanguage} className={styles.toggle}>
             <Grid container className={styles.languageToggle}>
-              <Grid item xs={6} className={styles.china} sx={lang == 'english' ? {opacity: 0.5} : {opacity: 1}}>
-                
-              </Grid>
-              <Grid item xs={6} className={styles.canada} sx={lang != 'english' ? {opacity: 0.5} : {opacity: 1}}>
-
-              </Grid>
+              <Grid item xs={6} className={styles.china} sx={lang == 'english' ? {opacity: 0.5} : {opacity: 1}}></Grid>
+              <Grid item xs={6} className={styles.canada} sx={lang != 'english' ? {opacity: 0.5} : {opacity: 1}}></Grid>
             </Grid>
           </Box>
         </Toolbar>

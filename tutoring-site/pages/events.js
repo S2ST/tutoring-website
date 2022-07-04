@@ -6,6 +6,7 @@ import styles from '../styles/Events.module.scss'
 import Navbar from '../components/Navbar'
 import Head from 'next/head'
 import Image from 'next/image'
+import { IoFileTray } from 'react-icons/io5'
 
 export async function getServerSideProps(context) {
   const querySnapshot = await getDocs(query(collection(db, "events"), orderBy("startTime")));
@@ -22,6 +23,40 @@ export async function getServerSideProps(context) {
   return {
     props: {events}, // will be passed to the page component as props
   }
+}
+
+function formatTime(timeStamp) {
+  const hours = timeStamp.toDate().getHours();
+  const mins = timeStamp.toDate().getMinutes();
+
+  let time = "";
+
+  if(hours == 0) {
+    time += '12';
+  } else if(hours > 12){
+    time += hours - 12;
+  } else {
+    time += hours;
+  }
+
+  time += ':';
+
+  if(mins == 0) {
+    time += "00";
+  } else if(mins < 10){
+    time += "0";
+    time += mins;
+  } else {
+    time += mins;
+  }
+ 
+  if(hours >= 12){
+    time += " PM";
+  } else {
+    time += " AM";
+  }
+
+  return time;
 }
 
 function getMonth(month) {
@@ -57,7 +92,7 @@ function EventItem({event}) {
           </Grid>
           <Grid container item xs="auto" alignItems="flex-end">
             <div className={styles.eventTimeBox}>
-              <p className={styles.eventTime}>{`${startTimestamp.toDate().getHours()}:${startTimestamp.toDate().getMinutes()} - ${endTimestamp.toDate().getHours()}:${endTimestamp.toDate().getMinutes()} EST`}</p>
+              <p className={styles.eventTime}>{`${formatTime(startTimestamp)} - ${formatTime(endTimestamp)} EST`}</p>
             </div>
           </Grid>
           <Grid container item xs={12} alignItems="flex-start">
