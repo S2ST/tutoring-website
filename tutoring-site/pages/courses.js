@@ -7,7 +7,7 @@ import Image from 'next/image'
 import { BsFillArrowRightCircleFill, BsArrowLeftShort } from "react-icons/bs";
 import { IoSearchCircleSharp } from "react-icons/io5";
 import { db } from '../firebase-config.js';
-import { collection, getDocs, Timestamp } from "firebase/firestore"
+import { collection, getDocs, Timestamp, setDoc, doc } from "firebase/firestore"
 import styleFunctionSx from '@mui/system/styleFunctionSx'
 import {AiFillInfoCircle} from 'react-icons/ai';
 
@@ -22,6 +22,17 @@ export async function getServerSideProps(context) {
     course['data'] = JSON.parse(JSON.stringify(doc.data()));   
     courses.push(course);
   })
+  
+  /*
+  const documentID = 'rQrmaOcgz3V1TFPtSFt8';
+
+  await setDoc(doc(db, "courses", documentID, "languages", "chinese"), {
+    courseName: "视频制作基础班",
+    description: "Mansi 将使用 Filmora Wondershare，一款免费且流行的视频编辑应用程序，教学生制作高质量的视频。她会分配任务并给每个学生反馈； <10 名学生。",
+    lessonDays: "周六上午 10 - 10:45，周三下午 4 - 4:45",
+    startDate: "7 月 13 日",
+    trialLessonDate: "7 月 6 日星期三，下午 4 点至 45 点"
+  });*/
  
   return {
     props: {courses}, // will be passed to the page component as props
@@ -38,7 +49,6 @@ function DetailsItem({course, isOnPage, setOnPage}) {
     <Grid container justifyContent="center" alignItems="center" sx={{overflowX: 'hidden'}}>
       <Grid container alignItems="center" className={`${styles.detailsItemContainer} ${isOnPage ? '' : styles.hideDetailsRight}`}>
         <Grid item xs className={styles.detailsInfoContainer}>
- 
             <h3 className={styles.courseNameDetails}><IconButton size="small" onClick={returnToCourses} className={styles.backButton}><BsArrowLeftShort className={styles.backButtonIcon}/></IconButton>{course.data.courseName}</h3>
             <p className={styles.extraInfo}>{`${course.data.lessonDays}   |   ${course.data.startDate ? `Starts on ${course.data.startDate}` : 'Join anytime!'}`}</p>
             <Grid container spacing={1} alignItems="center" className={styles.tagDetails}>

@@ -344,8 +344,20 @@
     width: 5vh;
     height: 5vh;
   }
+  .courseNameDetails {
+    font-size: 2.3vh !important;
+  }
+  .backButtonIcon {
+    font-size: 3vh;
+  }
   .extraInfo {
     font-size: 1.2vh !important;
+  }
+  .gradeLevelDetailsTag, .priceDetailsTag, .lessonsTotalDetailsTag{
+    font-size: 1.2vh !important;
+  }
+  .descriptionDetails, .trialDetails {
+    font-size: 1.5vh !important;
   }
 }
 
