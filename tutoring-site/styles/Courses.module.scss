@@ -54,14 +54,14 @@
       padding: 16.5px;
       padding-left: 25px;
       padding-right: 35px;
-    }
 
-    .gradeLabel {
-      font-family: $OpenSans;
-      color: $dark;
-      font-weight: 600;
-      margin: 0;
-      margin-right: 20px;
+      .gradeLabel {
+        font-family: $OpenSans;
+        color: $dark;
+        font-weight: 600;
+        margin: 0;
+        margin-right: 20px;
+      }
     }
 
     .searchButton {
@@ -130,12 +130,16 @@
     width: 13vh;
     height: 10vh;
     background-color: $lightest;
-    margin: 1.5vh;
+    margin-left: 2vh;
+    margin-top: 1.5vh;
+    margin-bottom: 1.5vh;
     border-radius: 20px;
   }
 
   .infoContainer {
     margin-left: 2vh;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
 
     .courseName {
       font-weight: 600;
@@ -158,14 +162,18 @@
       @include roundedButton;
       
       color: white;
-      padding-left: 4vh;
-      padding-right: 4vh;
+      padding-left: 3vh;
+      padding-right: 3vh;
       padding-top: 2vh;
       padding-bottom: 2vh;
       
       &:hover {
         box-shadow: 0px 4px 17px rgba(0, 0, 0, 0.25);
       }
+    }
+    .mobileDetailsButton {
+      color: $dark;
+      display: none;
     }
   }
 }
@@ -204,14 +212,16 @@
   transition: 1s ease-in-out;
 
   .detailsInfoContainer {
-    padding: 1vh;
+    padding: 3vh;
     padding-left: 7vh;
     padding-right: 7vh;
+    margin: 0;
 
     .courseNameDetails {
       font-size: 2.7vh;
-      margin-bottom: -2vh;
+      margin-bottom: 0vh;
       margin-left: -2vh;
+      margin-top: 0;
 
       .backButton {
         color: $dark;
@@ -228,16 +238,18 @@
     }
 
     .tagDetails {
+      margin: 0;
       .gradeLevelDetailsTag {
         @include tag($green-tag, $green-text);
-        margin-right: 2vh;
+        margin: 0;
       }
       .priceDetailsTag {
         @include tag($yellow-tag, $yellow-text);
-        margin-right: 2vh;
+        margin: 0;
       }
       .lessonsTotalDetailsTag {
         @include tag($red-tag, $red-text);
+        margin: 0;
       }
     }
     .descriptionDetails {
@@ -259,11 +271,18 @@
     width: 39vh;
     height: 30vh;
     background-color: $lightest;
-    margin: 6vh;
+    margin-right: 6vh;
+    margin-top: 6vh;
+    margin-bottom: 6vh;
     border-radius: 20px;
   }
 }
 
+@media only screen and (max-width: 1060px) {
+  .imageDetailsContainer {
+    display: none;
+  }
+}
 @media only screen and (max-width: 600px) {
   /* For mobile phones: */
   .title {
@@ -280,6 +299,65 @@
 
   .bubblesTopLeft, .bubblesLeft, .bubblesRight, .imageDetailsContainer{
     display: none;
+  }
+
+  .courseItemBox {
+    margin-bottom: 1.5vh;
+  }
+  .searchContainer {
+    font-size: 1.5vh !important;
+    margin-top: -.01vh !important;
+  }
+
+  .gradeSliderContainer {
+    margin-top: 2vh;
+    padding: 15px !important;
+    padding-left: 20px !important;
+    padding-right: 30px !important;
+
+    .gradeLabel {
+      font-size: 1.5vh;
+    }
+  }
+
+  .imageContainer {
+    display: none;
+  }
+  .infoContainer {
+    padding-top: 2vh !important;
+    padding-bottom: 2vh !important;
+
+    .courseName {
+      font-size: 1.8vh !important;
+    }
+    .gradeLevel {
+      font-size: 1.3vh !important;
+    }
+  }
+  .detailsButton {
+    font-size: 1.3vh !important;
+    padding: 1.6vh 2vh !important;
+    display: none;
+  }
+  .mobileDetailsButton {
+    display: block !important;
+    width: 5vh;
+    height: 5vh;
+  }
+  .courseNameDetails {
+    font-size: 2.3vh !important;
+  }
+  .backButtonIcon {
+    font-size: 3vh;
+  }
+  .extraInfo {
+    font-size: 1.2vh !important;
+  }
+  .gradeLevelDetailsTag, .priceDetailsTag, .lessonsTotalDetailsTag{
+    font-size: 1.2vh !important;
+  }
+  .descriptionDetails, .trialDetails {
+    font-size: 1.5vh !important;
   }
 }
 
