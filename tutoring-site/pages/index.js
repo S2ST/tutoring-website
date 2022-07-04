@@ -4,8 +4,12 @@ import Link from 'next/link';
 import styles from '../styles/Home.module.scss'
 import Navbar from '../components/Navbar'
 import { Container, Grid, Button, Stack, Card } from '@mui/material';
+import { useContext, useEffect } from 'react';
+import { useLanguageContext } from '../context/LangContext';
 
 export default function Home() {
+  const lang = useLanguageContext().language;
+
   return (
     <div>
       {/* Site Meta-Data */}
@@ -36,9 +40,27 @@ export default function Home() {
             <Image src="/images/boy.svg" layout="raw" width={100} height={100} className={styles.boyImage}></Image>
           </Grid>
           <Grid item container xs={12} sm={7} className={styles.startingLeft}>
-            <h1 className={styles.title}> Students to Students Tutoring </h1>
-            <p className={styles.subtitle}>This summer, we’ll have classes suitable for all students, as well as free trial lessons and webinars open to the public!</p>
-            <Link href="/courses"><Button variant="contained" className={styles.searchButton}>Search Courses</Button></Link>
+            <h1 className={styles.title}>
+              { 
+                lang == "english" 
+                  ? 'Students to Students Tutoring' 
+                  : '学生对学生辅导'
+              }
+              </h1>
+            <p className={styles.subtitle}>
+              {
+                lang == "english"
+                  ? 'This summer, we’ll have classes suitable for all students, as well as free trial lessons and webinars open to the public!'
+                  : '今年夏天，我们将开设适合所有学生的课程，以及向公众开放的免费试听课程和网络研讨会！'
+              }
+            </p>
+            <Link href="/courses"><Button variant="contained" className={styles.searchButton}>
+              {
+                lang == "english"
+                  ? 'Search Courses'
+                  : '搜索课程'
+              }  
+            </Button></Link>
           </Grid>
         </Grid>
 

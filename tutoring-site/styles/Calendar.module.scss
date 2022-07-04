@@ -1,0 +1,41 @@
+@import "variables";
+@import "mixins";
+
+.calendarContainer {
+  height: 100vh;
+  padding: 10vh 5vw;
+  max-width: 100vw;
+  overflow: auto;
+}
+.title {
+  @include center;
+  z-index: 2;
+}
+.calendar {
+  height: 60vh;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  z-index: 2;
+}
+
+.calendarTitle {
+  color: $dark;
+  font-size: 3.6vh;
+}
+
+.enrollBubblesTop {
+  position: absolute;
+  left: 0;
+  top: 5%;
+  width: 40%;
+  height: auto;
+}
+
+.enrollBubblesBottom {
+  position: absolute;
+  right: 0;
+  bottom: 0%;
+  width: 22%;
+  height: auto;
+}

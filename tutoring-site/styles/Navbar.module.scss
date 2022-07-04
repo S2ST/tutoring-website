@@ -20,3 +20,40 @@
   color: $lightest;
   font-family: $OpenSans;
 }
+
+.china {
+  background-image: url('/images/china.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  transition: 0.2s;
+}
+
+.canada {
+  background-image: url('/images/canada.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  transition: 0.2s;
+}
+
+.toggle {
+  display: block;
+  height: 2.5rem;
+  width: 5rem;
+  background-color: #CFE3DF;
+  border-radius: 10000px;
+  padding: 0.3rem;
+  margin-left: 20px;
+  cursor: pointer;
+  opacity: 0.9;
+  transition: 0.2s;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.languageToggle {
+  height: 100%;
+}
