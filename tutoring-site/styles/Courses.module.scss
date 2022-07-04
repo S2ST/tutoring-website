@@ -188,7 +188,7 @@
 
 .fadeInSection {
   opacity: 0;
-  transform: translateY(8vh);
+  transform: translateY(6vh);
   visibility: hidden;
   transition: opacity 1200ms ease-out, transform 600ms ease-out,
   visibility 1200ms ease-out;
@@ -209,6 +209,7 @@
   z-index: 3000;
   width: 80%;
   margin-top: 5%;
+  margin-bottom: 3vh;
   transition: 1s ease-in-out;
 
   .detailsInfoContainer {
@@ -219,37 +220,45 @@
 
     .courseNameDetails {
       font-size: 2.7vh;
-      margin-bottom: 0vh;
-      margin-left: -2vh;
-      margin-top: 0;
+      margin: 0;
+      padding-bottom: 1vh;
+    }
+    
+    .backButton {
+      color: $dark;
+      margin-right: 1vh;
+      margin-left: -1.5vh;
+      padding: 0;
+      padding-bottom: 1vh;
 
-      .backButton {
-        color: $dark;
-        margin-right: 1vh;
+      &:hover {
+        background-color: $lightest;
+      }
 
-        &:hover {
-          background-color: $lightest;
-        }
-
-        .backButtonIcon {
-          font-size: 5vh;
-        }
+      .backButtonIcon {
+        font-size: 5vh;
       }
     }
 
     .tagDetails {
       margin: 0;
+
       .gradeLevelDetailsTag {
         @include tag($green-tag, $green-text);
         margin: 0;
+        margin-right: 1.5vh;
+        margin-top: 1vh;
       }
       .priceDetailsTag {
         @include tag($yellow-tag, $yellow-text);
         margin: 0;
+        margin-right: 1.5vh;
+        margin-top: 1vh;
       }
       .lessonsTotalDetailsTag {
         @include tag($red-tag, $red-text);
         margin: 0;
+        margin-top: 1vh;
       }
     }
     .descriptionDetails {
