@@ -1,0 +1,26 @@
+@import "mixins";
+@import "variables";
+
+.footer {
+  background-color: #D0F1EB;
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  padding: 2.5vh;
+  
+}
+
+.text {
+  font-size: 1.8vh;
+  color: rgba(64, 81, 78, 0.3); 
+}
+
+@media only screen and (max-width: 600px) {
+  .footer {
+    padding: 1vh;
+  }
+
+  .text {
+    font-size: 1vh;
+  }
+}

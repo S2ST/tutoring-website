@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link';
 import styles from '../styles/Home.module.scss'
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 import { Container, Grid, Button, Stack, Card } from '@mui/material';
 import { useContext, useEffect } from 'react';
 import { useLanguageContext } from '../context/LangContext';
@@ -150,6 +151,8 @@ export default function Home() {
               </Grid>
           </Grid>
         </Grid>
+
+        <Footer></Footer>
 
     </div>
   )
