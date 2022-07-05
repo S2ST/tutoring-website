@@ -11,6 +11,7 @@ import { collection, getDocs, Timestamp, setDoc, doc, getDoc, deleteField, updat
 import styleFunctionSx from '@mui/system/styleFunctionSx'
 import {AiFillInfoCircle} from 'react-icons/ai';
 import { useLanguageContext } from '../context/LangContext';
+import { async } from '@firebase/util'
 
 export async function getServerSideProps(context) {
   const querySnapshot = await getDocs(collection(db, "courses"));
@@ -26,25 +27,20 @@ export async function getServerSideProps(context) {
 
   let courses = [];
 
-  querySnapshot.forEach((courseDoc) => {
+  querySnapshot.forEach(async(courseDoc) => {
     let course = {};
     
-    getDoc(doc(db, "courses", courseDoc.id, "languages", "english")).then((e) => {
-      course['english'] = JSON.parse(JSON.stringify(e.data()));
-    });
-    getDoc(doc(db, "courses", courseDoc.id, "languages", "chinese")).then((e) => {
-      course['chinese'] = JSON.parse(JSON.stringify(e.data()));
-    });
+    const englishDoc = await getDoc(doc(db, "courses", courseDoc.id, "languages", "english"));
+    const chineseDoc = await getDoc(doc(db, "courses", courseDoc.id, "languages", "chinese"));
 
-
-
+    //console.log(course['english']);
     //console.log(chineseDoc.data());
 
     course['id'] = courseDoc.id;
     //course['data'] = JSON.parse(JSON.stringify(courseDoc.data()));   
-    //course['english'] = JSON.parse(JSON.stringify(englishDoc.data()));
-    //course['chinese'] = JSON.parse(JSON.stringify(chineseDoc.data()));
-    course['general'] = JSON.parse(JSON.stringify(courseDoc.data()));
+    course['english'] = await JSON.parse(JSON.stringify(englishDoc.data()));
+    course['chinese'] = await JSON.parse(JSON.stringify(chineseDoc.data()));
+    course['general'] = await JSON.parse(JSON.stringify(courseDoc.data()));
     courses.push(course);
 
     /* USED TO DELETE FIELDS
@@ -67,8 +63,6 @@ export async function getServerSideProps(context) {
     })
     */
   })
-
-  console.log(courses[0]);
   
   /* USED TO ADD CHINESE
   const documentID = 'rQrmaOcgz3V1TFPtSFt8';
@@ -80,7 +74,8 @@ export async function getServerSideProps(context) {
     startDate: "7 月 13 日",
     trialLessonDate: "7 月 6 日星期三，下午 4 点至 45 点"
   });*/
- 
+  console.log(courses);
+
   return {
     props: {courses}, // will be passed to the page component as props
   }
@@ -88,6 +83,7 @@ export async function getServerSideProps(context) {
 
 function DetailsItem({course, isOnPage, setOnPage}) {
 
+  //console.log(course);
   const returnToCourses = () => {
     setOnPage(false);
   }
@@ -101,30 +97,30 @@ function DetailsItem({course, isOnPage, setOnPage}) {
               <IconButton size="small" onClick={returnToCourses} className={styles.backButton}><BsArrowLeftShort className={styles.backButtonIcon}/></IconButton>
             </Grid>
             <Grid xs item>
-              <h3 className={styles.courseNameDetails}>{course.data.courseName}</h3>
+              <h3 className={styles.courseNameDetails}>{course.english.courseName}</h3>
             </Grid>
           </Grid>
-            <p className={styles.extraInfo}>{`${course.data.lessonDays}   |   ${course.data.startDate ? `Starts on ${course.data.startDate}` : 'Join anytime!'}`}</p>
+            <p className={styles.extraInfo}>{`${course.english.lessonDays}   |   ${course.english.startDate ? `Starts on ${course.english.startDate}` : 'Join anytime!'}`}</p>
             <Grid container alignItems="center" className={styles.tagDetails}>
               <Grid item sx={{margin: 0}}>
                 <p className={styles.gradeLevelDetailsTag}>
-                  {`Grade Level: ${(course.data.gradeLevel[0] == 1 && course.data.gradeLevel[1] == 12) ? 'All' : `${course.data.gradeLevel[0]} - ${course.data.gradeLevel[1]}`}`}
+                  {`Grade Level: ${(course.general.gradeLevel[0] == 1 && course.general.gradeLevel[1] == 12) ? 'All' : `${course.general.gradeLevel[0]} - ${course.general.gradeLevel[1]}`}`}
                 </p>
               </Grid>
               <Grid item sx={{margin: 0}}>
                 <p className={styles.priceDetailsTag}>
-                  {`$${course.data.pricePerLesson} per lesson`}
+                  {`$${course.english.pricePerLesson} per lesson`}
                 </p>
               </Grid>
               <Grid item sx={{margin: 0}}>
                 <p className={styles.lessonsTotalDetailsTag}>
-                  {`${course.data.lessonsTotal} lessons total`}
+                  {`${course.english.lessonsTotal} lessons total`}
                 </p>
               </Grid>
             </Grid>
 
-            <p className={styles.descriptionDetails}>{course.data.description}</p>
-            <p className={styles.trialDetails}>{course.data.trialLessonDate ? `Trial Lesson: ${course.data.trialLessonDate}` : 'No Trial Lesson Available'}</p>
+            <p className={styles.descriptionDetails}>{course.english.description}</p>
+            <p className={styles.trialDetails}>{course.english.trialLessonDate ? `Trial Lesson: ${course.english.trialLessonDate}` : 'No Trial Lesson Available'}</p>
 
         </Grid>
         <Grid item auto>
@@ -160,15 +156,15 @@ function CourseItem({course, selectCourse, isOnPage, setOnPage}) {
           <div className={styles.imageContainer}></div>
           <Grid container item xs spacing={1} className={styles.infoContainer}>
             <Grid container item xs="auto" alignItems="flex-end">
-              <p className={styles.courseName}>{course.data.courseName}</p>
+              <p className={styles.courseName}>{course.english.courseName}</p>
             </Grid>
             <Grid container item xs="auto" alignItems="flex-end">
               <p className={styles.gradeLevel}>
-              {`Grade Level: ${(course.data.gradeLevel[0] == 1 && course.data.gradeLevel[1] == 12) ? 'All' : `${course.data.gradeLevel[0]} - ${course.data.gradeLevel[1]}`}`}
+              {`Grade Level: ${(course.english.gradeLevel[0] == 1 && course.general.gradeLevel[1] == 12) ? 'All' : `${course.general.gradeLevel[0]} - ${course.general.gradeLevel[1]}`}`}
               </p>
             </Grid>
             <Grid container item xs={12} alignItems="flex-start">
-             <p className={styles.extraInfo}>{`${course.data.lessonDays}   |   ${course.data.startDate ? `Starts on ${course.data.startDate}` : 'Join anytime!'}`}</p>
+             <p className={styles.extraInfo}>{`${course.english.lessonDays}   |   ${course.english.startDate ? `Starts on ${course.english.startDate}` : 'Join anytime!'}`}</p>
             </Grid>
           </Grid>
           <Grid item auto className={styles.detailsButtonContainer}>
@@ -200,8 +196,8 @@ export default function courses({courses}) {
 
   const filteredCourses = [];
   courses.forEach((course) => {
-    if (course.data.courseName.toLowerCase().includes(searchValue.toLowerCase()) &&
-     (value == 13 || value <= course.data.gradeLevel[1] && value >= course.data.gradeLevel[0])) {
+    if (course.english.courseName.toLowerCase().includes(searchValue.toLowerCase()) &&
+     (value == 13 || value <= course.general.gradeLevel[1] && value >= course.general.gradeLevel[0])) {
       filteredCourses.push(course);
     }
   })
