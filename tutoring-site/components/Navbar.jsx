@@ -27,7 +27,7 @@ const navLink = ['/', '/courses', '/events', '/calendar', '/contact'];
 function Navbar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const lang = useLanguageContext().language;
+  const lang = useLanguageContext().language; // True means English and False means Chinese
   const changeLang = useLanguageContext().setLanguage;
 
   const handleDrawerToggle = () => {
@@ -119,8 +119,8 @@ function Navbar(props) {
           </Box>
           <Box onClick={changeLanguage} className={styles.toggle}>
             <Grid container className={styles.languageToggle}>
-              <Grid item xs={6} className={styles.china} sx={lang == 'english' ? {opacity: 0.5} : {opacity: 1}}></Grid>
-              <Grid item xs={6} className={styles.canada} sx={lang != 'english' ? {opacity: 0.5} : {opacity: 1}}></Grid>
+              <Grid item xs={6} className={styles.china} sx={lang ? {opacity: 0.5} : {opacity: 1}}></Grid>
+              <Grid item xs={6} className={styles.canada} sx={!lang ? {opacity: 0.5} : {opacity: 1}}></Grid>
             </Grid>
           </Box>
         </Toolbar>

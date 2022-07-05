@@ -42,21 +42,21 @@ export default function Home() {
           <Grid item container xs={12} sm={7} className={styles.startingLeft}>
             <h1 className={styles.title}>
               { 
-                lang == "english" 
+                lang 
                   ? 'Students to Students Tutoring' 
                   : '学生学习辅导'
               }
               </h1>
             <p className={styles.subtitle}>
               {
-                lang == "english"
+                lang
                   ? 'This summer, we’ll have classes suitable for all students, as well as free trial lessons and webinars open to the public!'
                   : '今年夏天，我们将开设适合所有学生的课程，以及向公众开放的免费试听课程和网络研讨会！'
               }
             </p>
             <Link href="/courses"><Button variant="contained" className={styles.searchButton}>
               {
-                lang == "english"
+                lang
                   ? 'Search Courses'
                   : '搜索课程'
               }  

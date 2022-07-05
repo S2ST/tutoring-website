@@ -23,7 +23,7 @@ function calendar() {
           <h3 className={styles.calendarTitle}>Calendar</h3>
         </Grid>
         <Grid item className={styles.calendar} xs={12}>
-          <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FToronto&showTitle=0&showPrint=0&src=OWZyNTBuZGppNjlyOTJqZWNtOHQ4ZTZ1b2dAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&color=%2330E3CA" style={{border:'solid 1px #777', width:'100%', height:'100%', minWidth:'600px'}}  frameBorder="0" scrolling="yes"></iframe>
+        <iframe src="https://calendar.google.com/calendar/embed?src=oi5qg289jbujahfphmlfauhgco%40group.calendar.google.com&ctz=UTC" style={{border: 0, width:'100%', height:'100%', frameborder:0, scrolling:"no"}}></iframe>
         </Grid>
       </Grid>
     </>

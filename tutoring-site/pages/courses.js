@@ -7,7 +7,7 @@ import Image from 'next/image'
 import { BsFillArrowRightCircleFill, BsArrowLeftShort } from "react-icons/bs";
 import { IoSearchCircleSharp } from "react-icons/io5";
 import { db } from '../firebase-config.js';
-import { collection, getDocs, Timestamp, setDoc, doc } from "firebase/firestore"
+import { collection, getDocs, Timestamp, setDoc, doc, getDoc } from "firebase/firestore"
 import styleFunctionSx from '@mui/system/styleFunctionSx'
 import {AiFillInfoCircle} from 'react-icons/ai';
 import { useLanguageContext } from '../context/LangContext';
@@ -15,10 +15,21 @@ import { useLanguageContext } from '../context/LangContext';
 export async function getServerSideProps(context) {
   const querySnapshot = await getDocs(collection(db, "courses"));
 
+  // let courses = [];
+
+  // querySnapshot.forEach((doc) => {
+  //   let course = {};
+  //   course['id'] = doc.id;
+  //   course['data'] = JSON.parse(JSON.stringify(doc.data()));   
+  //   courses.push(course);
+  // })
+
   let courses = [];
 
   querySnapshot.forEach((doc) => {
     let course = {};
+    //getDoc(doc(db, "courses", doc.id, "languages", "chinese"))
+
     course['id'] = doc.id;
     course['data'] = JSON.parse(JSON.stringify(doc.data()));   
     courses.push(course);
@@ -98,7 +109,6 @@ function CourseItem({course, selectCourse, isOnPage, setOnPage}) {
     selectCourse(course);
     setOnPage(true);
   }
-
   
   useEffect(() => {
 
