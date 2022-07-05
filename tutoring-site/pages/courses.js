@@ -7,7 +7,7 @@ import Image from 'next/image'
 import { BsFillArrowRightCircleFill, BsArrowLeftShort } from "react-icons/bs";
 import { IoSearchCircleSharp } from "react-icons/io5";
 import { db } from '../firebase-config.js';
-import { collection, getDocs, Timestamp, setDoc, doc, getDoc } from "firebase/firestore"
+import { collection, getDocs, Timestamp, setDoc, doc, getDoc, deleteField, updateDoc } from "firebase/firestore"
 import styleFunctionSx from '@mui/system/styleFunctionSx'
 import {AiFillInfoCircle} from 'react-icons/ai';
 import { useLanguageContext } from '../context/LangContext';
@@ -26,16 +26,51 @@ export async function getServerSideProps(context) {
 
   let courses = [];
 
-  querySnapshot.forEach((doc) => {
+  querySnapshot.forEach((courseDoc) => {
     let course = {};
-    //getDoc(doc(db, "courses", doc.id, "languages", "chinese"))
+    
+    getDoc(doc(db, "courses", courseDoc.id, "languages", "english")).then((e) => {
+      course['english'] = JSON.parse(JSON.stringify(e.data()));
+    });
+    getDoc(doc(db, "courses", courseDoc.id, "languages", "chinese")).then((e) => {
+      course['chinese'] = JSON.parse(JSON.stringify(e.data()));
+    });
 
-    course['id'] = doc.id;
-    course['data'] = JSON.parse(JSON.stringify(doc.data()));   
+
+
+    //console.log(chineseDoc.data());
+
+    course['id'] = courseDoc.id;
+    //course['data'] = JSON.parse(JSON.stringify(courseDoc.data()));   
+    //course['english'] = JSON.parse(JSON.stringify(englishDoc.data()));
+    //course['chinese'] = JSON.parse(JSON.stringify(chineseDoc.data()));
+    course['general'] = JSON.parse(JSON.stringify(courseDoc.data()));
     courses.push(course);
+
+    /* USED TO DELETE FIELDS
+    updateDoc(doc(db, "courses", courseDoc.id), {
+      courseName: deleteField(),
+      description: deleteField(),
+      lessonDays: deleteField(),
+      startDate: deleteField(),
+      trialLessonDate: deleteField()
+    })
+    */
+
+    /* USED TO ADD ENGLISH
+    setDoc(doc(db, "courses", courseDoc.id, "languages", "english"), {
+      courseName: courseDoc.data().courseName,
+      description: courseDoc.data().description,
+      lessonDays: courseDoc.data().lessonDays,
+      startDate: courseDoc.data().startDate,
+      trialLessonDate: courseDoc.data().trialLessonDate
+    })
+    */
   })
+
+  console.log(courses[0]);
   
-  /*
+  /* USED TO ADD CHINESE
   const documentID = 'rQrmaOcgz3V1TFPtSFt8';
 
   await setDoc(doc(db, "courses", documentID, "languages", "chinese"), {
