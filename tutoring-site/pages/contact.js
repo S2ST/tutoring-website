@@ -4,6 +4,7 @@ import Image from 'next/image'
 import styles from '../styles/Contact.module.scss'
 import { Container, Grid, Button, Stack, Card, Icon, SvgIcon } from '@mui/material';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import FacebookIcon from '@mui/icons-material/Facebook';
 import DeleteIcon from '@mui/icons-material/Delete';
 import WeChat from '../public/images/wechat.svg';
 import Link from 'next/link'
@@ -36,6 +37,9 @@ function contact() {
           </Grid>
           <Grid item xs={12}>
             <a href="https://wechat.com"><Button variant="contained" className={styles.emailButton} startIcon={pp}> wxid_ip60hie5s23o22 </Button></a>
+          </Grid>
+          <Grid item xs={12}>
+            <a href="https://www.facebook.com/people/StudentstoStudents-Tutoring/100079228365424/"><Button variant="contained" className={styles.emailButton} startIcon={<FacebookIcon sx={{fontSize: 40}} /> }> StudentstoStudents </Button></a>
           </Grid>
           
         </Grid>
