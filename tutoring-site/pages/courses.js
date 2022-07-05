@@ -129,6 +129,16 @@ function DetailsItem({course, isOnPage, setOnPage}) {
 function CourseItem({course, selectCourse, isOnPage, setOnPage}) {
   const isEng = useLanguageContext().language;
   const lang = isEng ? 'english' : 'chinese';
+  let gradeLevelText = '';
+  let extraInfoText = '';
+
+  if (isEng) {
+    gradeLevelText = `Grade Level: ${(course.general.gradeLevel[0] == 1 && course.general.gradeLevel[1] == 12) ? 'All' : `${course.general.gradeLevel[0]} - ${course.general.gradeLevel[1]}`}`;
+    extraInfoText = `Every ${course[lang].lessonDays}   |   ${course[lang].startDate ? `Starts on ${course[lang].startDate}` : 'Join anytime!'}`;
+  } else {
+    gradeLevelText = `Grade Level: ${(course.general.gradeLevel[0] == 1 && course.general.gradeLevel[1] == 12) ? 'All' : `${course.general.gradeLevel[0]} - ${course.general.gradeLevel[1]}`}`;
+    extraInfoText = `每${course[lang].lessonDays}  |   ${course[lang].startDate ? `${course[lang].startDate} 开始` : 'Join anytime!'}`;
+  }
 
   const [isVisible, setVisible] = useState(false);
   const domRef = useRef();
@@ -161,7 +171,7 @@ function CourseItem({course, selectCourse, isOnPage, setOnPage}) {
               </p>
             </Grid>
             <Grid container item xs={12} alignItems="flex-start">
-             <p className={styles.extraInfo}>{`${course[lang].lessonDays}   |   ${course[lang].startDate ? `Starts on ${course[lang].startDate}` : 'Join anytime!'}`}</p>
+             <p className={styles.extraInfo}>{extraInfoText}</p>
             </Grid>
           </Grid>
           <Grid item auto className={styles.detailsButtonContainer}>

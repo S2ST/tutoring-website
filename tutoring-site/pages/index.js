@@ -10,6 +10,45 @@ import { useLanguageContext } from '../context/LangContext';
 export default function Home() {
   const isEng = useLanguageContext().language;
 
+  let titleText = 'Students to Students Tutoring';
+  let subtitleText = 'This summer, we’ll have classes suitable for all students, as well as free trial lessons and webinars open to the public!';
+  let searchCoursesButtonText = 'Search Courses';
+  let enrollTitleText = 'Enroll your child now!';
+  let missionText = 'Our mission is to provide extracurricular education to as many students as possible at an affordable price.';
+  let card1Text = 'Affordable prices! Each lesson varies from $4 to $14 per 45 minutes.';
+  let card2Text = 'Enhance your child’s skills with our courses. Each course contains 12-14 lessons.';
+  let card3Text = 'Course material range from elementary school to high school level.';
+  let forStudentsTitleText = 'For students, by students.';
+  let ourPriorityText = 'Our priority is providing students with quality tutoring. All tutors are from either a top Canadian university (UoT, UBC, UWaterloo, McGill) or part of the prestigious International Baccalaureate (IB) program.';
+  let interestedTitleText = 'Interested in getting started?';
+  let interestedSubtitleText = 'Simple. Just follow the next five steps:';
+  
+  let step1TitleText = 'Look through our available courses';
+  let step1SubText = 'Navigate to the “Courses” page and use the grade filter to find the courses tailored to your child’s grade.';
+  let step2TitleText = 'Pick a course';
+  let step2SubText = 'Find a course that is to you and your child’s liking. Click on “View details” for more information about the course.';
+  let step3TitleText = 'Attend the Trial Lesson';
+  let step3SubText = 'Take a lesson for free to see if the course is fit for your child. Details are under “View details” of the course.';
+  let step4TitleText = 'Pay with e-transfer';
+  let step4SubText = 'Send the correct amount to online2020courses@gmail.com via e-transfer. The price can be found in details of course.';
+  let step5TitleText = 'Send an email to us!';
+  let step5SubText = 'Include the following information in the email to online2020courses@gmail.com.';
+
+  if (!isEng) {
+    titleText = '学生学习辅导';
+    subtitleText = '今年夏天，我们将开设适合所有学生的课程，以及向公众开放的免费试听课程和网络研讨会！';
+    searchCoursesButtonText = '搜索课程';
+    enrollTitleText = '立即为您的孩子报名！';
+    missionText = '我们的使命是以可承受的价格为尽可能多的学生提供课外教育。';
+    card1Text = '付得起的价钱！每节课每 45 分钟从 4 美元到 14 美元不等。';
+    card2Text = '通过我们的课程提高您孩子的技能。每门课程包含 12-14 节课。';
+    card3Text = '课程材料范围从小学到高中。';
+    forStudentsTitleText = '为学生，由学生。';
+    ourPriorityText = '我们的首要任务是为学生提供优质的辅导。所有导师都来自加拿大顶尖大学（UoT、UBC、UWaterloo、McGill）或著名的国际文凭 (IB) 课程的一部分。';
+    interestedTitleText = '有兴趣开始吗？';
+    interestedSubtitleText = '简单的。只需遵循以下五个步骤：';
+  }
+
   return (
     <div>
       {/* Site Meta-Data */}
@@ -41,25 +80,13 @@ export default function Home() {
           </Grid>
           <Grid item container xs={12} sm={7} className={styles.startingLeft}>
             <h1 className={styles.title}>
-              { 
-                isEng 
-                  ? 'Students to Students Tutoring' 
-                  : '学生学习辅导'
-              }
+              {titleText}
               </h1>
             <p className={styles.subtitle}>
-              {
-                isEng
-                  ? 'This summer, we’ll have classes suitable for all students, as well as free trial lessons and webinars open to the public!'
-                  : '今年夏天，我们将开设适合所有学生的课程，以及向公众开放的免费试听课程和网络研讨会！'
-              }
+              {subtitleText}
             </p>
             <Link href="/courses"><Button variant="contained" className={styles.searchButton}>
-              {
-                isEng
-                  ? 'Search Courses'
-                  : '搜索课程'
-              }  
+              {searchCoursesButtonText}  
             </Button></Link>
           </Grid>
         </Grid>
@@ -71,13 +98,13 @@ export default function Home() {
           <Image src="/images/enrollBubblesMobile.svg" layout="raw" width={100} height={100} className={styles.enrollBubblesMobile}></Image>
           <Grid container item xs={12} justifyContent="center" sx={{zIndex: 2}}>
             <Grid item>
-              <h3 className={styles.enrollTitle}>Enroll your child now!</h3>
-              <p className={styles.enrollText}> Our mission is to provide extracurricular education to as many students as possible at an affordable price. </p>
+              <h3 className={styles.enrollTitle}>{enrollTitleText}</h3>
+              <p className={styles.enrollText}>{missionText}</p>
             </Grid>
             <Grid container item alignItems="center" justifyContent="center">
-              <EnrollItem src="/images/money.svg" text="Affordable prices! Each lesson varies from $4 to $14 per 45 minutes."></EnrollItem>
-              <EnrollItem src="/images/books.svg" text="Enhance your child’s skills with our courses. Each course contains 12-14 lessons."></EnrollItem>
-              <EnrollItem src="/images/boy2.svg" text="Course material range from elementary school to high school level."></EnrollItem>
+              <EnrollItem src="/images/money.svg" text={card1Text}></EnrollItem>
+              <EnrollItem src="/images/books.svg" text={card2Text}></EnrollItem>
+              <EnrollItem src="/images/boy2.svg" text={card3Text}></EnrollItem>
             </Grid>
           </Grid>
         </Grid>
@@ -91,8 +118,8 @@ export default function Home() {
           <Grid item xs={12} sx={{zIndex: 2}}>
 
             <Image src="/images/gradHat.svg" height={150} width={150}></Image>
-            <h3 className={styles.enrollTitle}>For students, by students.</h3>
-            <p className={styles.forStudentsText}>Our priority is providing students with quality tutoring. All tutors are from either a top Canadian university (UoT, UBC, UWaterloo, McGill) or part of the prestigious International Baccalaureate (IB) program.</p>
+            <h3 className={styles.enrollTitle}>{forStudentsTitleText}</h3>
+            <p className={styles.forStudentsText}>{ourPriorityText}</p>
             <hr className={styles.forStudentsHr}></hr>
           </Grid>
         </Grid>
@@ -104,34 +131,34 @@ export default function Home() {
 
           <Grid container item className={styles.interestedBox} justifyContent="center">
             <Grid item xs={12}>
-              <h3 className={styles.interestedTitle}>Interested in getting started?</h3>
-              <p className={styles.interestedText}>Simple. Just follow the next five steps:</p>
+              <h3 className={styles.interestedTitle}>{interestedTitleText}</h3>
+              <p className={styles.interestedText}>{interestedSubtitleText}</p>
             </Grid>
             <Grid container item className={styles.interestedSteps} spacing={2}>
               <InterestedStep 
                 step="1" 
-                title="Look through our available courses"
-                text="Navigate to the “Courses” page and use the grade filter to find the courses tailored to your child’s grade."
+                title={step1TitleText}
+                text={step1SubText}
               ></InterestedStep>
               <InterestedStep 
                 step="2" 
-                title="Pick a course"
-                text="Find a course that is to you and your child’s liking. Click on “View details” for more information about the course."
+                title={step2TitleText}
+                text={step2SubText}
               ></InterestedStep>
               <InterestedStep 
                 step="3" 
-                title="Attend the Trial Lesson"
-                text="Take a lesson for free to see if the course is fit for your child. Details are under “View details” of the course."
+                title={step3TitleText}
+                text={step3SubText}
               ></InterestedStep>
               <InterestedStep 
                 step="4" 
-                title="Pay with e-transfer"
-                text="Send the correct amount to online2020courses@gmail.com via e-transfer. The price can be found in details of course."
+                title={step4TitleText}
+                text={step4SubText}
               ></InterestedStep>
               <InterestedStep 
                 step="5" 
-                title="Send an email to us!"
-                text="Include the following information in the email to online2020courses@gmail.com."
+                title={step5TitleText}
+                text={step5SubText}
               ></InterestedStep>
             </Grid>
             <Grid item xs={12}>
@@ -172,7 +199,6 @@ function EnrollItem({src, text}) {
     </Grid>
   )
 }
-
 
 function InterestedStep({step, title, text}) {
   return(
