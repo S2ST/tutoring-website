@@ -7,10 +7,11 @@ import Image from 'next/image'
 import { BsFillArrowRightCircleFill, BsArrowLeftShort } from "react-icons/bs";
 import { IoSearchCircleSharp } from "react-icons/io5";
 import { db } from '../firebase-config.js';
-import { collection, getDocs, Timestamp, setDoc, doc, getDoc } from "firebase/firestore"
+import { collection, getDocs, Timestamp, setDoc, doc, docs, getDoc, deleteField, updateDoc } from "firebase/firestore"
 import styleFunctionSx from '@mui/system/styleFunctionSx'
 import {AiFillInfoCircle} from 'react-icons/ai';
 import { useLanguageContext } from '../context/LangContext';
+import { async } from '@firebase/util'
 
 export async function getServerSideProps(context) {
   const querySnapshot = await getDocs(collection(db, "courses"));
@@ -26,16 +27,40 @@ export async function getServerSideProps(context) {
 
   let courses = [];
 
-  querySnapshot.forEach((doc) => {
+  await Promise.all(querySnapshot.docs.map(async(courseDoc) => {
     let course = {};
-    //getDoc(doc(db, "courses", doc.id, "languages", "chinese"))
+    
+    const englishDoc = await getDoc(doc(db, "courses", courseDoc.id, "languages", "english"));
+    const chineseDoc = await getDoc(doc(db, "courses", courseDoc.id, "languages", "chinese"));
 
-    course['id'] = doc.id;
-    course['data'] = JSON.parse(JSON.stringify(doc.data()));   
+    course['id'] = courseDoc.id;
+    course['english'] = JSON.parse(JSON.stringify(englishDoc.data()));
+    course['chinese'] = JSON.parse(JSON.stringify(chineseDoc.data()));
+    course['general'] = JSON.parse(JSON.stringify(courseDoc.data()));
     courses.push(course);
-  })
+
+    /* USED TO DELETE FIELDS
+    updateDoc(doc(db, "courses", courseDoc.id), {
+      courseName: deleteField(),
+      description: deleteField(),
+      lessonDays: deleteField(),
+      startDate: deleteField(),
+      trialLessonDate: deleteField()
+    })
+    */
+
+    /* USED TO ADD ENGLISH
+    setDoc(doc(db, "courses", courseDoc.id, "languages", "english"), {
+      courseName: courseDoc.data().courseName,
+      description: courseDoc.data().description,
+      lessonDays: courseDoc.data().lessonDays,
+      startDate: courseDoc.data().startDate,
+      trialLessonDate: courseDoc.data().trialLessonDate
+    })
+    */
+  }));
   
-  /*
+  /* USED TO ADD CHINESE
   const documentID = 'rQrmaOcgz3V1TFPtSFt8';
 
   await setDoc(doc(db, "courses", documentID, "languages", "chinese"), {
@@ -45,13 +70,14 @@ export async function getServerSideProps(context) {
     startDate: "7 月 13 日",
     trialLessonDate: "7 月 6 日星期三，下午 4 点至 45 点"
   });*/
- 
+
   return {
     props: {courses}, // will be passed to the page component as props
   }
 }
 
 function DetailsItem({course, isOnPage, setOnPage}) {
+  const lang = useLanguageContext().language ? 'english' : 'chinese';
 
   const returnToCourses = () => {
     setOnPage(false);
@@ -66,30 +92,30 @@ function DetailsItem({course, isOnPage, setOnPage}) {
               <IconButton size="small" onClick={returnToCourses} className={styles.backButton}><BsArrowLeftShort className={styles.backButtonIcon}/></IconButton>
             </Grid>
             <Grid xs item>
-              <h3 className={styles.courseNameDetails}>{course.data.courseName}</h3>
+              <h3 className={styles.courseNameDetails}>{course[lang].courseName}</h3>
             </Grid>
           </Grid>
-            <p className={styles.extraInfo}>{`${course.data.lessonDays}   |   ${course.data.startDate ? `Starts on ${course.data.startDate}` : 'Join anytime!'}`}</p>
+            <p className={styles.extraInfo}>{`${course[lang].lessonDays}   |   ${course[lang].startDate ? `Starts on ${course[lang].startDate}` : 'Join anytime!'}`}</p>
             <Grid container alignItems="center" className={styles.tagDetails}>
               <Grid item sx={{margin: 0}}>
                 <p className={styles.gradeLevelDetailsTag}>
-                  {`Grade Level: ${(course.data.gradeLevel[0] == 1 && course.data.gradeLevel[1] == 12) ? 'All' : `${course.data.gradeLevel[0]} - ${course.data.gradeLevel[1]}`}`}
+                  {`Grade Level: ${(course.general.gradeLevel[0] == 1 && course.general.gradeLevel[1] == 12) ? 'All' : `${course.general.gradeLevel[0]} - ${course.general.gradeLevel[1]}`}`}
                 </p>
               </Grid>
               <Grid item sx={{margin: 0}}>
                 <p className={styles.priceDetailsTag}>
-                  {`$${course.data.pricePerLesson} per lesson`}
+                  {`$${course.general.pricePerLesson} per lesson`}
                 </p>
               </Grid>
               <Grid item sx={{margin: 0}}>
                 <p className={styles.lessonsTotalDetailsTag}>
-                  {`${course.data.lessonsTotal} lessons total`}
+                  {`${course.general.lessonsTotal} lessons total`}
                 </p>
               </Grid>
             </Grid>
 
-            <p className={styles.descriptionDetails}>{course.data.description}</p>
-            <p className={styles.trialDetails}>{course.data.trialLessonDate ? `Trial Lesson: ${course.data.trialLessonDate}` : 'No Trial Lesson Available'}</p>
+            <p className={styles.descriptionDetails}>{course[lang].description}</p>
+            <p className={styles.trialDetails}>{course[lang].trialLessonDate ? `Trial Lesson: ${course[lang].trialLessonDate}` : 'No Trial Lesson Available'}</p>
 
         </Grid>
         <Grid item auto>
@@ -101,6 +127,18 @@ function DetailsItem({course, isOnPage, setOnPage}) {
 }
 
 function CourseItem({course, selectCourse, isOnPage, setOnPage}) {
+  const isEng = useLanguageContext().language;
+  const lang = isEng ? 'english' : 'chinese';
+  let gradeLevelText = '';
+  let extraInfoText = '';
+
+  if (isEng) {
+    gradeLevelText = `Grade Level: ${(course.general.gradeLevel[0] == 1 && course.general.gradeLevel[1] == 12) ? 'All' : `${course.general.gradeLevel[0]} - ${course.general.gradeLevel[1]}`}`;
+    extraInfoText = `Every ${course[lang].lessonDays}   |   ${course[lang].startDate ? `Starts on ${course[lang].startDate}` : 'Join anytime!'}`;
+  } else {
+    gradeLevelText = `Grade Level: ${(course.general.gradeLevel[0] == 1 && course.general.gradeLevel[1] == 12) ? 'All' : `${course.general.gradeLevel[0]} - ${course.general.gradeLevel[1]}`}`;
+    extraInfoText = `每${course[lang].lessonDays}  |   ${course[lang].startDate ? `${course[lang].startDate} 开始` : 'Join anytime!'}`;
+  }
 
   const [isVisible, setVisible] = useState(false);
   const domRef = useRef();
@@ -125,15 +163,15 @@ function CourseItem({course, selectCourse, isOnPage, setOnPage}) {
           <div className={styles.imageContainer}></div>
           <Grid container item xs spacing={1} className={styles.infoContainer}>
             <Grid container item xs="auto" alignItems="flex-end">
-              <p className={styles.courseName}>{course.data.courseName}</p>
+              <p className={styles.courseName}>{course[lang].courseName}</p>
             </Grid>
             <Grid container item xs="auto" alignItems="flex-end">
               <p className={styles.gradeLevel}>
-              {`Grade Level: ${(course.data.gradeLevel[0] == 1 && course.data.gradeLevel[1] == 12) ? 'All' : `${course.data.gradeLevel[0]} - ${course.data.gradeLevel[1]}`}`}
+              {`Grade Level: ${(course.general.gradeLevel[0] == 1 && course.general.gradeLevel[1] == 12) ? 'All' : `${course.general.gradeLevel[0]} - ${course.general.gradeLevel[1]}`}`}
               </p>
             </Grid>
             <Grid container item xs={12} alignItems="flex-start">
-             <p className={styles.extraInfo}>{`${course.data.lessonDays}   |   ${course.data.startDate ? `Starts on ${course.data.startDate}` : 'Join anytime!'}`}</p>
+             <p className={styles.extraInfo}>{extraInfoText}</p>
             </Grid>
           </Grid>
           <Grid item auto className={styles.detailsButtonContainer}>
@@ -148,7 +186,7 @@ function CourseItem({course, selectCourse, isOnPage, setOnPage}) {
 
 
 export default function courses({courses}) {
-  const lang = useLanguageContext().language;
+  const isEng = useLanguageContext().language;
 
   const [value, setValue] = useState(13);
   const [searchValue, setSearchValue] = useState('');
@@ -164,11 +202,11 @@ export default function courses({courses}) {
   }
 
   const filteredCourses = [];
-  courses.forEach((course) => {
-    if (course.data.courseName.toLowerCase().includes(searchValue.toLowerCase()) &&
-     (value == 13 || value <= course.data.gradeLevel[1] && value >= course.data.gradeLevel[0])) {
+  courses.forEach((course) => { // change this later $$$
+    if (course.english.courseName.toLowerCase().includes(searchValue.toLowerCase()) &&
+     (value == 13 || value <= course.general.gradeLevel[1] && value >= course.general.gradeLevel[0])) {
       filteredCourses.push(course);
-    }
+    } 
   })
 
   return (
@@ -188,12 +226,12 @@ export default function courses({courses}) {
         <Grid item className={styles.titlesContainer}>
           <h1 className={styles.title}>
             {
-              lang ? 'Courses Available' : '可用课程'
+              isEng ? 'Courses Available' : '可用课程'
             }
           </h1>
           <p className={styles.subtitle}>
             {
-              lang
+              isEng
                 ? 'Interested but don’t know how to start? Click here for more info'
                 : '有兴趣但不知道如何开始？ 点击这里获取更多信息'
             }
