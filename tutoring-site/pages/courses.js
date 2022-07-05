@@ -77,8 +77,8 @@ export async function getServerSideProps(context) {
 }
 
 function DetailsItem({course, isOnPage, setOnPage}) {
+  const lang = useLanguageContext().language ? 'english' : 'chinese';
 
-  //console.log(course);
   const returnToCourses = () => {
     setOnPage(false);
   }
@@ -92,10 +92,10 @@ function DetailsItem({course, isOnPage, setOnPage}) {
               <IconButton size="small" onClick={returnToCourses} className={styles.backButton}><BsArrowLeftShort className={styles.backButtonIcon}/></IconButton>
             </Grid>
             <Grid xs item>
-              <h3 className={styles.courseNameDetails}>{course.english.courseName}</h3>
+              <h3 className={styles.courseNameDetails}>{course[lang].courseName}</h3>
             </Grid>
           </Grid>
-            <p className={styles.extraInfo}>{`${course.english.lessonDays}   |   ${course.english.startDate ? `Starts on ${course.english.startDate}` : 'Join anytime!'}`}</p>
+            <p className={styles.extraInfo}>{`${course[lang].lessonDays}   |   ${course[lang].startDate ? `Starts on ${course[lang].startDate}` : 'Join anytime!'}`}</p>
             <Grid container alignItems="center" className={styles.tagDetails}>
               <Grid item sx={{margin: 0}}>
                 <p className={styles.gradeLevelDetailsTag}>
@@ -114,8 +114,8 @@ function DetailsItem({course, isOnPage, setOnPage}) {
               </Grid>
             </Grid>
 
-            <p className={styles.descriptionDetails}>{course.english.description}</p>
-            <p className={styles.trialDetails}>{course.english.trialLessonDate ? `Trial Lesson: ${course.english.trialLessonDate}` : 'No Trial Lesson Available'}</p>
+            <p className={styles.descriptionDetails}>{course[lang].description}</p>
+            <p className={styles.trialDetails}>{course[lang].trialLessonDate ? `Trial Lesson: ${course[lang].trialLessonDate}` : 'No Trial Lesson Available'}</p>
 
         </Grid>
         <Grid item auto>
@@ -127,7 +127,8 @@ function DetailsItem({course, isOnPage, setOnPage}) {
 }
 
 function CourseItem({course, selectCourse, isOnPage, setOnPage}) {
-  const lang = useLanguageContext().language;
+  const isEng = useLanguageContext().language;
+  const lang = isEng ? 'english' : 'chinese';
 
   const [isVisible, setVisible] = useState(false);
   const domRef = useRef();
@@ -152,7 +153,7 @@ function CourseItem({course, selectCourse, isOnPage, setOnPage}) {
           <div className={styles.imageContainer}></div>
           <Grid container item xs spacing={1} className={styles.infoContainer}>
             <Grid container item xs="auto" alignItems="flex-end">
-              <p className={styles.courseName}>{course.english.courseName}</p>
+              <p className={styles.courseName}>{course[lang].courseName}</p>
             </Grid>
             <Grid container item xs="auto" alignItems="flex-end">
               <p className={styles.gradeLevel}>
@@ -160,7 +161,7 @@ function CourseItem({course, selectCourse, isOnPage, setOnPage}) {
               </p>
             </Grid>
             <Grid container item xs={12} alignItems="flex-start">
-             <p className={styles.extraInfo}>{`${course.english.lessonDays}   |   ${course.english.startDate ? `Starts on ${course.english.startDate}` : 'Join anytime!'}`}</p>
+             <p className={styles.extraInfo}>{`${course[lang].lessonDays}   |   ${course[lang].startDate ? `Starts on ${course[lang].startDate}` : 'Join anytime!'}`}</p>
             </Grid>
           </Grid>
           <Grid item auto className={styles.detailsButtonContainer}>
@@ -175,7 +176,7 @@ function CourseItem({course, selectCourse, isOnPage, setOnPage}) {
 
 
 export default function courses({courses}) {
-  const lang = useLanguageContext().language;
+  const isEng = useLanguageContext().language;
 
   const [value, setValue] = useState(13);
   const [searchValue, setSearchValue] = useState('');
@@ -191,11 +192,11 @@ export default function courses({courses}) {
   }
 
   const filteredCourses = [];
-  courses.forEach((course) => {
+  courses.forEach((course) => { // change this later $$$
     if (course.english.courseName.toLowerCase().includes(searchValue.toLowerCase()) &&
      (value == 13 || value <= course.general.gradeLevel[1] && value >= course.general.gradeLevel[0])) {
       filteredCourses.push(course);
-    }
+    } 
   })
 
   return (
@@ -215,12 +216,12 @@ export default function courses({courses}) {
         <Grid item className={styles.titlesContainer}>
           <h1 className={styles.title}>
             {
-              lang ? 'Courses Available' : '可用课程'
+              isEng ? 'Courses Available' : '可用课程'
             }
           </h1>
           <p className={styles.subtitle}>
             {
-              lang
+              isEng
                 ? 'Interested but don’t know how to start? Click here for more info'
                 : '有兴趣但不知道如何开始？ 点击这里获取更多信息'
             }

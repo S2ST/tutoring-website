@@ -8,7 +8,7 @@ import { useContext, useEffect } from 'react';
 import { useLanguageContext } from '../context/LangContext';
 
 export default function Home() {
-  const lang = useLanguageContext().language;
+  const isEng = useLanguageContext().language;
 
   return (
     <div>
@@ -42,21 +42,21 @@ export default function Home() {
           <Grid item container xs={12} sm={7} className={styles.startingLeft}>
             <h1 className={styles.title}>
               { 
-                lang 
+                isEng 
                   ? 'Students to Students Tutoring' 
                   : '学生学习辅导'
               }
               </h1>
             <p className={styles.subtitle}>
               {
-                lang
+                isEng
                   ? 'This summer, we’ll have classes suitable for all students, as well as free trial lessons and webinars open to the public!'
                   : '今年夏天，我们将开设适合所有学生的课程，以及向公众开放的免费试听课程和网络研讨会！'
               }
             </p>
             <Link href="/courses"><Button variant="contained" className={styles.searchButton}>
               {
-                lang
+                isEng
                   ? 'Search Courses'
                   : '搜索课程'
               }  
