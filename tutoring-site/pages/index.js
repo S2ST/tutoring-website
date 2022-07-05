@@ -188,7 +188,7 @@ export default function Home() {
 // Component for each of the cards in the "Enroll your child now!" section
 function EnrollItem({src, text}) {
   return (
-    <Grid container alignContent="center" md={4} xs={12}>
+    <Grid container item alignContent="center" md={4} xs={12} className={styles.enrollItem}>
       <div className={styles.enrollItemContainer}>
         <Grid container spacing={2}>
           <Grid container item xs={5} md={12} alignContent="center" justifyContent="center">
