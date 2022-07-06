@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { collection, getDocs, Timestamp, orderBy, query } from "firebase/firestore"
+import { collection, getDocs, Timestamp, orderBy, query, getDoc, doc } from "firebase/firestore"
 import { Grid, Stack, Box } from '@mui/material'
 import { db } from "../firebase-config"
 import styles from '../styles/Events.module.scss'
 import Navbar from '../components/Navbar'
 import Head from 'next/head'
 import Image from 'next/image'
+import { useLanguageContext } from '../context/LangContext';
 import { IoFileTray } from 'react-icons/io5'
 import { useLanguageContext } from '../context/LangContext';
 
@@ -14,12 +15,20 @@ export async function getServerSideProps(context) {
 
   let events = [];
 
-  querySnapshot.forEach((doc) => {
+  await Promise.all(querySnapshot.docs.map(async(eventDoc) => {
     let event = {};
-    event['id'] = doc.id;
-    event['data'] = JSON.parse(JSON.stringify(doc.data()));   
+    event['id'] = eventDoc.id;
+
+    const englishDoc = await getDoc(doc(db, "events", eventDoc.id, "languages", "english"));
+    const chineseDoc = await getDoc(doc(db, "events", eventDoc.id, "languages", "chinese"));
+
+    event['english'] = JSON.parse(JSON.stringify(englishDoc.data()));
+    event['chinese'] = JSON.parse(JSON.stringify(chineseDoc.data()));
+    event['general'] = JSON.parse(JSON.stringify(eventDoc.data()));
     events.push(event);
-  })
+  }))
+
+  
  
   return {
     props: {events}, // will be passed to the page component as props
@@ -66,6 +75,8 @@ function getMonth(month) {
 }
 
 function EventItem({event}) {
+  const lang = useLanguageContext().language ? 'english' : 'chinese';
+
   const [isVisible, setVisible] = useState(false);
   const domRef = useRef();
   
@@ -77,8 +88,8 @@ function EventItem({event}) {
     observer.observe(domRef.current);
   }, []);
 
-  const startTimestamp = new Timestamp(parseInt(event.data.startTime.seconds),parseInt(event.data.startTime.nanoseconds));
-  const endTimestamp = new Timestamp(parseInt(event.data.endTime.seconds),parseInt(event.data.endTime.nanoseconds));
+  const startTimestamp = new Timestamp(parseInt(event.general.startTime.seconds),parseInt(event.general.startTime.nanoseconds));
+  const endTimestamp = new Timestamp(parseInt(event.general.endTime.seconds),parseInt(event.general.endTime.nanoseconds));
   
   return (
     <Box ref={domRef}>
@@ -89,7 +100,7 @@ function EventItem({event}) {
         </Grid> 
         <Grid container item xs className={styles.eventContentBox} spacing={1}>
           <Grid container item xs="auto" alignItems="flex-end" sx={{maxWidth:'100%'}}>
-            <p className={styles.eventName}>{event.data.eventName}</p>
+            <p className={styles.eventName}>{event[lang].eventName}</p>
           </Grid>
           <Grid container item xs="auto" alignItems="flex-end">
             <div className={styles.eventTimeBox}>
@@ -97,7 +108,7 @@ function EventItem({event}) {
             </div>
           </Grid>
           <Grid container item xs={12} alignItems="flex-start">
-            <p className={styles.eventDetails}>{event.data.details}</p>
+            <p className={styles.eventDetails}>{event[lang].details}</p>
           </Grid>
         </Grid>
       </Grid>
@@ -108,7 +119,16 @@ function EventItem({event}) {
 function events({events}) {
   const isEng = useLanguageContext().language;
 
-  let eventsText = isEng ? 'Events' : '事件';
+  let titleText = "Upcoming Events";
+  let subtitleText = "Aside from regular lessons, our organization also hosts informational seminars for extra-motivated students, as well as free trial lessons if you are unsure about committing to a course. Check out our upcoming events below!";
+  let eventsText = "Events";
+  
+  if(!isEng) {
+    titleText = "接下来的活动";
+    subtitleText = "除了常规课程外，我们的组织还为积极进取的学生举办信息研讨会，如果您不确定是否愿意参加课程，我们还会举办免费试听课程。 在下面查看我们即将举行的活动！";
+    eventsText = '事件';
+  }
+ 
 
   const eventItems = events.map((event) => 
     <EventItem event={event} />
@@ -129,8 +149,8 @@ function events({events}) {
         <Image src="/images/eventsTopRightBubbles.svg" layout="raw" width={100} height={100} className={styles.bubblesTopRight}></Image>
 
         <Grid item className={styles.titlesContainer}>
-            <h1 className={styles.title}>Upcoming Events</h1>
-            <p className={styles.subtitle}>Aside from regular lessons, our organization also hosts informational seminars for extra-motivated students, as well as free trial lessons if you are unsure about committing to a course. Check out our upcoming events below!</p>
+            <h1 className={styles.title}>{titleText}</h1>
+            <p className={styles.subtitle}>{subtitleText}</p>
         </Grid>
       </Grid>
 
