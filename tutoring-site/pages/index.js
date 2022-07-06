@@ -34,6 +34,9 @@ export default function Home() {
   let step4SubText = 'Send the correct amount to online2020courses@gmail.com via e-transfer. The price can be found in details of course.';
   let step5TitleText = 'Send an email to us!';
   let step5SubText = 'Include the following information in the email to online2020courses@gmail.com.';
+ 
+  let discountTitleText = 'Get a discount!';
+  let discountSubText = 'We will give a ~20% discount on tuition fees for each new student introduced. For example, if your friend spends $100 on courses, you will be given a $20 discount.';
 
   if (!isEng) {
     titleText = '学生学习辅导';
@@ -48,6 +51,20 @@ export default function Home() {
     ourPriorityText = '我们的首要任务是为学生提供优质的辅导。所有导师都来自加拿大顶尖大学（UoT、UBC、UWaterloo、McGill）或著名的国际文凭 (IB) 课程的一部分。';
     interestedTitleText = '有兴趣开始吗？';
     interestedSubtitleText = '简单的。只需遵循以下五个步骤：';
+
+    step1TitleText = '浏览我们提供的课程';
+    step1SubText = '导航到“课程”页面并使用成绩过滤器查找适合您孩子成绩的课程。';
+    step2TitleText = '选择一门课程';
+    step2SubText = '找到适合您和您孩子喜欢的课程。 点击“查看详情”了解更多课程信息。';
+    step3TitleText = '参加试听课';
+    step3SubText = '免费参加课程，看看该课程是否适合您的孩子。 详细信息在课程的“查看详细信息”下。';
+    step4TitleText = '使用电子转账付款'
+    step4SubText = '通过电子转账将正确的金额发送至 online2020courses@gmail.com。 价格当然可以在详细信息中找到。';
+    step5TitleText = '发送电子邮件给我们！';
+    step5SubText = '在发送至 online2020courses@gmail.com 的电子邮件中包含以下信息。';
+
+    discountTitleText = '获得折扣！';
+    discountSubText = '我们将为每位介绍的新学生提供约 20% 的学费折扣。 例如，如果您的朋友在课程上花费 100 加元，您将获得 20 加元的折扣。';
   }
 
   return (
@@ -163,7 +180,9 @@ export default function Home() {
               ></InterestedStep>
             </Grid>
             <Grid item xs={12}>
-              <Image src="/images/email.svg" layout="raw" width={100} height={100} className={styles.emailImage}></Image>
+              {isEng ? <Image src="/images/email.svg" layout="raw" width={100} height={100} className={styles.emailImage}></Image>
+                     : <Image src="/images/emailChinese.svg" layout="raw" width={100} height={100} className={styles.emailImage}></Image>}
+              
             </Grid>
           </Grid>
         </Grid>
@@ -173,8 +192,8 @@ export default function Home() {
           <Grid container item className={styles.discountBox} justifyContent="center">
             <Image src="/images/discount.svg" layout="raw" width={100} height={100} className={styles.discountImage}></Image>
             <Grid item xs={12}>
-                <h3 className={styles.discountTitle}>Get a discount!</h3>
-                <p className={styles.discountText}>We will give a ~20% discount on tuition fees for each new student introduced. For example, if your friend spends $100 on courses, you will be given a $20 discount.</p>
+                <h3 className={styles.discountTitle}>{discountTitleText}</h3>
+                <p className={styles.discountText}>{discountSubText}</p>
               </Grid>
           </Grid>
         </Grid>
