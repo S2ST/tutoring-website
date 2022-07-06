@@ -304,6 +304,10 @@
     width: 100%;
     text-align: left;
   }
+
+  .enrollItemContainer {
+    width: 100%;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -362,7 +366,6 @@
   .enrollItemContainer {
     padding: 3vh;
     margin: 1vh;
-    width: 100%;
   }
 
   .enrollBubblesMobile {
