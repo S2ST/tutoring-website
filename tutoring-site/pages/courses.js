@@ -7,7 +7,9 @@ import Image from 'next/image'
 import { BsFillArrowRightCircleFill, BsArrowLeftShort } from "react-icons/bs";
 import { IoSearchCircleSharp } from "react-icons/io5";
 import { db } from '../firebase-config.js';
+import { storage } from '../firebase-config.js';
 import { collection, getDocs, Timestamp, setDoc, doc, docs, getDoc, deleteField, updateDoc } from "firebase/firestore"
+import { ref, getDownloadURL } from "firebase/storage";
 import styleFunctionSx from '@mui/system/styleFunctionSx'
 import {AiFillInfoCircle} from 'react-icons/ai';
 import { useLanguageContext } from '../context/LangContext';
@@ -32,12 +34,16 @@ export async function getServerSideProps(context) {
     
     const englishDoc = await getDoc(doc(db, "courses", courseDoc.id, "languages", "english"));
     const chineseDoc = await getDoc(doc(db, "courses", courseDoc.id, "languages", "chinese"));
+    const imageURL = await getDownloadURL(ref(storage, `gs://website-d9767.appspot.com/Course Images/${courseDoc.id}.svg`));
 
     course['id'] = courseDoc.id;
     course['english'] = JSON.parse(JSON.stringify(englishDoc.data()));
     course['chinese'] = JSON.parse(JSON.stringify(chineseDoc.data()));
     course['general'] = JSON.parse(JSON.stringify(courseDoc.data()));
+    course.general.imageURL = imageURL;
     courses.push(course);
+
+
 
     /* USED TO DELETE FIELDS
     updateDoc(doc(db, "courses", courseDoc.id), {
@@ -119,7 +125,11 @@ function DetailsItem({course, isOnPage, setOnPage}) {
 
         </Grid>
         <Grid item auto>
-          <div className={styles.imageDetailsContainer}></div>
+          <div className={styles.imageDetailsContainer}>
+            <div style={{height: '80%', width:'80%', position: 'relative'}}>
+              <Image src={course.general.imageURL} height={80} width={80} layout="fill"></Image>
+            </div>
+          </div>
         </Grid>
       </Grid>
     </Grid>
@@ -128,6 +138,7 @@ function DetailsItem({course, isOnPage, setOnPage}) {
 
 function CourseItem({course, selectCourse, isOnPage, setOnPage}) {
   const isEng = useLanguageContext().language;
+
   const lang = isEng ? 'english' : 'chinese';
   let gradeLevelText = '';
   let extraInfoText = '';
@@ -160,7 +171,11 @@ function CourseItem({course, selectCourse, isOnPage, setOnPage}) {
     <>
       <Box ref={domRef}>
         <Grid container direction="row" justifyContent="center" alignItems="center" className={`${styles.courseItemBox} ${styles.fadeInSection} ${isVisible ? styles.isVisible : ''}`}>
-          <div className={styles.imageContainer}></div>
+          <div className={styles.imageContainer}>
+            <div style={{height: '80%', width:'80%', position: 'relative'}}>
+              <Image src={course.general.imageURL} height={80} width={80} layout="fill"></Image>
+            </div>
+          </div>
           <Grid container item xs spacing={1} className={styles.infoContainer}>
             <Grid container item xs="auto" alignItems="flex-end">
               <p className={styles.courseName}>{course[lang].courseName}</p>
