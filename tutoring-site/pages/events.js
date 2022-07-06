@@ -8,7 +8,6 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { useLanguageContext } from '../context/LangContext';
 import { IoFileTray } from 'react-icons/io5'
-import { useLanguageContext } from '../context/LangContext';
 
 export async function getServerSideProps(context) {
   const querySnapshot = await getDocs(query(collection(db, "events"), orderBy("startTime")));
