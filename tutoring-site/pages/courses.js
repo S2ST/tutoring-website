@@ -303,7 +303,7 @@ export default function courses({courses}) {
           <a href="../#interestedSection"><BsFillArrowRightCircleFill className={styles.arrowButton}/></a></span></p>
         </Grid>
         <Grid container className={styles.searchContainer} alignItems="center">
-          <Grid item xs={12} sm={6} md={8} sx={{paddingRight: '3vh'}}>
+          <Grid item xs={12} sm={6} md={8} className={styles.searchSubContainer}>
             <SearchField fullWidth id="outlined-search" type="search" placeholder={searchText} value={searchValue} onChange={searchChange}/>
           </Grid>
           <Grid item xs={8} sm={6} md={4}>

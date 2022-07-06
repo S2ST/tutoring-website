@@ -48,6 +48,10 @@
   .searchContainer {
     margin-top: 2vh;
 
+    .searchSubContainer {
+      padding-right: 3vh;
+    }
+
     .gradeSliderContainer {
       background-color: $light-1;
       border-radius: 60px;
@@ -319,6 +323,10 @@
   .searchContainer {
     font-size: 1.5vh !important;
     margin-top: -.01vh !important;
+
+    .searchSubContainer {
+      padding-right: 0 !important;
+    }
   }
 
   .gradeSliderContainer {
