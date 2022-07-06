@@ -83,7 +83,27 @@ export async function getServerSideProps(context) {
 }
 
 function DetailsItem({course, isOnPage, setOnPage}) {
-  const lang = useLanguageContext().language ? 'english' : 'chinese';
+
+  const isEng = useLanguageContext().language;
+  const lang = isEng ? 'english' : 'chinese';
+
+  let gradeLevelText = `Grade Level: ${(course.general.gradeLevel[0] == 1 && course.general.gradeLevel[1] == 12) ? 'All' : `${course.general.gradeLevel[0]} - ${course.general.gradeLevel[1]}`}`;
+  let extraInfoText = `Every ${course[lang].lessonDays}   |   ${course[lang].startDate ? `Starts on ${course[lang].startDate}` : 'Join anytime!'}`;
+  let trialLessonText = 'Trial Lesson: ';
+  let noTrialLessonText = 'No Trial Lesson Available';
+  let pricePerLessonText = `$${course.general.pricePerLesson} per lesson`;
+  let lessonsTotalText = `${course.general.lessonsTotal} lessons total`;
+  let noLessonsText = 'Ongoing';
+
+  if (!isEng) {
+    gradeLevelText = `年纪: ${(course.general.gradeLevel[0] == 1 && course.general.gradeLevel[1] == 12) ? '所有' : `${course.general.gradeLevel[0]} - ${course.general.gradeLevel[1]}`}`;
+    extraInfoText = `每${course[lang].lessonDays}  |   ${course[lang].startDate ? `${course[lang].startDate} 开始` : '随时可以加入!'}`;
+    trialLessonText = '试听课: ';
+    noTrialLessonText = '没有试听课';
+    pricePerLessonText = `$${course.general.pricePerLesson} / 课`;
+    lessonsTotalText = `总共 ${course.general.lessonsTotal} 门课`;
+    noLessonsText = '进行中';
+  }
 
   const returnToCourses = () => {
     setOnPage(false);
@@ -101,27 +121,27 @@ function DetailsItem({course, isOnPage, setOnPage}) {
               <h3 className={styles.courseNameDetails}>{course[lang].courseName}</h3>
             </Grid>
           </Grid>
-            <p className={styles.extraInfo}>{`${course[lang].lessonDays}   |   ${course[lang].startDate ? `Starts on ${course[lang].startDate}` : 'Join anytime!'}`}</p>
+            <p className={styles.extraInfo}>{extraInfoText}</p>
             <Grid container alignItems="center" className={styles.tagDetails}>
               <Grid item sx={{margin: 0}}>
                 <p className={styles.gradeLevelDetailsTag}>
-                  {`Grade Level: ${(course.general.gradeLevel[0] == 1 && course.general.gradeLevel[1] == 12) ? 'All' : `${course.general.gradeLevel[0]} - ${course.general.gradeLevel[1]}`}`}
+                  {gradeLevelText}
                 </p>
               </Grid>
               <Grid item sx={{margin: 0}}>
                 <p className={styles.priceDetailsTag}>
-                  {`$${course.general.pricePerLesson} per lesson`}
+                  {pricePerLessonText}
                 </p>
               </Grid>
               <Grid item sx={{margin: 0}}>
                 <p className={styles.lessonsTotalDetailsTag}>
-                  {`${course.general.lessonsTotal} lessons total`}
+                  {course.general.lessonsTotal ? lessonsTotalText : noLessonsText}
                 </p>
               </Grid>
             </Grid>
 
             <p className={styles.descriptionDetails}>{course[lang].description}</p>
-            <p className={styles.trialDetails}>{course[lang].trialLessonDate ? `Trial Lesson: ${course[lang].trialLessonDate}` : 'No Trial Lesson Available'}</p>
+            <p className={styles.trialDetails}>{course[lang].trialLessonDate ? `${trialLessonText} ${course[lang].trialLessonDate}` : noTrialLessonText}</p>
 
         </Grid>
         <Grid item auto>
@@ -140,15 +160,15 @@ function CourseItem({course, selectCourse, isOnPage, setOnPage}) {
   const isEng = useLanguageContext().language;
 
   const lang = isEng ? 'english' : 'chinese';
-  let gradeLevelText = '';
-  let extraInfoText = '';
 
-  if (isEng) {
-    gradeLevelText = `Grade Level: ${(course.general.gradeLevel[0] == 1 && course.general.gradeLevel[1] == 12) ? 'All' : `${course.general.gradeLevel[0]} - ${course.general.gradeLevel[1]}`}`;
-    extraInfoText = `Every ${course[lang].lessonDays}   |   ${course[lang].startDate ? `Starts on ${course[lang].startDate}` : 'Join anytime!'}`;
-  } else {
-    gradeLevelText = `Grade Level: ${(course.general.gradeLevel[0] == 1 && course.general.gradeLevel[1] == 12) ? 'All' : `${course.general.gradeLevel[0]} - ${course.general.gradeLevel[1]}`}`;
-    extraInfoText = `每${course[lang].lessonDays}  |   ${course[lang].startDate ? `${course[lang].startDate} 开始` : 'Join anytime!'}`;
+  let gradeLevelText = `Grade Level: ${(course.general.gradeLevel[0] == 1 && course.general.gradeLevel[1] == 12) ? 'All' : `${course.general.gradeLevel[0]} - ${course.general.gradeLevel[1]}`}`;
+  let extraInfoText = `Every ${course[lang].lessonDays}   |   ${course[lang].startDate ? `Starts on ${course[lang].startDate}` : 'Join anytime!'}`;
+  let detailsButtonText = 'VIEW DETAILS';
+
+  if (!isEng) {
+    gradeLevelText = `年纪: ${(course.general.gradeLevel[0] == 1 && course.general.gradeLevel[1] == 12) ? '所有' : `${course.general.gradeLevel[0]} - ${course.general.gradeLevel[1]}`}`;
+    extraInfoText = `每${course[lang].lessonDays}  |   ${course[lang].startDate ? `${course[lang].startDate} 开始` : '随时可以加入!'}`;
+    detailsButtonText = '查看详情';
   }
 
   const [isVisible, setVisible] = useState(false);
@@ -182,7 +202,7 @@ function CourseItem({course, selectCourse, isOnPage, setOnPage}) {
             </Grid>
             <Grid container item xs="auto" alignItems="flex-end">
               <p className={styles.gradeLevel}>
-              {`Grade Level: ${(course.general.gradeLevel[0] == 1 && course.general.gradeLevel[1] == 12) ? 'All' : `${course.general.gradeLevel[0]} - ${course.general.gradeLevel[1]}`}`}
+                {gradeLevelText}
               </p>
             </Grid>
             <Grid container item xs={12} alignItems="flex-start">
@@ -190,7 +210,7 @@ function CourseItem({course, selectCourse, isOnPage, setOnPage}) {
             </Grid>
           </Grid>
           <Grid item auto className={styles.detailsButtonContainer}>
-            <Button variant="contained" className={styles.detailsButton} onClick={openDetails}>VIEW DETAILS</Button>
+            <Button variant="contained" className={styles.detailsButton} onClick={openDetails}>{detailsButtonText}</Button>
             <IconButton onClick={openDetails}><AiFillInfoCircle className={styles.mobileDetailsButton}/></IconButton>
           </Grid>
         </Grid>
@@ -209,10 +229,13 @@ export default function courses({courses}) {
   //const [filteredCourses, setFilteredCourses] = useState(courses);
   const [isOnPage, setOnPage] = useState(false); // For Details Component
 
-  
+  let coursesText = isEng ? 'Courses' : '课程';
+  let searchText = isEng ? 'Search...' : '搜索...';
+  let noCoursesText = isEng ? 'No Courses Found' : '没有找到课程';
+
   const valueFormat = (val) => {
     if (val == 13) {
-      return 'All';
+      return isEng ? 'All' : '所有';
     } else return val;
   }
 
@@ -228,7 +251,7 @@ export default function courses({courses}) {
     <>
       {/* Site Meta-Data */}
       <Head>
-        <title>Courses</title>
+        <title>{coursesText}</title>
         <meta name="description" content="Generated by create next app" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -255,13 +278,15 @@ export default function courses({courses}) {
         </Grid>
         <Grid container className={styles.searchContainer} alignItems="center">
           <Grid item xs={12} sm={6} md={8} sx={{paddingRight: '3vh'}}>
-            <SearchField fullWidth id="outlined-search" type="search" placeholder="Search..." value={searchValue} onChange={(e) => setSearchValue(e.target.value)}/>
+            <SearchField fullWidth id="outlined-search" type="search" placeholder={searchText} value={searchValue} onChange={(e) => setSearchValue(e.target.value)}/>
           </Grid>
           <Grid item xs={8} sm={6} md={4}>
             <Grid container direction="row" alignItems="center" className={styles.gradeSliderContainer}>
               <Grid item auto >
                 <Typography className={styles.gradeLabel} id="linear-slider" gutterBottom>
-                  Grade: {valueFormat(value)}
+                  {
+                    isEng ? 'Grade: ' : '年纪：'
+                  } {valueFormat(value)}
                 </Typography>
               </Grid>
               <Grid item xs>
@@ -286,7 +311,7 @@ export default function courses({courses}) {
        <Image src='/images/coursesBubblesRight.svg' layout="raw" width={450} height={450} className={styles.bubblesRight}></Image>
        <Grid item className={`${styles.coursesContainer} ${isOnPage ? styles.hideCoursesLeft : ''}`}> 
           {filteredCourses.length != 0 ? filteredCourses.map((item) => <CourseItem course={item} key={item.id} selectCourse={setCourse} isOnPage={isOnPage} setOnPage={setOnPage}/>) : 
-          <Grid container justifyContent="center" alignItems="center"><p className={styles.noCourses}>No Courses Found</p></Grid>}
+          <Grid container justifyContent="center" alignItems="center"><p className={styles.noCourses}>{noCoursesText}</p></Grid>}
        </Grid>
       </Grid>
       <DetailsItem course={course} isOnPage={isOnPage} setOnPage={setOnPage}></DetailsItem>
