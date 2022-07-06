@@ -47,7 +47,7 @@ function Navbar(props) {
     } else {
       changeLang(true);
     }
-  }
+  } 
 
   // Mobile Navbar Drawer
   const drawer = (
