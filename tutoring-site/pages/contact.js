@@ -41,7 +41,7 @@ function contact() {
         <Image src="/images/contactBubblesBottom.svg" layout="raw" width={100} height={100} className={styles.contactBubbleBottom}></Image>
         <Image src="/images/pencilDude.svg" layout="raw" width={100} height={100} className={styles.pencilDude}></Image>
 
-        <Grid item container xs={12} sm={6} spacing={2} className={styles.innerContainer}>
+        <Grid item container xs={12} md={6} spacing={2} className={styles.innerContainer}>
           <Grid item xs={12}>
             <h1 className={styles.title}>{contactTitleText}</h1>
             <p className={styles.subtitle}>{contactSubText}</p>
