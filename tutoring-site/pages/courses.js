@@ -254,6 +254,15 @@ export default function courses({courses}) {
     } else return val;
   }
 
+  const searchChange = (e) => {
+    setSearchValue(e.target.value);
+
+    // Moves back to all courses page when on Details page
+    if (isOnPage) {
+      setOnPage(false);
+    }
+  }
+
   const filteredCourses = [];
   courses.forEach((course) => { // change this later $$$
     if (course.english.courseName.toLowerCase().includes(searchValue.toLowerCase()) || course.chinese.courseName.toLowerCase().includes(searchValue.toLowerCase()) &&
@@ -287,7 +296,7 @@ export default function courses({courses}) {
         </Grid>
         <Grid container className={styles.searchContainer} alignItems="center">
           <Grid item xs={12} sm={6} md={8} sx={{paddingRight: '3vh'}}>
-            <SearchField fullWidth id="outlined-search" type="search" placeholder={searchText} value={searchValue} onChange={(e) => setSearchValue(e.target.value)}/>
+            <SearchField fullWidth id="outlined-search" type="search" placeholder={searchText} value={searchValue} onChange={searchChange}/>
           </Grid>
           <Grid item xs={8} sm={6} md={4}>
             <Grid container direction="row" alignItems="center" className={styles.gradeSliderContainer}>
