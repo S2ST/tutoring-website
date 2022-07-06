@@ -263,6 +263,14 @@ export default function courses({courses}) {
     }
   }
 
+  const gradeChange = (e) => {
+    setValue(e.target.value);
+
+    if (isOnPage) {
+      setOnPage(false);
+    }
+  }
+
   const filteredCourses = [];
   courses.forEach((course) => { // change this later $$$
     if ((course.english.courseName.toLowerCase().includes(searchValue.toLowerCase()) || course.chinese.courseName.toLowerCase().includes(searchValue.toLowerCase())) &&
@@ -312,7 +320,7 @@ export default function courses({courses}) {
                   step={1}
                   max={13}
                   valueLabelFormat={valueFormat}
-                  onChange={(e) => setValue(e.target.value)}
+                  onChange={gradeChange}
                   aria-labelledby="linear-slider"
                 />
               </Grid>
