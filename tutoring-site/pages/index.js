@@ -173,9 +173,9 @@ export default function Home() {
           <Grid container item className={styles.discountBox} justifyContent="center">
             <Image src="/images/discount.svg" layout="raw" width={100} height={100} className={styles.discountImage}></Image>
             <Grid item xs={12}>
-                <h3 className={styles.discountTitle}>Get a discount!</h3>
-                <p className={styles.discountText}>We will give a ~20% discount on tuition fees for each new student introduced. For example, if your friend spends $100 on courses, you will be given a $20 discount.</p>
-              </Grid>
+              <h3 className={styles.discountTitle}>Get a discount!</h3>
+              <p className={styles.discountText}>We will give a ~20% discount on tuition fees for each new student introduced. For example, if your friend spends $100 on courses, you will be given a $20 discount.</p>
+            </Grid>
           </Grid>
         </Grid>
 
