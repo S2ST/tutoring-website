@@ -125,6 +125,7 @@
   box-shadow: 0px 4px 34px rgba(0, 0, 0, 0.08);
 
   .imageContainer {
+    display: flex;
     justify-content: center;
     align-items: center;
     width: 13vh;
@@ -221,7 +222,7 @@
     .courseNameDetails {
       font-size: 2.7vh;
       margin: 0;
-      padding-bottom: 1vh;
+      // padding-bottom: 1vh;
     }
     
     .backButton {
@@ -229,7 +230,7 @@
       margin-right: 1vh;
       margin-left: -1.5vh;
       padding: 0;
-      padding-bottom: 1vh;
+      // padding-bottom: 1vh;
 
       &:hover {
         background-color: $lightest;
@@ -275,6 +276,7 @@
     }
   }
   .imageDetailsContainer {
+    display: flex;
     justify-content: center;
     align-items: center;
     width: 39vh;
@@ -289,9 +291,10 @@
 
 @media only screen and (max-width: 1060px) {
   .imageDetailsContainer {
-    display: none;
+    display: none !important;
   }
 }
+
 @media only screen and (max-width: 600px) {
   /* For mobile phones: */
   .title {
@@ -330,7 +333,7 @@
   }
 
   .imageContainer {
-    display: none;
+    display: none !important;
   }
   .infoContainer {
     padding-top: 2vh !important;
