@@ -21,7 +21,8 @@ import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import Link from 'next/link';
 import styles from '../styles/Navbar.module.scss';
 
-const navItems = ['Home', 'Courses', 'Events', 'Calendar', 'Contact'];
+const navItemsEnglish = ['Home', 'Courses', 'Events', 'Calendar', 'Contact'];
+const navItemsChinese = ['主页', '课程', '事件', '日历', '联系'];
 const navLink = ['/', '/courses', '/events', '/calendar', '/contact'];
 
 function Navbar(props) {
@@ -29,6 +30,12 @@ function Navbar(props) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const lang = useLanguageContext().language; // True means English and False means Chinese
   const changeLang = useLanguageContext().setLanguage;
+
+  let navItems = navItemsEnglish;
+
+  if(!lang) {
+    navItems = navItemsChinese;
+  }
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -56,7 +63,7 @@ function Navbar(props) {
         </Grid>
         <Grid item xs>
         <Typography variant="h6" className={styles.logo} sx={{ my: 2, mx: '2rem'}}>
-          Students to Students Tutoring
+          {lang ? 'Students to Students Tutoring' : '学生学习辅导'}
         </Typography>
         </Grid>
       </Grid>
