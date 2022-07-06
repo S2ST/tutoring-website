@@ -9,6 +9,11 @@
 .navTitleDesktop {
   @include navTitle;
   text-align: center;
+
+  @media only screen and (width: 600px) {
+    font-size: 2vh;
+    font-weight: 500;
+  }
 }
 
 .navTitleMobile {
@@ -22,6 +27,12 @@
   @media only screen and (max-width: 600px) {
     font-size: 1.5vh;
   }
+}
+
+.logoImage {
+  width: 50px;
+  height: auto;
+  margin: 0;
 }
 
 .china {
@@ -44,7 +55,7 @@
   display: block;
   height: 2.5rem;
   width: 5rem;
-  background-color: #CFE3DF;
+  background-color: #0B7A7E;
   border-radius: 10000px;
   padding: 0.3rem;
   margin-left: 20px;
