@@ -93,6 +93,7 @@ function DetailsItem({course, isOnPage, setOnPage}) {
   let noTrialLessonText = 'No Trial Lesson Available';
   let pricePerLessonText = `$${course.general.pricePerLesson} per lesson`;
   let lessonsTotalText = `${course.general.lessonsTotal} lessons total`;
+  let noLessonsText = 'Ongoing';
 
   if (!isEng) {
     gradeLevelText = `年纪: ${(course.general.gradeLevel[0] == 1 && course.general.gradeLevel[1] == 12) ? '所有' : `${course.general.gradeLevel[0]} - ${course.general.gradeLevel[1]}`}`;
@@ -101,6 +102,7 @@ function DetailsItem({course, isOnPage, setOnPage}) {
     noTrialLessonText = '没有试听课';
     pricePerLessonText = `$${course.general.pricePerLesson} / 课`;
     lessonsTotalText = `总共 ${course.general.lessonsTotal} 门课`;
+    noLessonsText = '进行中';
   }
 
   const returnToCourses = () => {
@@ -133,7 +135,7 @@ function DetailsItem({course, isOnPage, setOnPage}) {
               </Grid>
               <Grid item sx={{margin: 0}}>
                 <p className={styles.lessonsTotalDetailsTag}>
-                  {lessonsTotalText}
+                  {course.general.lessonsTotal ? lessonsTotalText : noLessonsText}
                 </p>
               </Grid>
             </Grid>
@@ -228,15 +230,11 @@ export default function courses({courses}) {
   const [isOnPage, setOnPage] = useState(false); // For Details Component
 
   let searchText = isEng ? 'Search...' : '搜索...';
-  
+  let noCoursesText = isEng ? 'No Courses Found' : '没有找到课程';
 
   const valueFormat = (val) => {
     if (val == 13) {
-      if (isEng) {
-        return 'All';
-      } else {
-        return '所有';
-      }
+      return isEng ? 'All' : '所有';
     } else return val;
   }
 
@@ -312,7 +310,7 @@ export default function courses({courses}) {
        <Image src='/images/coursesBubblesRight.svg' layout="raw" width={450} height={450} className={styles.bubblesRight}></Image>
        <Grid item className={`${styles.coursesContainer} ${isOnPage ? styles.hideCoursesLeft : ''}`}> 
           {filteredCourses.length != 0 ? filteredCourses.map((item) => <CourseItem course={item} key={item.id} selectCourse={setCourse} isOnPage={isOnPage} setOnPage={setOnPage}/>) : 
-          <Grid container justifyContent="center" alignItems="center"><p className={styles.noCourses}>No Courses Found</p></Grid>}
+          <Grid container justifyContent="center" alignItems="center"><p className={styles.noCourses}>{noCoursesText}</p></Grid>}
        </Grid>
       </Grid>
       <DetailsItem course={course} isOnPage={isOnPage} setOnPage={setOnPage}></DetailsItem>
