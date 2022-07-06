@@ -229,13 +229,28 @@ export default function courses({courses}) {
   //const [filteredCourses, setFilteredCourses] = useState(courses);
   const [isOnPage, setOnPage] = useState(false); // For Details Component
 
-  let coursesText = isEng ? 'Courses' : '课程';
-  let searchText = isEng ? 'Search...' : '搜索...';
-  let noCoursesText = isEng ? 'No Courses Found' : '没有找到课程';
+  let coursesText = 'Courses';
+  let searchText = 'Search...';
+  let noCoursesText = 'No Courses Found';
+  let coursesTitleText = 'Courses Available';
+  let coursesSubText = 'Interested but don’t know how to start? Click here for more info';
+  let gradeText = 'Grade: ';
+  let allText = 'All';
+
+  if (!isEng) {
+    coursesText = '课程';
+    searchText = '搜索...';
+    noCoursesText = '没有找到课程';
+    coursesTitleText = '可用课程';
+    coursesSubText = '有兴趣但不知道如何开始？ 点击这里获取更多信息';
+    gradeText = '年纪：';
+    allText = '所有';
+  }
+
 
   const valueFormat = (val) => {
     if (val == 13) {
-      return isEng ? 'All' : '所有';
+      return allText;
     } else return val;
   }
 
@@ -263,16 +278,10 @@ export default function courses({courses}) {
         <Image src="/images/coursesBubblesTopLeft.svg" layout="raw" width={100} height={100} className={styles.bubblesTopLeft}></Image>
         <Grid item className={styles.titlesContainer}>
           <h1 className={styles.title}>
-            {
-              isEng ? 'Courses Available' : '可用课程'
-            }
+            {coursesTitleText}
           </h1>
           <p className={styles.subtitle}>
-            {
-              isEng
-                ? 'Interested but don’t know how to start? Click here for more info'
-                : '有兴趣但不知道如何开始？ 点击这里获取更多信息'
-            }
+            {coursesSubText}
           <span>
           <a href="../#interestedSection"><BsFillArrowRightCircleFill className={styles.arrowButton}/></a></span></p>
         </Grid>
@@ -284,9 +293,7 @@ export default function courses({courses}) {
             <Grid container direction="row" alignItems="center" className={styles.gradeSliderContainer}>
               <Grid item auto >
                 <Typography className={styles.gradeLabel} id="linear-slider" gutterBottom>
-                  {
-                    isEng ? 'Grade: ' : '年纪：'
-                  } {valueFormat(value)}
+                  {gradeText} {valueFormat(value)}
                 </Typography>
               </Grid>
               <Grid item xs>
