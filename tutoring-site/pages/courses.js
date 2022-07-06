@@ -93,11 +93,11 @@ function DetailsItem({course, isOnPage, setOnPage}) {
     <Grid container justifyContent="center" alignItems="center" sx={{overflowX: 'hidden'}}>
       <Grid container alignItems="center" className={`${styles.detailsItemContainer} ${isOnPage ? '' : styles.hideDetailsRight}`}>
         <Grid item xs className={styles.detailsInfoContainer}>
-          <Grid container alignItems="center">
+          <Grid container alignItems="center" style={{marginBottom: '1vh'}}>
             <Grid auto item>
               <IconButton size="small" onClick={returnToCourses} className={styles.backButton}><BsArrowLeftShort className={styles.backButtonIcon}/></IconButton>
             </Grid>
-            <Grid xs item>
+            <Grid xs container item alignItems="center">
               <h3 className={styles.courseNameDetails}>{course[lang].courseName}</h3>
             </Grid>
           </Grid>
