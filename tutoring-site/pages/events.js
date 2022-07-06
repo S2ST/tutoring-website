@@ -123,8 +123,8 @@ function events({events}) {
   let eventsText = "Events";
   
   if(!isEng) {
-    titleText = "接下来的活动";
-    subtitleText = "除了常规课程外，我们的组织还为积极进取的学生举办信息研讨会，如果您不确定是否愿意参加课程，我们还会举办免费试听课程。 在下面查看我们即将举行的活动！";
+    titleText = "正在进行的活动";
+    subtitleText = "除了常规课程外，我们还为积极进取的学生举办了信息研讨会，如果您不确定是否愿意参加课程，我们还会举办免费试听课程。 在下面查看我们即将举行的活动！";
     eventsText = '事件';
   }
  

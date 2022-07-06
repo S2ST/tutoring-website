@@ -45,28 +45,28 @@ export default function Home() {
     subtitleText = '今年夏天，我们将开设适合所有学生的课程，以及向公众开放的免费试听课程和网络研讨会！';
     searchCoursesButtonText = '搜索课程';
     enrollTitleText = '立即为您的孩子报名！';
-    missionText = '我们的使命是以可承受的价格为尽可能多的学生提供课外教育。';
-    card1Text = '付得起的价钱！每节课每 45 分钟从 4 美元到 14 美元不等。';
-    card2Text = '通过我们的课程提高您孩子的技能。每门课程包含 12-14 节课。';
-    card3Text = '课程材料范围从小学到高中。';
-    forStudentsTitleText = '为学生，由学生。';
-    ourPriorityText = '我们的首要任务是为学生提供优质的辅导。所有导师都来自加拿大顶尖大学（UoT、UBC、UWaterloo、McGill）或著名的国际文凭 (IB) 课程的一部分。';
-    interestedTitleText = '有兴趣开始吗？';
-    interestedSubtitleText = '简单的。只需遵循以下五个步骤：';
+    missionText = '我们的宗旨是以最便宜的价格为尽可能多的学生提供课外教育。';
+    card1Text = '付得起的价钱！每节课是 45 分钟。价钱是从 4 加元到 14 加元之间。';
+    card2Text = '通过我们的课程可以提高您们孩子的技能。每门课程包括 12-14 节课。';
+    card3Text = '课程范围从小学到高中。';
+    forStudentsTitleText = '服务的对象是学生，提供服务的人也是学生。';
+    ourPriorityText = '我们的首要任务是为学生提供最优质的辅导。所有讲师都来自加拿大最顶尖的大学（UoT、UBC、UWaterloo、McGill）或者是正在 IB Program 学习的学生。';
+    interestedTitleText = '想要开始注册课程？';
+    interestedSubtitleText = '很简单，只需完成下面五个步骤：';
 
     step1TitleText = '浏览我们提供的课程';
-    step1SubText = '导航到“课程”页面并使用成绩过滤器查找适合您孩子成绩的课程。';
+    step1SubText = '导航到 “课程” 页面并使用 “年级” 过滤器查找适合您孩子的课程。';
     step2TitleText = '选择一门课程';
-    step2SubText = '找到适合您和您孩子喜欢的课程。 点击“查看详情”了解更多课程信息。';
+    step2SubText = '找到适合您和您孩子喜欢的课程。 点击 “查看详情” 了解更多课程信息。';
     step3TitleText = '参加试听课';
-    step3SubText = '免费参加课程，看看该课程是否适合您的孩子。 详细信息在课程的“查看详细信息”下。';
+    step3SubText = '免费参加试听课，看看该课程是否适合您的孩子。 详细信息将会显示在课程的 “查看详情” 的页面下。';
     step4TitleText = '使用电子转账付款'
-    step4SubText = '通过电子转账将正确的金额发送至 online2020courses@gmail.com。 价格当然可以在详细信息中找到。';
+    step4SubText = '请将正确的金额发送至 online2020courses@gmail.com 邮件地址。 价格当然可以在详细信息中找到。';
     step5TitleText = '发送电子邮件给我们！';
-    step5SubText = '在发送至 online2020courses@gmail.com 的电子邮件中包含以下信息。';
+    step5SubText = '请填好以下信息，将它发送至 online2020courses@gmail.com 的邮件地址。';
 
     discountTitleText = '获得折扣！';
-    discountSubText = '我们将为每位介绍的新学生提供约 20% 的学费折扣。 例如，如果您的朋友在课程上花费 100 加元，您将获得 20 加元的折扣。';
+    discountSubText = '我们将为每位推介新学生的人提供学费的 20% 的折扣。 例如，如果您的朋友的课程的学费是 100 加元，您将获得 20 加元的折扣。';
   }
 
   return (
