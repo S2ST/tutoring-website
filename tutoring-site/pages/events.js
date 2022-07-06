@@ -115,7 +115,7 @@ function EventItem({event}) {
   );
 }
 
-function events({events}) {
+export default function Events({events}) {
   const isEng = useLanguageContext().language;
 
   let titleText = "Upcoming Events";
@@ -130,7 +130,7 @@ function events({events}) {
  
 
   const eventItems = events.map((event) => 
-    <EventItem event={event} />
+    <EventItem event={event} key={event.id}/>
   );
 
   return (
@@ -164,5 +164,3 @@ function events({events}) {
     </>
   )
 }
-
-export default events
