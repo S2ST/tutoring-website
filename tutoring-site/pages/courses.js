@@ -265,7 +265,7 @@ export default function courses({courses}) {
 
   const filteredCourses = [];
   courses.forEach((course) => { // change this later $$$
-    if (course.english.courseName.toLowerCase().includes(searchValue.toLowerCase()) || course.chinese.courseName.toLowerCase().includes(searchValue.toLowerCase()) &&
+    if ((course.english.courseName.toLowerCase().includes(searchValue.toLowerCase()) || course.chinese.courseName.toLowerCase().includes(searchValue.toLowerCase())) &&
      (value == 13 || value <= course.general.gradeLevel[1] && value >= course.general.gradeLevel[0])) {
       filteredCourses.push(course);
     } 
