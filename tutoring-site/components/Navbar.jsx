@@ -91,7 +91,7 @@ function Navbar(props) {
 
       {/* Desktop Navbar */}
       <AppBar component="nav" className={styles.navbar}>
-        <Toolbar>
+        <Toolbar sx={{paddingLeft: 'none'}}>
           {/* Hamburger Menu */}
           <IconButton
             color="inherit"
@@ -104,14 +104,9 @@ function Navbar(props) {
             <MenuIcon />
           </IconButton>
           {/* Logo */}
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }}}
-            className={styles.logo}
-          >
-            Logo
-          </Typography>
+          <Box sx={{ flexGrow: 1, margin: 0, display: { xs: 'none', sm: 'block' }}}>
+            <Image src={'/images/logo.svg'} layout="raw" width={100} height={50} className={`${styles.logo} ${styles.logoImage}`}/>
+          </Box>
           
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item, index) => (
