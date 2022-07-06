@@ -14,19 +14,25 @@ import styleFunctionSx from '@mui/system/styleFunctionSx'
 import {AiFillInfoCircle} from 'react-icons/ai';
 import { useLanguageContext } from '../context/LangContext';
 import { async } from '@firebase/util'
+import events from './events'
 
 export async function getServerSideProps(context) {
+  /* USED FOR EVENTS
+  const eventsSnapshot = await getDocs(collection(db, "events"));
+
+  await Promise.all(eventsSnapshot.docs.map(async(Edoc) => {
+    console.log(Edoc.id);
+    updateDoc(doc(db, "events", Edoc.id, "languages", "chinese"), {
+      details: '在参加课程之前参加免费的试听课。'
+    })
+  }));*/
+
+  let documentID = 'yy4XnJiWySpxlePIkhfb';
+  updateDoc(doc(db, "events", documentID, "languages", "chinese"), {
+    eventName: '高级 Python | 试听课'
+  })
+
   const querySnapshot = await getDocs(collection(db, "courses"));
-
-  // let courses = [];
-
-  // querySnapshot.forEach((doc) => {
-  //   let course = {};
-  //   course['id'] = doc.id;
-  //   course['data'] = JSON.parse(JSON.stringify(doc.data()));   
-  //   courses.push(course);
-  // })
-
   let courses = [];
 
   await Promise.all(querySnapshot.docs.map(async(courseDoc) => {
@@ -96,7 +102,7 @@ function DetailsItem({course, isOnPage, setOnPage}) {
   let noLessonsText = 'Ongoing';
 
   if (!isEng) {
-    gradeLevelText = `年纪: ${(course.general.gradeLevel[0] == 1 && course.general.gradeLevel[1] == 12) ? '所有' : `${course.general.gradeLevel[0]} - ${course.general.gradeLevel[1]}`}`;
+    gradeLevelText = `年级: ${(course.general.gradeLevel[0] == 1 && course.general.gradeLevel[1] == 12) ? '所有' : `${course.general.gradeLevel[0]} - ${course.general.gradeLevel[1]}`}`;
     extraInfoText = `每${course[lang].lessonDays}  |   ${course[lang].startDate ? `${course[lang].startDate} 开始` : '随时可以加入!'}`;
     trialLessonText = '试听课: ';
     noTrialLessonText = '没有试听课';
@@ -166,7 +172,7 @@ function CourseItem({course, selectCourse, isOnPage, setOnPage}) {
   let detailsButtonText = 'VIEW DETAILS';
 
   if (!isEng) {
-    gradeLevelText = `年纪: ${(course.general.gradeLevel[0] == 1 && course.general.gradeLevel[1] == 12) ? '所有' : `${course.general.gradeLevel[0]} - ${course.general.gradeLevel[1]}`}`;
+    gradeLevelText = `年级: ${(course.general.gradeLevel[0] == 1 && course.general.gradeLevel[1] == 12) ? '所有' : `${course.general.gradeLevel[0]} - ${course.general.gradeLevel[1]}`}`;
     extraInfoText = `每${course[lang].lessonDays}  |   ${course[lang].startDate ? `${course[lang].startDate} 开始` : '随时可以加入!'}`;
     detailsButtonText = '查看详情';
   }
@@ -243,7 +249,7 @@ export default function courses({courses}) {
     noCoursesText = '没有找到课程';
     coursesTitleText = '可用课程';
     coursesSubText = '有兴趣但不知道如何开始？ 点击这里获取更多信息';
-    gradeText = '年纪：';
+    gradeText = '年级：';
     allText = '所有';
   }
 

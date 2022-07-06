@@ -16,7 +16,7 @@ function contact() {
   let contactText = isEng ? 'Contact' : '联系';
   let contactTitleText = isEng ? 'Contact Us' : '联系我们';
   let contactSubText = isEng ? 'Interested but have some more questions? Not sure where to start? No problem! Simply reach out to us on one of our many points of contact.' 
-                        : '有兴趣但还有其他问题？ 不知道从哪里开始？ 没问题！ 只需通过我们的众多联系点之一与我们联系。';
+                        : '有兴趣但还有问题？ 不知道从哪里开始？ 没问题！ 请通过以下联系方式联系我们。';
 
   const pp = (
     <SvgIcon width="146" height="142" viewBox="0 0 146 142" fill="none" xmlns="http://www.w3.org/2000/svg">
