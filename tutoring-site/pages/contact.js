@@ -11,7 +11,7 @@ import Link from 'next/link';
 import Head from 'next/head';
 import { useLanguageContext } from '../context/LangContext';
 
-function contact() {
+export default function Contact() {
   const isEng = useLanguageContext().language;
   let contactText = isEng ? 'Contact' : '联系';
   let contactTitleText = isEng ? 'Contact Us' : '联系我们';
@@ -63,4 +63,3 @@ function contact() {
   )
 }
 
-export default contact

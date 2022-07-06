@@ -23,7 +23,7 @@ import styles from '../styles/Navbar.module.scss';
 
 const navItemsEnglish = ['Home', 'Courses', 'Events', 'Calendar', 'Contact'];
 const navItemsChinese = ['主页', '课程', '事件', '日历', '联系'];
-const navLink = ['/', '/courses', '/events', '/calendar', '/contact'];
+const navLink = ['/', '/Courses', '/Events', '/Calendar', '/Contact'];
 
 function Navbar(props) {
   const { window } = props;
@@ -70,8 +70,8 @@ function Navbar(props) {
       {/* <Divider /> */}
       <List sx={{position: 'absolute', top: '50%;', transform: 'translateY(-50%)', width: '100vw'}}>
         {navItems.map((item, index) => (
-          <Link href={`${navLink[index]}`} >
-            <ListItem key={item} disablePadding sx={{paddingTop: '1rem', paddingBottom: '1rem'}} onClick={handleDrawerToggle}>
+          <Link key={item} href={`${navLink[index]}`} >
+            <ListItem disablePadding sx={{paddingTop: '1rem', paddingBottom: '1rem'}} onClick={handleDrawerToggle}>
               <ListItemButton sx={{display: 'flex', justifyContent: 'center'}}>
                   <a className={styles.navTitleMobile}>
                     {item}

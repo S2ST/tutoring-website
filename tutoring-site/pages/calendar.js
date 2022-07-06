@@ -6,7 +6,7 @@ import styles from '../styles/Calendar.module.scss';
 import { Grid } from '@mui/material';
 import { useLanguageContext } from '../context/LangContext';
 
-function calendar() {
+export default function Calendar() {
   const isEng = useLanguageContext().language;
   let calendarText = isEng ? 'Calendar' : '日历';
 
@@ -37,4 +37,3 @@ function calendar() {
   )
 }
 
-export default calendar

@@ -14,7 +14,7 @@ import styleFunctionSx from '@mui/system/styleFunctionSx'
 import {AiFillInfoCircle} from 'react-icons/ai';
 import { useLanguageContext } from '../context/LangContext';
 import { async } from '@firebase/util'
-import events from './events'
+import events from './Events'
 
 export async function getServerSideProps(context) {
   /* USED FOR EVENTS
@@ -226,7 +226,7 @@ function CourseItem({course, selectCourse, isOnPage, setOnPage}) {
 }
 
 
-export default function courses({courses}) {
+export default function Courses({courses}) {
   const isEng = useLanguageContext().language;
 
   const [value, setValue] = useState(13);
