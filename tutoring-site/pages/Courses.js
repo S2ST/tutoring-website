@@ -328,6 +328,7 @@ export default function Courses({courses}) {
                   valueLabelFormat={valueFormat}
                   onChange={gradeChange}
                   aria-labelledby="linear-slider"
+                  width="100%"
                 />
               </Grid>
             </Grid>
@@ -369,6 +370,9 @@ const GradeSlider = styled(Slider)({
       display: 'none',
     },
   },
+  '@media (pointer: coarse)': {
+    padding: 0
+  }
 });
 
 {/* Styles the SearchField*/}
