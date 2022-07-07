@@ -110,13 +110,13 @@ function Navbar(props) {
           
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item, index) => (
-              <Button key={item} className={styles.navTitleDesktop}>
-                <Link href={`${navLink[index]}`}>
-                  <a>
-                    {item}
-                  </a>
-                </Link>
-              </Button>
+              <Link key={item} href={`${navLink[index]}`}>
+                <Button className={styles.navTitleDesktop}>
+                    <a>
+                      {item}
+                    </a>
+                </Button>
+              </Link>
             ))}
           </Box>
           <Box onClick={changeLanguage} className={styles.toggle}>
