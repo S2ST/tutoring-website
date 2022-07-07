@@ -309,10 +309,10 @@ export default function Courses({courses}) {
           <a href="../#interestedSection"><BsFillArrowRightCircleFill className={styles.arrowButton}/></a></span></p>
         </Grid>
         <Grid container className={styles.searchContainer} alignItems="center">
-          <Grid item xs={12} sm={6} md={8} className={styles.searchSubContainer}>
+          <Grid item xs={12} sm={7} md={8} className={styles.searchSubContainer}>
             <SearchField fullWidth id="outlined-search" type="search" placeholder={searchText} value={searchValue} onChange={searchChange}/>
           </Grid>
-          <Grid item xs={8} sm={6} md={4}>
+          <Grid item xs={12} sm={5} md={4}>
             <Grid container direction="row" alignItems="center" className={styles.gradeSliderContainer}>
               <Grid item auto >
                 <Typography className={styles.gradeLabel} id="linear-slider" gutterBottom>

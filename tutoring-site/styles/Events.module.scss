@@ -132,6 +132,7 @@
 
   .eventsContainer {
     @include coursesHorizontalPadding;
+    
   }
 }
 
@@ -152,25 +153,32 @@
 
 @media only screen and (max-width: 600px) {
   /* For mobile phones: */
-  .title {
-    font-size: 2.7vh !important;
-  }
 
-  .subtitle {
-    font-size: 1.5vh !important;
+  // Top Section
+  .topSection {
+    min-height: 35vh !important;
+    padding-top: 5vh !important;
+
+    .title {
+      font-size: 3vh !important;
+    }
+
+    .subtitle {
+      font-size: 1.8vh !important;
+    }
   }
 
   .eventContentBox {
 
-    padding-left: 1.8vh !important;
-    padding: 1.8vh !important;
+    padding: 3vh 4vh !important;
+    padding-left: 3vh !important;
 
     .eventName {
-      font-size: 1.5vh !important;
+      font-size: 2vh !important;
     }
 
     .eventDetails {
-      font-size: 1.5vh !important;
+      font-size: 1.7vh !important;
     }
 
     .eventTimeBox {
@@ -181,7 +189,7 @@
 
     .eventTime {
       margin: 0;
-      font-size: 1.2vh !important;
+      font-size: 1.5vh !important;
     }
 
   }
@@ -199,7 +207,9 @@
     }
   }
 
+  // Bot Section
   .botSection {
+    min-height: 65vh !important;
 
     .bubblesLeft {
       position: absolute;
@@ -219,5 +229,15 @@
 
   .bubblesTopRight {
     width: 50% !important;
+  }
+}
+
+@media only screen and (max-width: 460px) {
+  .topSection {
+    min-height: 37vh !important;
+    padding-top: 6vh !important;
+  }
+  .botSection {
+    min-height: 63vh !important;
   }
 }
