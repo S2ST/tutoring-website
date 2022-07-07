@@ -111,7 +111,7 @@ export default function Home() {
             <p className={styles.subtitle}>
               {subtitleText}
             </p>
-            <Link href="/courses"><Button variant="contained" className={styles.searchButton}>
+            <Link href="/Courses"><Button variant="contained" className={styles.searchButton}>
               {searchCoursesButtonText}  
             </Button></Link>
           </Grid>
