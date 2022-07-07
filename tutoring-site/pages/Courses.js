@@ -116,7 +116,7 @@ function DetailsItem({course, isOnPage, setOnPage}) {
   }
 
   return (
-    <Grid container justifyContent="center" alignItems="center" sx={{overflowX: 'hidden'}}>
+    <Grid container justifyContent="center" alignItems="center" className={`${styles.coursesContainer} ${isOnPage? '' : styles.hideDetailsRight}`}>
       <Grid container alignItems="center" className={`${styles.detailsItemContainer} ${isOnPage ? '' : styles.hideDetailsRight}`}>
         <Grid item xs className={styles.detailsInfoContainer}>
           <Grid container alignItems="center" style={{marginBottom: '1vh'}}>
@@ -344,8 +344,8 @@ export default function Courses({courses}) {
           {filteredCourses.length != 0 ? filteredCourses.map((item) => <CourseItem course={item} key={item.id} selectCourse={setCourse} isOnPage={isOnPage} setOnPage={setOnPage}/>) : 
           <Grid container justifyContent="center" alignItems="center"><p className={styles.noCourses}>{noCoursesText}</p></Grid>}
        </Grid>
+       <DetailsItem course={course} isOnPage={isOnPage} setOnPage={setOnPage}></DetailsItem>
       </Grid>
-      <DetailsItem course={course} isOnPage={isOnPage} setOnPage={setOnPage}></DetailsItem>
     </>
   )
 }
