@@ -9,7 +9,7 @@ import Image from 'next/image'
 import { useLanguageContext } from '../context/LangContext';
 import { IoFileTray } from 'react-icons/io5'
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   const querySnapshot = await getDocs(query(collection(db, "events"), orderBy("startTime")));
 
   let events = [];

@@ -16,7 +16,7 @@ import { useLanguageContext } from '../context/LangContext';
 import { async } from '@firebase/util'
 import events from './Events'
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   /* USED FOR EVENTS
   const eventsSnapshot = await getDocs(collection(db, "events"));
 
