@@ -397,5 +397,15 @@ const SearchField = styled(TextField)({
     '&.Mui-focused fieldset': {
       borderColor: '#11999E',
     },
+    '& input': {
+        '@media (max-width: 600px)': {
+          padding: '10px 8px',
+          fontSize: '1.5vh'
+        },
+
+        color: '#11999E',
+        fontFamily: 'Open Sans',
+        fontSize: '2vh'
+    }
   },
 });
