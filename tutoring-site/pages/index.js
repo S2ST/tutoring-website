@@ -101,10 +101,10 @@ export default function Home() {
           <Image src="/images/startingBubbles.svg" layout="raw" width={100} height={100} className={styles.startingBubbles}></Image>
           <Image src="/images/startingBubblesMobile.svg" layout="raw" width={100} height={100} className={styles.startingBubblesMobile}></Image>
 
-          <Grid item container xs={12} sm={5} className={styles.startingRight} justifyContent="center">
+          <Grid item container xs={12} lg={5} className={styles.startingRight} justifyContent="center">
             <Image src="/images/boy.svg" layout="raw" width={100} height={100} className={styles.boyImage}></Image>
           </Grid>
-          <Grid item container xs={12} sm={7} className={styles.startingLeft}>
+          <Grid item container xs={12} lg={7} className={styles.startingLeft}>
             <h1 className={styles.title}>
               {titleText}
               </h1>

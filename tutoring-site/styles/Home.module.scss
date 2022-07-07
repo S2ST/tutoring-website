@@ -283,7 +283,50 @@
   color: #514040;
 }
 
+@media only screen and (max-width: 1200px) {
+  .startingBubblesMobile {
+    display: block;
+    position: absolute;
+    top: 40%;
+    left: 0;
+    width: 100%;
+    height: auto;
+  }
+
+  .title {
+    @include center;
+    font-size: 3vh;
+    margin-top: -3vh;
+  }
+
+  .subtitle {
+    @include center;
+    font-size: 2vh;
+  }
+
+  .startingLeft {
+    justify-content: center;
+    margin-top: -30vh;
+    padding-left: 3vh;
+    padding-right: 3vh;
+  }
+
+  .boyImage {
+    width: 40%;
+    height: 40%;
+  }
+
+  .startingBubbles, .enrollBubblesTop, .enrollBubblesBottom {
+    display: none;
+  }
+}
+
 @media only screen and (max-width: 900px) {
+  .boyImage {
+    width: 50%;
+    height: 50%;
+  }
+
   .interestedContainer {
     padding-left: 10%;
     padding-right: 10%;
