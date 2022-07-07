@@ -5,9 +5,14 @@
   @include homepageSection;
 }
 
+.title {
+  font-size: 5vh;
+  margin-bottom: 0;
+}
+
 .subtitle {
-  font-size: 2vh;
-  margin-bottom: 5vh
+  font-size: 2.2vh;
+  margin-bottom: 5vh;
 }
 
 .searchButton {
@@ -278,20 +283,64 @@
   color: #514040;
 }
 
+@media only screen and (max-width: 1200px) {
+  .startingBubblesMobile {
+    display: block;
+    position: absolute;
+    top: 40%;
+    left: 0;
+    width: 100%;
+    height: auto;
+  }
+
+  .title {
+    @include center;
+    font-size: 3vh;
+    margin-top: -3vh;
+  }
+
+  .subtitle {
+    @include center;
+    font-size: 2vh;
+  }
+
+  .startingLeft {
+    justify-content: center;
+    margin-top: -30vh;
+    padding-left: 3vh;
+    padding-right: 3vh;
+  }
+
+  .boyImage {
+    width: 40%;
+    height: 40%;
+  }
+
+  .startingBubbles, .enrollBubblesTop, .enrollBubblesBottom {
+    display: none;
+  }
+}
+
 @media only screen and (max-width: 900px) {
+  .boyImage {
+    width: 50%;
+    height: 50%;
+  }
+
   .interestedContainer {
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 10%;
+    padding-right: 10%;
   }
 
   .interestedBox {
-    border-radius: 0;
-    padding: 3vh;
+    border-radius: 28px;
+    padding: 8vh;
     padding-top: 7vh;
     padding-bottom: 7vh;
   }
 
   .emailImage {
+    margin-top: 7vh;
     width: 90%;
   }
 
@@ -323,12 +372,13 @@
 
   .title {
     @include center;
-    font-size: 2.7vh;
+    font-size: 3vh;
+    margin-top: -3vh;
   }
 
   .subtitle {
     @include center;
-    font-size: 1.5vh;
+    font-size: 2vh;
   }
 
   .startingLeft {
@@ -348,11 +398,15 @@
   }
 
   .enrollTitle, .interestedTitle, .discountTitle {
-    font-size: 2.7vh;
+    font-size: 3vh;
+  }
+
+  .interestedTitle {
+    margin-top: 5vh;
   }
  
   .enrollText, .interestedText, .discountText{
-    font-size: 1.5vh;
+    font-size: 2vh;
     padding-left: 5%;
     padding-right: 5%;
     margin-bottom: 3vh;
@@ -360,7 +414,7 @@
 
   .enrollItemText {
     text-align: left;
-    font-size: 1.5vh;
+    font-size: 1.8vh;
   }
 
   .enrollItemContainer {
@@ -376,6 +430,17 @@
     height: auto;
   }
 
+  .interestedContainer {
+    padding-left: 0;
+    padding-right: 0;
+
+  }
+
+  .interestedBox {
+    border-radius: 0;
+    padding: 3vh;
+  }
+
   .forStudentsContainer {
     padding: 10vh 5%;
     overflow: hidden;
@@ -383,7 +448,7 @@
   }
 
   .forStudentsText {
-    font-size: 1.5vh;
+    font-size: 2vh;
     padding-left: 5%;
     padding-right: 5%;
   }
@@ -405,11 +470,17 @@
   }
 
   .interestedStepTitle {
-    font-size: 1.6vh;
+    font-size: 2vh;
   }
 
   .interestedStepText {
-    font-size: 1.2vh;
+    font-size: 1.8vh;
+  }
+
+  .emailImage {
+    margin-top: 5vh;
+    width: 100%;
+    margin-bottom: 5vh;
   }
 
   .discountBox {

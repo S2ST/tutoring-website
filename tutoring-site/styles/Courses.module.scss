@@ -4,14 +4,14 @@
 // For top half section
 .topSection {
   background-color: $lightest;
-  min-height: 40vh;
   width: 100%;
-  padding-top: 10vh;
+  padding-top: 5rem;
 
   .bubblesTopLeft {
     position: absolute;
     height: auto;
-    width: 30vh;
+    width: 15rem;
+    left: -50px;
   }
 
   .titlesContainer, .searchContainer {
@@ -20,15 +20,16 @@
 
     .title {
       color: $dark;
-      font-size: 3.6vh;
+      font-size: 1.75rem;
+      margin-bottom: .4rem;
     }
     .subtitle {
-      margin-top: -10px;
       color: $darkest;
-      font-size: 2vh;
+      font-size: 1rem;
+      margin-top: 0;
     }
     .arrowButton {
-      font-size: 3.5vh;
+      font-size: 1.8rem;
       margin-left: 10px;
       margin-top: 5px;
       margin-bottom: -8px;
@@ -46,10 +47,11 @@
   }
 
   .searchContainer {
-    margin-top: 2vh;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
 
     .searchSubContainer {
-      padding-right: 3vh;
+      padding-right: 1.5rem;
     }
 
     .gradeSliderContainer {
@@ -65,17 +67,7 @@
         font-weight: 600;
         margin: 0;
         margin-right: 20px;
-      }
-    }
-
-    .searchButton {
-      color: $dark;
-      font-size: 8vh;
-      border-radius: 50%;
-      transition: .2s ease-in-out;
-
-      &:hover {
-        background-color: $light-1;
+        font-size: 1rem;
       }
     }
   }
@@ -83,7 +75,7 @@
 
 // For bottom half section
 .botSection {
-  min-height: 100vh;
+  min-height: 100%;
   width: 100%;
   background: linear-gradient(244.63deg, #30E3CA -7.2%, rgba(48, 227, 202, 0) 67.45%), #11999E;
   overflow: hidden;
@@ -92,29 +84,30 @@
 
   .bubblesLeft {
     position: absolute;
-    left: -15vh;
-    margin-top: 8vh;
+    left: -8rem;
+    margin-top: 4rem;
   }
   .bubblesRight {
     position: absolute;
-    right: -15vh;
+    right: -8rem;
   }
 
-  .coursesContainer {
-    @include coursesHorizontalPadding;
-    position: fixed;
-    width: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
-    top: 45vh;
-    bottom: 0;
-    transition: 1s ease-in-out;
 
-    .noCourses {
-      color: white;
-      font-family: $OpenSans;
-      font-size: 2vh;
-    }
+}
+.coursesContainer {
+  @include coursesHorizontalPadding;
+  position: fixed;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  top: 22rem;
+  bottom: 0;
+  transition: 1s ease-in-out;
+
+  .noCourses {
+    color: white;
+    font-family: $OpenSans;
+    font-size: 1rem;
   }
 }
 
@@ -124,38 +117,38 @@
 }
 .courseItemBox {
   @include itemContainer;
-  margin-bottom: 2.5vh;
+  margin-bottom: 1.2rem;
   border-radius: 20px;
+  padding:0;
   box-shadow: 0px 4px 34px rgba(0, 0, 0, 0.08);
 
   .imageContainer {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 13vh;
-    height: 10vh;
+    width: 102px;
+    height: 80px;
     background-color: $lightest;
-    margin-left: 2vh;
-    margin-top: 1.5vh;
-    margin-bottom: 1.5vh;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     border-radius: 20px;
   }
 
   .infoContainer {
-    margin-left: 2vh;
-    padding-top: 3vh;
-    padding-bottom: 3vh;
+    margin-left: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 
     .courseName {
       font-weight: 600;
       font-family: $OpenSans;
-      font-size: 2.5vh;
+      font-size: 1.2rem;
       color: $darkest;
       margin: 0;
     }
     .gradeLevel {
-      @include tag($green-tag, $green-text);
-      margin: 0;
+      @include tag($green-tag, $green-text, false);
     }
   }
 
@@ -167,10 +160,7 @@
       @include roundedButton;
       
       color: white;
-      padding-left: 3vh;
-      padding-right: 3vh;
-      padding-top: 2vh;
-      padding-bottom: 2vh;
+      padding: 1rem 1.5rem;
       
       &:hover {
         box-shadow: 0px 4px 17px rgba(0, 0, 0, 0.25);
@@ -184,16 +174,16 @@
 }
 .extraInfo {
   font-family: $OpenSans;
-  font-size: 1.8vh;
+  font-size: .9rem;
   color: #9AA2A1;
-  padding-bottom: 5px;
+  padding-bottom: .17rem;
   font-weight: 400;
   margin: 0;
 }
 
 .fadeInSection {
   opacity: 0;
-  transform: translateY(8vh);
+  transform: translateY(3rem);
   visibility: hidden;
   transition: opacity 1200ms ease-out, transform 600ms ease-out,
   visibility 1200ms ease-out;
@@ -212,36 +202,32 @@
 .detailsItemContainer {
   @include itemContainer;
   z-index: 3000;
-  width: 80%;
-  margin-top: 5%;
-  margin-bottom: 3vh;
+  width: 90%;
+  margin-top: 0;
+  margin-bottom: 2.1rem;
   transition: 1s ease-in-out;
 
   .detailsInfoContainer {
-    padding: 3vh;
-    padding-left: 7vh;
-    padding-right: 7vh;
+    padding: 2rem 3.8rem;
     margin: 0;
 
     .courseNameDetails {
-      font-size: 2.7vh;
+      font-size: 1.38rem;
       margin: 0;
-      // padding-bottom: 1vh;
     }
     
     .backButton {
       color: $dark;
-      margin-right: 1vh;
-      margin-left: -1.5vh;
+      margin-right: .6rem;
+      margin-left: -.5rem;
       padding: 0;
-      // padding-bottom: 1vh;
 
       &:hover {
         background-color: $lightest;
       }
 
       .backButtonIcon {
-        font-size: 5vh;
+        font-size: 2.5rem;
       }
     }
 
@@ -249,28 +235,20 @@
       margin: 0;
 
       .gradeLevelDetailsTag {
-        @include tag($green-tag, $green-text);
-        margin: 0;
-        margin-right: 1.5vh;
-        margin-top: 1vh;
+        @include tag($green-tag, $green-text, true);
       }
       .priceDetailsTag {
-        @include tag($yellow-tag, $yellow-text);
-        margin: 0;
-        margin-right: 1.5vh;
-        margin-top: 1vh;
+        @include tag($yellow-tag, $yellow-text, true);
       }
       .lessonsTotalDetailsTag {
-        @include tag($red-tag, $red-text);
-        margin: 0;
-        margin-top: 1vh;
+        @include tag($red-tag, $red-text, true);
       }
     }
     .descriptionDetails {
       font-family: $OpenSans;
       font-weight: 300;
       color: $darkest;
-      font-size: 2.1vh;
+      font-size: 1rem;
     }
     .trialDetails {
       font-size: 2.1vh;
@@ -301,83 +279,109 @@
 
 @media only screen and (max-width: 600px) {
   /* For mobile phones: */
+
+  // Top Section
+  .topSection {
+    padding-top: 4rem !important;
+  }
   .title {
-    font-size: 2.7vh !important;
+    font-size: 1.3rem !important;
   }
-
   .subtitle {
-    font-size: 1.5vh !important;
+    font-size: .8rem !important;
+    margin-bottom: .3rem !important;
   }
-
   .arrowButton {
-    font-size: 2.5vh !important;
-  }
-
-  .bubblesTopLeft, .bubblesLeft, .bubblesRight, .imageDetailsContainer{
-    display: none;
-  }
-
-  .courseItemBox {
-    margin-bottom: 1.5vh;
+    font-size: 1.3rem !important;
   }
   .searchContainer {
-    font-size: 1.5vh !important;
-    margin-top: -.01vh !important;
+    margin-bottom: 2rem !important;
+    margin-top: 0;
 
     .searchSubContainer {
       padding-right: 0 !important;
     }
+
+    .gradeSliderContainer {
+      margin-top: 1rem !important;
+      padding: 15px !important;
+      padding-left: 20px !important;
+      padding-right: 30px !important;
+  
+      .gradeLabel {
+        font-size: .8rem !important;
+      }
+    }
   }
 
-  .gradeSliderContainer {
-    margin-top: 2vh;
-    padding: 15px !important;
-    padding-left: 20px !important;
-    padding-right: 30px !important;
+  // Bubbles
+  .bubblesTopLeft, .imageDetailsContainer{
+    display: none;
+  }
+  .bubblesLeft {
+    left: -180px !important;
+  }
+  .bubblesRight {
+    right: -220px !important;
+    bottom: 350px !important;
+  }
 
-    .gradeLabel {
-      font-size: 1.5vh;
-    }
+  // Bottom course section
+  .courseItemBox {
+    margin-bottom: .8rem;
   }
 
   .imageContainer {
     display: none !important;
   }
   .infoContainer {
-    padding-top: 2vh !important;
-    padding-bottom: 2vh !important;
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
 
     .courseName {
-      font-size: 1.8vh !important;
+      font-size: 1rem !important;
     }
     .gradeLevel {
-      font-size: 1.3vh !important;
+      font-size: .7rem !important;
     }
   }
   .detailsButton {
-    font-size: 1.3vh !important;
-    padding: 1.6vh 2vh !important;
     display: none;
   }
   .mobileDetailsButton {
     display: block !important;
-    width: 5vh;
-    height: 5vh;
-  }
-  .courseNameDetails {
-    font-size: 2.3vh !important;
-  }
-  .backButtonIcon {
-    font-size: 3vh;
+    width: 2.2rem;
+    height: 2.2rem;
   }
   .extraInfo {
-    font-size: 1.2vh !important;
+    font-size: .7rem !important;
   }
+
+  // Details section
   .gradeLevelDetailsTag, .priceDetailsTag, .lessonsTotalDetailsTag{
-    font-size: 1.2vh !important;
+    font-size: .7rem !important;
   }
   .descriptionDetails, .trialDetails {
-    font-size: 1.5vh !important;
+    font-size: .8rem !important;
+  }
+  .detailsItemContainer {
+    width: 100% !important;
+
+    .detailsInfoContainer {
+      padding: 1.2rem 2.7rem;
+
+      .courseNameDetails {
+        font-size: 1.1rem !important;
+      }
+      .backButtonIcon {
+        font-size: 2rem !important;
+      }
+    }
   }
 }
 
+@media only screen and (max-width: 400px) {
+  .gradeSliderContainer {
+    width: 100%;
+  }
+}

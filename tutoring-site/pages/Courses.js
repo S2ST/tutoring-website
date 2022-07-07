@@ -16,7 +16,7 @@ import { useLanguageContext } from '../context/LangContext';
 import { async } from '@firebase/util'
 import events from './Events'
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   /* USED FOR EVENTS
   const eventsSnapshot = await getDocs(collection(db, "events"));
 
@@ -116,7 +116,7 @@ function DetailsItem({course, isOnPage, setOnPage}) {
   }
 
   return (
-    <Grid container justifyContent="center" alignItems="center" sx={{overflowX: 'hidden'}}>
+    <Grid container justifyContent="center" alignItems="center" className={`${styles.coursesContainer} ${isOnPage? '' : styles.hideDetailsRight}`}>
       <Grid container alignItems="center" className={`${styles.detailsItemContainer} ${isOnPage ? '' : styles.hideDetailsRight}`}>
         <Grid item xs className={styles.detailsInfoContainer}>
           <Grid container alignItems="center" style={{marginBottom: '1vh'}}>
@@ -309,10 +309,10 @@ export default function Courses({courses}) {
           <a href="../#interestedSection"><BsFillArrowRightCircleFill className={styles.arrowButton}/></a></span></p>
         </Grid>
         <Grid container className={styles.searchContainer} alignItems="center">
-          <Grid item xs={12} sm={6} md={8} className={styles.searchSubContainer}>
+          <Grid item xs={12} sm={7} md={8} className={styles.searchSubContainer}>
             <SearchField fullWidth id="outlined-search" type="search" placeholder={searchText} value={searchValue} onChange={searchChange}/>
           </Grid>
-          <Grid item xs={8} sm={6} md={4}>
+          <Grid item xs={12} sm={5} md={4}>
             <Grid container direction="row" alignItems="center" className={styles.gradeSliderContainer}>
               <Grid item auto >
                 <Typography className={styles.gradeLabel} id="linear-slider" gutterBottom>
@@ -344,8 +344,8 @@ export default function Courses({courses}) {
           {filteredCourses.length != 0 ? filteredCourses.map((item) => <CourseItem course={item} key={item.id} selectCourse={setCourse} isOnPage={isOnPage} setOnPage={setOnPage}/>) : 
           <Grid container justifyContent="center" alignItems="center"><p className={styles.noCourses}>{noCoursesText}</p></Grid>}
        </Grid>
+       <DetailsItem course={course} isOnPage={isOnPage} setOnPage={setOnPage}></DetailsItem>
       </Grid>
-      <DetailsItem course={course} isOnPage={isOnPage} setOnPage={setOnPage}></DetailsItem>
     </>
   )
 }
@@ -397,5 +397,15 @@ const SearchField = styled(TextField)({
     '&.Mui-focused fieldset': {
       borderColor: '#11999E',
     },
+    '& input': {
+        '@media (max-width: 600px)': {
+          padding: '10px 8px',
+          fontSize: '1.5vh'
+        },
+
+        color: '#11999E',
+        fontFamily: 'Open Sans',
+        fontSize: '2vh'
+    }
   },
 });
