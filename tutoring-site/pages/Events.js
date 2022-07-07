@@ -155,7 +155,7 @@ export default function Events({events}) {
       <Grid container className={styles.botSection} direction="column">
         <Image src='/images/coursesBubblesLeft.svg' layout="raw" width={450} height={450} className={styles.bubblesLeft}></Image>
         <Image src='/images/coursesBubblesRight.svg' layout="raw" width={450} height={450} className={styles.bubblesRight}></Image>
-        <Grid item sx={{overflowY: 'auto', paddingBottom: '30px', zIndex: 2}}>
+        <Grid item className={styles.eventsContainer} sx={{overflowY: 'auto', paddingBottom: '30px', zIndex: 2}}>
           <Stack spacing={2}>
             {eventItems}
           </Stack>
