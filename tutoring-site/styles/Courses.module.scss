@@ -21,13 +21,14 @@
 
     .title {
       color: $dark;
-      font-size: 3.6vh;
-      margin-bottom: .5vh;
+      font-size: 3.5vh;
+      margin-bottom: 0;
     }
     .subtitle {
       color: $darkest;
       font-size: 2vh;
-      margin-top: 0;
+      margin-top: 1vh;
+      margin-bottom: 4vh;
     }
     .arrowButton {
       font-size: 3.5vh;
@@ -48,8 +49,6 @@
   }
 
   .searchContainer {
-    margin-top: 1rem;
-    margin-bottom: 3rem;
 
     .searchSubContainer {
       padding-right: 1.5rem;
@@ -93,6 +92,7 @@
   .bubblesRight {
     position: absolute;
     right: -8rem;
+    margin-top: 4rem;
   }
 
 
@@ -103,7 +103,7 @@
   width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
-  top: 22rem;
+  top: 45vh;
   bottom: 0;
   transition: 1s ease-in-out;
 
@@ -286,14 +286,17 @@
 
   // Top Section
   .topSection {
-    padding-top: 4rem !important;
+    padding-top: 5rem !important;
+    height: 100%;
   }
   .title {
     font-size: 1.3rem !important;
+    margin-bottom: 0 !important;
   }
   .subtitle {
     font-size: .8rem !important;
-    margin-bottom: .3rem !important;
+    margin-bottom: 1.2rem !important;
+    margin-top: .5rem !important;
   }
   .arrowButton {
     font-size: 1.3rem !important;
@@ -327,7 +330,6 @@
   }
   .bubblesRight {
     right: -220px !important;
-    bottom: 350px !important;
   }
 
   // Bottom course section
@@ -360,9 +362,13 @@
   .extraInfo {
     font-size: .7rem !important;
   }
-  .noCourses {
-    font-size: 1rem !important;
-  }
+  .coursesContainer {
+    top: 22rem;
+
+    .noCourses {
+      font-size: 1rem !important;
+    }
+  } 
 
   // Details section
   .gradeLevelDetailsTag, .priceDetailsTag, .lessonsTotalDetailsTag{
@@ -390,5 +396,9 @@
 @media only screen and (max-width: 400px) {
   .gradeSliderContainer {
     width: 100%;
+  }
+
+  .bubblesLeft, .bubblesRight {
+    display: none;
   }
 }
