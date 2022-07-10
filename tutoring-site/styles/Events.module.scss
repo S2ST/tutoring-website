@@ -132,7 +132,13 @@
 
   .eventsContainer {
     @include coursesHorizontalPadding;
-    
+
+    .noEvents {
+      color: white;
+      font-family: $OpenSans;
+      font-size: 2vh;
+      margin-top: 100px;
+    }
   }
 }
 
@@ -205,6 +211,9 @@
     .eventDateDate {
       font-size: 1.8vh !important;
     }
+  }
+  .noEvents {
+    font-size: 1.8vh !important;
   }
 
   // Bot Section
