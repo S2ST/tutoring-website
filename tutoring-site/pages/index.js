@@ -17,8 +17,8 @@ export default function Home() {
   let searchCoursesButtonText = 'Search Courses';
   let enrollTitleText = 'Enroll your child now!';
   let missionText = 'Our mission is to provide extracurricular education to as many students as possible at an affordable price.';
-  let card1Text = 'Affordable prices! Each lesson varies from $4 to $14 per 45 minutes.';
-  let card2Text = 'Enhance your child’s skills with our courses. Each course contains 12-14 lessons.';
+  let card1Text = 'Affordable prices! Each lesson varies from $6 to $12 per 45-60 minutes.';
+  let card2Text = 'Enhance your child’s skills with our courses. Each course contains 8-12 lessons.';
   let card3Text = 'Course material range from elementary school to high school level.';
   let forStudentsTitleText = 'For students, by students.';
   let ourPriorityText = 'Our priority is providing students with quality tutoring. All tutors are from either a top Canadian university (UoT, UBC, UWaterloo, McGill) or part of the prestigious International Baccalaureate (IB) program.';
@@ -46,8 +46,8 @@ export default function Home() {
     searchCoursesButtonText = '搜索课程';
     enrollTitleText = '立即为您的孩子报名！';
     missionText = '我们的宗旨是以最便宜的价格为尽可能多的学生提供课外教育。';
-    card1Text = '付得起的价钱！每节课是 45 分钟。价钱是从 4 加元到 14 加元之间。';
-    card2Text = '通过我们的课程可以提高您们孩子的技能。每门课程包括 12-14 节课。';
+    card1Text = '付得起的价钱！每节课是 45-60 分钟。价钱是从 6 加元到 12 加元之间。';
+    card2Text = '通过我们的课程可以提高您们孩子的技能。每门课程包括 8-12 节课。';
     card3Text = '课程范围从小学到高中。';
     forStudentsTitleText = '服务的对象是学生，提供服务的人也是学生。';
     ourPriorityText = '我们的首要任务是为学生提供最优质的辅导。所有讲师都来自加拿大最顶尖的大学（UoT、UBC、UWaterloo、McGill）或者是正在 IB Program 学习的学生。';
