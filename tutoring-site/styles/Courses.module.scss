@@ -5,12 +5,13 @@
 .topSection {
   background-color: $lightest;
   width: 100%;
-  padding-top: 5rem;
+  padding-top: 10vh;
+  height: 40vh;
 
   .bubblesTopLeft {
     position: absolute;
     height: auto;
-    width: 15rem;
+    width: 30vh;
     left: -50px;
   }
 
@@ -20,16 +21,17 @@
 
     .title {
       color: $dark;
-      font-size: 1.75rem;
-      margin-bottom: .4rem;
+      font-size: 3.5vh;
+      margin-bottom: 0;
     }
     .subtitle {
       color: $darkest;
-      font-size: 1rem;
-      margin-top: 0;
+      font-size: 2vh;
+      margin-top: 1vh;
+      margin-bottom: 4vh;
     }
     .arrowButton {
-      font-size: 1.8rem;
+      font-size: 3.5vh;
       margin-left: 10px;
       margin-top: 5px;
       margin-bottom: -8px;
@@ -47,8 +49,6 @@
   }
 
   .searchContainer {
-    margin-top: 1rem;
-    margin-bottom: 3rem;
 
     .searchSubContainer {
       padding-right: 1.5rem;
@@ -67,7 +67,7 @@
         font-weight: 600;
         margin: 0;
         margin-right: 20px;
-        font-size: 1rem;
+        font-size: 2vh;
       }
     }
   }
@@ -75,8 +75,10 @@
 
 // For bottom half section
 .botSection {
-  min-height: 100%;
   width: 100%;
+  //height: 100%;
+  height: 100%;
+  min-height: 60vh;
   background: linear-gradient(244.63deg, #30E3CA -7.2%, rgba(48, 227, 202, 0) 67.45%), #11999E;
   overflow: hidden;
   position: fixed;
@@ -90,6 +92,7 @@
   .bubblesRight {
     position: absolute;
     right: -8rem;
+    margin-top: 4rem;
   }
 
 
@@ -100,14 +103,15 @@
   width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
-  top: 22rem;
+  top: 45vh;
   bottom: 0;
   transition: 1s ease-in-out;
 
   .noCourses {
     color: white;
     font-family: $OpenSans;
-    font-size: 1rem;
+    font-size: 2vh;
+    margin-top: 100px;
   }
 }
 
@@ -143,7 +147,7 @@
     .courseName {
       font-weight: 600;
       font-family: $OpenSans;
-      font-size: 1.2rem;
+      font-size: 2.5vh;
       color: $darkest;
       margin: 0;
     }
@@ -174,7 +178,7 @@
 }
 .extraInfo {
   font-family: $OpenSans;
-  font-size: .9rem;
+  font-size: 1.8vh;
   color: #9AA2A1;
   padding-bottom: .17rem;
   font-weight: 400;
@@ -183,7 +187,7 @@
 
 .fadeInSection {
   opacity: 0;
-  transform: translateY(3rem);
+  transform: translateY(8vh);
   visibility: hidden;
   transition: opacity 1200ms ease-out, transform 600ms ease-out,
   visibility 1200ms ease-out;
@@ -212,7 +216,7 @@
     margin: 0;
 
     .courseNameDetails {
-      font-size: 1.38rem;
+      font-size: 2.7vh;
       margin: 0;
     }
     
@@ -227,7 +231,7 @@
       }
 
       .backButtonIcon {
-        font-size: 2.5rem;
+        font-size: 5vh;
       }
     }
 
@@ -248,7 +252,7 @@
       font-family: $OpenSans;
       font-weight: 300;
       color: $darkest;
-      font-size: 1rem;
+      font-size: 2.1vh;
     }
     .trialDetails {
       font-size: 2.1vh;
@@ -282,14 +286,17 @@
 
   // Top Section
   .topSection {
-    padding-top: 4rem !important;
+    padding-top: 5rem !important;
+    height: 100%;
   }
   .title {
     font-size: 1.3rem !important;
+    margin-bottom: 0 !important;
   }
   .subtitle {
     font-size: .8rem !important;
-    margin-bottom: .3rem !important;
+    margin-bottom: 1.2rem !important;
+    margin-top: .5rem !important;
   }
   .arrowButton {
     font-size: 1.3rem !important;
@@ -323,7 +330,6 @@
   }
   .bubblesRight {
     right: -220px !important;
-    bottom: 350px !important;
   }
 
   // Bottom course section
@@ -356,6 +362,13 @@
   .extraInfo {
     font-size: .7rem !important;
   }
+  .coursesContainer {
+    top: 22rem;
+
+    .noCourses {
+      font-size: 1rem !important;
+    }
+  } 
 
   // Details section
   .gradeLevelDetailsTag, .priceDetailsTag, .lessonsTotalDetailsTag{
@@ -383,5 +396,9 @@
 @media only screen and (max-width: 400px) {
   .gradeSliderContainer {
     width: 100%;
+  }
+
+  .bubblesLeft, .bubblesRight {
+    display: none;
   }
 }
