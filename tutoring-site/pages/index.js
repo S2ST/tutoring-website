@@ -42,31 +42,34 @@ export default function Home() {
   if (!isEng) {
     homeText = '主页';
     titleText = '学生学习辅导';
-    subtitleText = '今年夏天，我们将开设适合所有学生的课程，以及向公众开放的免费试听课程和网络研讨会！';
+    subtitleText = '学生学习辅导是由学生组织的辅导机构。今年夏天，我们会开设适合中小学生的课程，以及免费试听课和网上讲座！';
     searchCoursesButtonText = '搜索课程';
-    enrollTitleText = '立即为您的孩子报名！';
-    missionText = '我们的宗旨是以最便宜的价格为尽可能多的学生提供课外教育。';
-    card1Text = '付得起的价钱！每节课是 45-60 分钟。价钱是从 6 加元到 12 加元之间。';
-    card2Text = '通过我们的课程可以提高您们孩子的技能。每门课程包括 8-12 节课。';
-    card3Text = '课程范围从小学到高中。';
-    forStudentsTitleText = '服务的对象是学生，提供服务的人也是学生。';
-    ourPriorityText = '我们的首要任务是为学生提供最优质的辅导。所有讲师都来自加拿大最顶尖的大学（UoT、UBC、UWaterloo、McGill）或者是正在 IB Program 学习的学生。';
-    interestedTitleText = '想要开始注册课程？';
-    interestedSubtitleText = '很简单，只需完成下面五个步骤：';
+    enrollTitleText = '欢迎大家报名！';
+    missionText = '我们的宗旨是以便宜的价格为尽可能多的学生提供课外教育。';
+    card1Text = '价格实惠！每节课45-60分钟，学费只要$6-12加元。';
+    card2Text = '我们的课程可以提高您孩子的学习水平。每门课程 8-12 节课。';
+    card3Text = '我们的课程适合中小学生，包括英语，法语，数学，电脑编程和其他兴趣班。';
+    forStudentsTitleText = '知识的传递，从学生到学生';
+    ourPriorityText = '我们提供高质量的辅导，教课老师来自加拿大最顶尖的大学（UoT、UBC、UWaterloo、McGill）或者是正在 IB Program 学习的学生。';
+    interestedTitleText = '如何注册课程？';
+    interestedSubtitleText = '很简单，只需完成下面两个步骤：';
 
-    step1TitleText = '浏览我们提供的课程';
-    step1SubText = '导航到 “课程” 页面并使用 “年级” 过滤器查找适合您孩子的课程。';
-    step2TitleText = '选择一门课程';
-    step2SubText = '找到适合您和您孩子喜欢的课程。 点击 “查看详情” 了解更多课程信息。';
-    step3TitleText = '参加试听课';
-    step3SubText = '免费参加试听课，看看该课程是否适合您的孩子。 详细信息将会显示在课程的 “查看详情” 的页面下。';
-    step4TitleText = '使用电子转账付款'
-    step4SubText = '请将正确的金额发送至 online2020courses@gmail.com 邮件地址。 价格当然可以在详细信息中找到。';
-    step5TitleText = '发送电子邮件给我们！';
-    step5SubText = '请填好以下信息，将它发送至 online2020courses@gmail.com 的邮件地址。';
+    step1TitleText = '到 “课程” 页面查找合适的课程。';
+    step2TitleText = 'E-transfer学费到 online2020courses@gmail.com，请注明学生名字，联系方式和所选课程。'
 
-    discountTitleText = '获得折扣！';
-    discountSubText = '我们将为每位推介新学生的人提供学费的 20% 的折扣。 例如，如果您的朋友的课程的学费是 100 加元，您将获得 20 加元的折扣。';
+    // step1TitleText = '浏览我们提供的课程';
+    // step1SubText = '导航到 “课程” 页面并使用 “年级” 过滤器查找适合您孩子的课程。';
+    // step2TitleText = '选择一门课程';
+    // step2SubText = '找到适合您和您孩子喜欢的课程。 点击 “查看详情” 了解更多课程信息。';
+    // step3TitleText = '参加试听课';
+    // step3SubText = '免费参加试听课，看看该课程是否适合您的孩子。 详细信息将会显示在课程的 “查看详情” 的页面下。';
+    // step4TitleText = '使用电子转账付款'
+    // step4SubText = '请将正确的金额发送至 online2020courses@gmail.com 邮件地址。 价格当然可以在详细信息中找到。';
+    // step5TitleText = '发送电子邮件给我们！';
+    // step5SubText = '请填好以下信息，将它发送至 online2020courses@gmail.com 的邮件地址。';
+
+    discountTitleText = '推荐优惠';
+    discountSubText = '欢迎推荐您的朋友们来一起学习！我们会给推荐者提供高达20%的折扣。比如您推荐的朋友新报了$100的课程，您自己将获得$20的学费折扣。';
   }
 
   return (
@@ -156,7 +159,7 @@ export default function Home() {
           <Image src="/images/interestedBubblesRight.svg" layout="raw" width={100} height={100} className={styles.interestedBubblesRight}></Image>
 
           <Grid container item className={styles.interestedBox} justifyContent="center">
-            <Grid item xs={12}>
+            <Grid item xs={12} className={styles.interestedDesc}>
               <h3 className={styles.interestedTitle}>{interestedTitleText}</h3>
               <p className={styles.interestedText}>{interestedSubtitleText}</p>
             </Grid>
@@ -171,7 +174,7 @@ export default function Home() {
                 title={step2TitleText}
                 text={step2SubText}
               ></InterestedStep>
-              <InterestedStep 
+              {/* <InterestedStep 
                 step="3" 
                 title={step3TitleText}
                 text={step3SubText}
@@ -185,13 +188,13 @@ export default function Home() {
                 step="5" 
                 title={step5TitleText}
                 text={step5SubText}
-              ></InterestedStep>
+              ></InterestedStep> */}
             </Grid>
-            <Grid item xs={12}>
+            {/* <Grid item xs={12}>
               {isEng ? <Image src="/images/email.svg" layout="raw" width={100} height={100} className={styles.emailImage}></Image>
                      : <Image src="/images/emailChinese.svg" layout="raw" width={100} height={100} className={styles.emailImage}></Image>}
               
-            </Grid>
+            </Grid> */}
           </Grid>
         </Grid>
 
@@ -233,13 +236,13 @@ function EnrollItem({src, text}) {
 function InterestedStep({step, title, text}) {
   return(
     <Grid container item className={styles.interestedStep} xs={12}>
-      <Grid container item xs={12} className={styles.interestedStepBox}>
-        <div className={styles.interestedStepCircle}>
+      <Grid container alignItems="center" item xs={12} className={styles.interestedStepBox}>
+        <Grid item className={styles.interestedStepCircle}>
           <p className={styles.interestedStepNumber}>{step}</p>
-        </div>
+        </Grid>
         <Grid item>
           <p className={styles.interestedStepTitle}>{title}</p>
-          <p className={styles.interestedStepText}>{text}</p>
+          {/* <p className={styles.interestedStepText}>{text}</p> */}
         </Grid>
       </Grid>
     </Grid>

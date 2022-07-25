@@ -83,7 +83,7 @@
 
 .enrollItemText {
   color: #6F8984;
-  font-size: 1.8vh;
+  font-size: 2vh;
   font-weight: 400;
 }
 
@@ -171,7 +171,6 @@
   background-color: #D0F1EB;
   border-radius: 28px;
   padding: 12vh;
-
 }
 
 .interestedText {
@@ -179,11 +178,11 @@
   padding-left: 20%;
   padding-right: 20%;
   font-weight: 300;
-  margin-bottom: 10vh;
+  margin-bottom: 0vh;
 }
 
 .interestedSteps {
-  padding-left: 4vh
+  padding-left: 4vh;
 }
 
 .interestedStepCircle {
@@ -208,7 +207,7 @@
 
 .interestedStepBox {
   background-color: $lightest;
-  padding: 3vh;
+  padding: 0vh;
   padding-left: 6vh;
   border-radius: 21px;
   position: relative;
@@ -221,6 +220,8 @@
   margin-top: 0px;
   font-weight: 600;
   margin-bottom: 1vh;
+  padding-left: 1vh;
+  padding-right: 5vh;
 }
 
 .interestedStepText {
@@ -411,6 +412,7 @@
     padding-right: 5%;
     margin-bottom: 3vh;
   }
+
 
   .enrollItemText {
     text-align: left;

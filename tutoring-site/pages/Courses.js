@@ -248,7 +248,7 @@ export default function Courses({courses}) {
     coursesText = '课程';
     searchText = '搜索...';
     noCoursesText = '没有找到课程';
-    coursesTitleText = '可用课程';
+    coursesTitleText = '开设课程';
     coursesSubText = '有兴趣但不知道如何开始？ 点击这里获取更多信息';
     gradeText = '年级：';
     allText = '所有';
@@ -304,10 +304,10 @@ export default function Courses({courses}) {
           <h1 className={styles.title}>
             {coursesTitleText}
           </h1>
-          <p className={styles.subtitle}>
+          {/* <p className={styles.subtitle}>
             {coursesSubText}
           <span>
-          <a href="../#interestedSection"><BsFillArrowRightCircleFill className={styles.arrowButton}/></a></span></p>
+          <a href="../#interestedSection"><BsFillArrowRightCircleFill className={styles.arrowButton}/></a></span></p> */}
         </Grid>
         <Grid item container className={styles.searchContainer} alignItems="center">
           <Grid item xs={12} sm={7} md={8} className={styles.searchSubContainer}>
