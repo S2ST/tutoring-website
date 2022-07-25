@@ -125,8 +125,8 @@ export default function Events({events}) {
   let noEventsText = "No Upcoming Events";
   
   if(!isEng) {
-    titleText = "正在进行的活动";
-    subtitleText = "除了常规课程外，我们还为积极进取的学生举办了信息研讨会，如果您不确定是否愿意参加课程，我们还会举办免费试听课程。 在下面查看我们即将举行的活动！";
+    titleText = "免费活动";
+    subtitleText = "除了常规课程外，我们还会组织下列免费试听课和公开讲座：";
     eventsText = '事件';
     noEventsText = '没有正在进行的活动';
   }
