@@ -13,21 +13,21 @@ export default function Home() {
 
   let homeText = 'Home';
   let titleText = 'Students to Students Tutoring';
-  let subtitleText = 'This summer, we’ll have classes suitable for all students, as well as free trial lessons and webinars open to the public!';
+  let subtitleText = "Welcome! We are a non-profit student-run organization. This summer, we'll have free seminars and lessons online!";
   let searchCoursesButtonText = 'Search Courses';
   let enrollTitleText = 'Enroll your child now!';
   let missionText = 'Our mission is to provide extracurricular education to as many students as possible at an affordable price.';
   let card1Text = 'Affordable prices! Each lesson varies from $6 to $12 per 45-60 minutes.';
-  let card2Text = 'Enhance your child’s skills with our courses. Each course contains 8-12 lessons.';
-  let card3Text = 'Course material range from elementary school to high school level.';
+  let card2Text = 'Enhance your child’s learning with our online courses.';
+  let card3Text = 'Course material of all levels includings topics such as English, French, math, and other interesting subjects!';
   let forStudentsTitleText = 'For students, by students.';
-  let ourPriorityText = 'Our priority is providing students with quality tutoring. All tutors are from either a top Canadian university (UoT, UBC, UWaterloo, McGill) or part of the prestigious International Baccalaureate (IB) program.';
+  let ourPriorityText = 'We provide students with quality tutoring. All tutors are from either a top Canadian university (uWaterloo, UofT, UBC, McGill) or part of the prestigious International Baccalaureate (IB) program.';
   let interestedTitleText = 'Interested in getting started?';
-  let interestedSubtitleText = 'Simple. Just follow the next five steps:';
+  let interestedSubtitleText = 'Simple. Just follow these two steps:';
   
-  let step1TitleText = 'Look through our available courses';
+  let step1TitleText = 'Look for a suitable course under the "COURSES" page.';
   let step1SubText = 'Navigate to the “Courses” page and use the grade filter to find the courses tailored to your child’s grade.';
-  let step2TitleText = 'Pick a course';
+  let step2TitleText = 'E-transfer the course fee to online2020courses@gmail.com, and please include student name, contact information, and the courses selected.';
   let step2SubText = 'Find a course that is to you and your child’s liking. Click on “View details” for more information about the course.';
   let step3TitleText = 'Attend the Trial Lesson';
   let step3SubText = 'Take a lesson for free to see if the course is fit for your child. Details are under “View details” of the course.';
@@ -158,12 +158,12 @@ export default function Home() {
           <Image src="/images/interestedBubblesLeft.svg" layout="raw" width={100} height={100} className={styles.interestedBubblesLeft}></Image>
           <Image src="/images/interestedBubblesRight.svg" layout="raw" width={100} height={100} className={styles.interestedBubblesRight}></Image>
 
-          <Grid container item className={styles.interestedBox} justifyContent="center">
-            <Grid item xs={12} className={styles.interestedDesc}>
+          <Grid container item className={styles.interestedBox} justifyContent="center" direction="column">
+            <Grid container item xs="auto" className={styles.interestedDesc} direction="column">
               <h3 className={styles.interestedTitle}>{interestedTitleText}</h3>
               <p className={styles.interestedText}>{interestedSubtitleText}</p>
             </Grid>
-            <Grid container item className={styles.interestedSteps} spacing={2}>
+            <Grid container item xs="auto" className={styles.interestedSteps} spacing={2}>
               <InterestedStep 
                 step="1" 
                 title={step1TitleText}
