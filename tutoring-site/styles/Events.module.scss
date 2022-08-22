@@ -19,6 +19,10 @@
       color: $darkest;
       font-size: 2.1vh;
     }
+    .recordingLink {
+      color: $dark;
+      font-size: 2.1vh;
+    }
 
   }
 
@@ -169,7 +173,7 @@
       font-size: 3vh !important;
     }
 
-    .subtitle {
+    .subtitle, .recordingLink {
       font-size: 1.8vh !important;
     }
   }

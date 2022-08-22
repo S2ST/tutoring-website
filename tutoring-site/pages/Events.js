@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { collection, getDocs, Timestamp, orderBy, query, where, getDoc, doc } from "firebase/firestore"
-import { Grid, Stack, Box } from '@mui/material'
+import { Grid, Stack, Box, Link } from '@mui/material'
 import { db } from "../firebase-config"
 import styles from '../styles/Events.module.scss'
 import Navbar from '../components/Navbar'
@@ -120,15 +120,17 @@ export default function Events({events}) {
   const isEng = useLanguageContext().language;
 
   let titleText = "Upcoming Events";
-  let subtitleText = "Aside from regular lessons, our organization also hosts informational seminars for extra-motivated students, as well as free trial lessons if you are unsure about committing to a course. Check out our upcoming events below!";
+  let subtitleText = "Aside from regular lessons, our organization also hosts informational seminars for extra-motivated students, as well as free trial lessons if you are unsure about committing to a course. Check out our upcoming events below! ";
   let eventsText = "Events";
   let noEventsText = "No Upcoming Events";
+  let recordingLinkText = "Watch the University Seminar recording here!";
   
   if(!isEng) {
     titleText = "免费活动";
-    subtitleText = "除了常规课程外，我们还会组织下列免费试听课和公开讲座：";
+    subtitleText = "除了常规课程外，我们还会组织下列免费试听课和公开讲座。";
     eventsText = '事件';
     noEventsText = '没有正在进行的活动';
+    recordingLinkText = "请点击这里观看怎么申请大学的讲座的录像";
   }
  
 
@@ -151,7 +153,9 @@ export default function Events({events}) {
 
         <Grid item className={styles.titlesContainer}>
             <h1 className={styles.title}>{titleText}</h1>
-            <p className={styles.subtitle}>{subtitleText}</p>
+            <p className={styles.subtitle}>{subtitleText}<br></br>
+              <Link className={styles.recordingLink} href="https://drive.google.com/drive/folders/1hNk42uiZz0q3glwi1dIHZZXU15Vh2LpT?usp=sharing" target="_blank" underline="always">{recordingLinkText}</Link>
+            </p>
         </Grid>
       </Grid>
 
