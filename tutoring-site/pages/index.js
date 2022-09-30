@@ -197,8 +197,10 @@ export default function Home() {
             </Grid> */}
           </Grid>
         </Grid>
+        
+        {/* Section for discounts if we want to use it later */}
 
-        {/* Container for discount section */}
+        {/* Container for discount section
         <Grid container className={styles.discountContainer} justifyContent="center">
           <Grid container item className={styles.discountBox} justifyContent="center">
             <Image src="/images/discount.svg" layout="raw" width={100} height={100} className={styles.discountImage}></Image>
@@ -207,7 +209,7 @@ export default function Home() {
                 <p className={styles.discountText}>{discountSubText}</p>
               </Grid>
           </Grid>
-        </Grid>
+        </Grid> */}
 
         <Footer></Footer>
 
