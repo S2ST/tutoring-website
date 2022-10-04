@@ -25,12 +25,13 @@ export async function getStaticProps(context) {
     updateDoc(doc(db, "events", Edoc.id, "languages", "chinese"), {
       details: '在参加课程之前参加免费的试听课。'
     })
-  }));*/
-
+  }));
+  
   let documentID = 'yy4XnJiWySpxlePIkhfb';
   updateDoc(doc(db, "events", documentID, "languages", "chinese"), {
     eventName: '高级 Python | 试听课'
   })
+  */
 
   const querySnapshot = await getDocs(collection(db, "courses"));
   let courses = [];
