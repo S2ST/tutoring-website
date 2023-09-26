@@ -11,14 +11,6 @@ This is currently hosted and deployed on [Vercel](https://vercel.com/?utm_source
 
 Was submitted to Learnathon22 Hackathon (with permission of tutoring organization) and won First Place Web Dev Prize! Find out more [here](https://devpost.com/software/students-to-students-tutoring-website)
 
-## 🍎 Run it locally
+## 📝 Technologies Used
 
-Install the dependencies using npm
-```shell
-npm install
-```
-
-Start the local development server
-```shell
-npm start
-```
+<img src="https://camo.githubusercontent.com/e84431cfbd9f7c44b1c20da1dde8ad407cbc31174844a428074d1e3b43faab8b/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f64657669636f6e732f64657669636f6e2f69636f6e732f72656163742f72656163742d6f726967696e616c2d776f72646d61726b2e737667" width="100px" />
