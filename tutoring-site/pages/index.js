@@ -161,7 +161,7 @@ export default function Home() {
                 <a href="/Courses" className="z-30 rounded-md bg-[#5bc9a8] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#44ab8c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">{searchCoursesButtonText}</a>
             </div>
             <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
-                <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png" alt="mockup"></img>
+                <Image src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png" alt="mockup"/>
             </div>                
         </div>
     </section>
@@ -235,8 +235,8 @@ export default function Home() {
                 <p>We are strategists, designers and developers. Innovators and problem solvers. Small enough to be simple and quick.</p>
             </div>
             <div className="grid grid-cols-2 gap-4 mt-8 delay-[300ms] duration-[600ms] taos:translate-x-[200px] taos:opacity-0">
-                <img className="w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png" alt="office content 1"></img>
-                <img className="mt-4 w-full lg:mt-10 rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-1.png" alt="office content 2"></img>
+                <Image className="w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png" alt="office content 1"/>
+                <Image className="mt-4 w-full lg:mt-10 rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-1.png" alt="office content 2"/>
             </div>
         </div>
       </section>
@@ -273,7 +273,7 @@ export default function Home() {
                   <p className="my-4">If you care for your time, I hands down would go with this.</p>
               </blockquote>
               <figcaption className="flex justify-center items-center space-x-3">
-                  <img className="w-9 h-9 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/karen-nelson.png" alt="profile picture"></img>
+                  <Image className="w-9 h-9 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/karen-nelson.png" alt="profile picture"/>
                   <div className="space-y-0.5 font-medium">
                       <div>Bonnie Green</div>
                       <div className="text-sm font-light text-gray-500">Parent</div>
@@ -287,7 +287,7 @@ export default function Home() {
                   <p className="my-4">Designing with Figma components that can be easily translated to the utility classes of Tailwind CSS is a huge timesaver!"</p>
               </blockquote>
               <figcaption className="flex justify-center items-center space-x-3">
-                  <img className="w-9 h-9 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/roberta-casas.png" alt="profile picture"></img>
+                  <Image className="w-9 h-9 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/roberta-casas.png" alt="profile picture"/>
                   <div className="space-y-0.5 font-medium">
                       <div>Roberta Casas</div>
                       <div className="text-sm font-light text-gray-500">Professor at University of Ottawa</div>
@@ -302,7 +302,7 @@ export default function Home() {
                   <p className="my-4">Aesthetically, the well designed components are beautiful and will undoubtedly level up your next application.</p>
               </blockquote>
               <figcaption className="flex justify-center items-center space-x-3">
-                  <img className="w-9 h-9 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png" alt="profile picture"></img>
+                  <Image className="w-9 h-9 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png" alt="profile picture"/>
                   <div className="space-y-0.5 font-medium">
                       <div>Jese Leos</div>
                       <div className="text-sm font-light text-gray-500">Student</div>
@@ -316,7 +316,7 @@ export default function Home() {
                   <p className="my-4">You have many examples that can be used to create a fast prototype for your team.</p>
               </blockquote>
               <figcaption className="flex justify-center items-center space-x-3">
-                  <img className="w-9 h-9 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/joseph-mcfall.png" alt="profile picture"></img>
+                  <Image className="w-9 h-9 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/joseph-mcfall.png" alt="profile picture"/>
                   <div className="space-y-0.5 font-medium">
                       <div>Joseph McFall</div>
                       <div className="text-sm font-light text-gray-500">Parent</div>
