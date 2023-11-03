@@ -4,7 +4,7 @@ const nextConfig = {
   experimental: { images: { layoutRaw: true } },
   images: {
     dangerouslyAllowSVG: true,
-    domains: ['firebasestorage.googleapis.com'],
+    domains: ['firebasestorage.googleapis.com', 'flowbite.s3.amazonaws.com'],
   },
   eslint: {
     ignoreDuringBuilds: true,
