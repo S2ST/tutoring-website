@@ -119,7 +119,7 @@ export default function Home() {
         <link rel="manifest" href="/site.webmanifest"/>
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"/>
         <Script src="https://cdn.tailwindcss.com"></Script>
-        <Script>document.documentElement.classList.add('js')</Script>
+        <Script src="document.documentElement.classNameList.add(&apos js &apos)"/>
         <meta name="msapplication-TileColor" content="#da532c"/>
         <meta name="theme-color" content="#ffffff"></meta>
       </Head>
