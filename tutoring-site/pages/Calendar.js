@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer'
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Calendar.module.scss';
@@ -16,13 +17,12 @@ export default function Calendar() {
         <title>{calendarText}</title>
         <meta name="description" content="Students to Students Tutoring Website - Calendar" />
         <link rel="icon" href="/favicon.ico" />
+        <script src="https://cdn.tailwindcss.com"></script>
       </Head>
 
       <Navbar></Navbar>
 
       <Grid container alignItems="center" justifyContent="center" direction="row" className={styles.calendarContainer}>
-        <Image src="/images/enrollBubblesTop.svg" layout="raw" width={100} height={100} className={styles.enrollBubblesTop}></Image>
-        <Image src="/images/enrollBubblesBottom.svg" layout="raw" width={100} height={100} className={styles.enrollBubblesBottom}></Image>
         <Grid item className={styles.calendar} xs={12}>
           {
           isEng ? <iframe src="https://calendar.google.com/calendar/embed?src=oi5qg289jbujahfphmlfauhgco%40group.calendar.google.com&ctz=America%2FToronto" style={{border: 0, width:'100%', height:'100%', frameborder:0, scrolling:"no"}}></iframe>
@@ -30,7 +30,7 @@ export default function Calendar() {
           }
         </Grid>
       </Grid>
+      <Footer></Footer>
     </>
   )
 }
-
