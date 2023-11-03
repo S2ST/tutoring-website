@@ -1,5 +1,6 @@
 import React, {useEffect, useState, useRef} from 'react'
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 import styles from '../styles/Courses.module.scss'
 import { Container, styled, IconButton, Grid, Button, Stack, Card, Typography, TextField, Box, Slider} from '@mui/material'
 import Head from 'next/head'
@@ -294,13 +295,13 @@ export default function Courses({courses}) {
         <title>{coursesText}</title>
         <meta name="description" content="Students to Students Tutoring Website - Courses" />
         <link rel="icon" href="/favicon.ico" />
+        <script src="https://cdn.tailwindcss.com"></script>
       </Head>
 
       <Navbar></Navbar>
 
       {/* Top half section */}
       <Grid container className={styles.topSection} direction="column">
-        <Image src="/images/coursesBubblesTopLeft.svg" layout="raw" width={100} height={100} className={styles.bubblesTopLeft}></Image>
         <Grid item className={styles.titlesContainer}>
           <h1 className={styles.title}>
             {coursesTitleText}
@@ -339,15 +340,12 @@ export default function Courses({courses}) {
       </Grid>
 
       {/* Bottom half section */}
-      <Grid container className={styles.botSection}>
-       <Image src='/images/coursesBubblesLeft.svg' layout="raw" width={450} height={450} className={styles.bubblesLeft}></Image>
-       <Image src='/images/coursesBubblesRight.svg' layout="raw" width={450} height={450} className={styles.bubblesRight}></Image>
+    
        <Grid item className={`${styles.coursesContainer} ${isOnPage ? styles.hideCoursesLeft : ''}`}> 
           {filteredCourses.length != 0 ? filteredCourses.map((item) => <CourseItem course={item} key={item.id} selectCourse={setCourse} isOnPage={isOnPage} setOnPage={setOnPage}/>) : 
           <Grid container justifyContent="center" alignItems="center"><p className={styles.noCourses}>{noCoursesText}</p></Grid>}
        </Grid>
        <DetailsItem course={course} isOnPage={isOnPage} setOnPage={setOnPage}></DetailsItem>
-      </Grid>
     </>
   )
 }
