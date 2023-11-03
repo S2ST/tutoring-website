@@ -139,8 +139,8 @@ export default function Home() {
         <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
         <script src="https://unpkg.com/taos@1.0.5/dist/taos.js"></script>
       
-        <div class="">
-        <div class="relative isolate px-6 pt-14 lg:px-8">
+        <div className="">
+        <div className="relative isolate px-6 pt-14 lg:px-8">
         <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
@@ -149,176 +149,176 @@ export default function Home() {
 />
 
 
-    <div class="-z-10 absolute inset-x-0 -top-40 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
-      <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#04c2bf] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"></div>
+    <div className="-z-10 absolute inset-x-0 -top-40 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
+      <div className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#04c2bf] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"></div>
     </div>
-    <section class="mt-10">
-        <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
-            <div class="mr-auto place-self-center lg:col-span-7">
-                <h1 id="app" class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-black"></h1>
-                <p class="max-w-2xl mb-6 text-gray-600 lg:mb-8 md:text-lg lg:text-xl text-lg leading-8 text-gray-600">{subtitleText}</p>
-                <a href="/Courses" class="z-30 rounded-md bg-[#5bc9a8] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#44ab8c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">{searchCoursesButtonText}</a>
+    <section className="mt-10">
+        <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+            <div className="mr-auto place-self-center lg:col-span-7">
+                <h1 id="app" className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-black"></h1>
+                <p className="max-w-2xl mb-6 text-gray-600 lg:mb-8 md:text-lg lg:text-xl text-lg leading-8 text-gray-600">{subtitleText}</p>
+                <a href="/Courses" className="z-30 rounded-md bg-[#5bc9a8] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#44ab8c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">{searchCoursesButtonText}</a>
             </div>
-            <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
+            <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
                 <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png" alt="mockup"></img>
             </div>                
         </div>
     </section>
 
-    <div class="-z-10 absolute inset-x-0 top-[calc(100%-13rem)] transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]" aria-hidden="true">
-      <div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#04c2bf] to-[#6cf0c8] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"></div>
+    <div className="-z-10 absolute inset-x-0 top-[calc(100%-13rem)] transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]" aria-hidden="true">
+      <div className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#04c2bf] to-[#6cf0c8] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"></div>
     </div>
   </div>
 </div>
 
 
   {/* Container for "For students, by students" Section */}
-  <div class=" py-24 sm:py-32 border-b">
-  <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
-      <dl class="grid max-w-xl grid-cols-1 gap-x-24 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
-        <div class="relative pl-20">
-          <dt class="text-md font-bold leading-7 text-gray-900">
-            <div class="absolute left-0 top-0 flex h-16 w-16 items-center justify-center rounded-lg bg-[#5bc9a8]">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="text-white w-10 h-10">
+  <div className=" py-24 sm:py-32 border-b">
+  <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
+      <dl className="grid max-w-xl grid-cols-1 gap-x-24 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
+        <div className="relative pl-20">
+          <dt className="text-md font-bold leading-7 text-gray-900">
+            <div className="absolute left-0 top-0 flex h-16 w-16 items-center justify-center rounded-lg bg-[#5bc9a8]">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="text-white w-10 h-10">
               <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
             </svg>
             </div>
             {card1TitleText}
           </dt>
-          <dd class="mt-2 text-base leading-7 text-gray-600">{card1Text}</dd>
+          <dd className="mt-2 text-base leading-7 text-gray-600">{card1Text}</dd>
         </div>
-        <div class="relative pl-20 delay-[300ms] duration-[600ms] taos:translate-x-[-200px] taos:opacity-0">
-          <dt class="text-md font-bold leading-7 text-gray-900">
-            <div class="absolute left-0 top-0 flex h-16 w-16 items-center justify-center rounded-lg bg-[#5bc9a8]">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-white">
+        <div className="relative pl-20 delay-[300ms] duration-[600ms] taos:translate-x-[-200px] taos:opacity-0">
+          <dt className="text-md font-bold leading-7 text-gray-900">
+            <div className="absolute left-0 top-0 flex h-16 w-16 items-center justify-center rounded-lg bg-[#5bc9a8]">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-10 h-10 text-white">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             </div>
             {card2TitleText}
           </dt>
-          <dd class="mt-2 text-base leading-7 text-gray-600">{card2Text}</dd>
+          <dd className="mt-2 text-base leading-7 text-gray-600">{card2Text}</dd>
         </div>
-        <div class="relative pl-20">
-          <dt class="text-md font-bold leading-7 text-gray-900">
-            <div class="absolute left-0 top-0 flex h-16 w-16 items-center justify-center rounded-lg bg-[#5bc9a8]">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="text-white w-10 h-10">
+        <div className="relative pl-20">
+          <dt className="text-md font-bold leading-7 text-gray-900">
+            <div className="absolute left-0 top-0 flex h-16 w-16 items-center justify-center rounded-lg bg-[#5bc9a8]">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="text-white w-10 h-10">
               <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
             </svg>
             </div>
             {card3TitleText}
           </dt>
-          <dd class="mt-2 text-base leading-7 text-gray-600">{card3Text}</dd>
+          <dd className="mt-2 text-base leading-7 text-gray-600">{card3Text}</dd>
         </div>
-        <div class="relative pl-20 delay-[300ms] duration-[600ms] taos:translate-x-[-200px] taos:opacity-0">
-          <dt class="text-md font-bold leading-7 text-gray-900">
-            <div class="absolute left-0 top-0 flex h-16 w-16 items-center justify-center rounded-lg bg-[#5bc9a8]">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="text-white w-10 h-10">
+        <div className="relative pl-20 delay-[300ms] duration-[600ms] taos:translate-x-[-200px] taos:opacity-0">
+          <dt className="text-md font-bold leading-7 text-gray-900">
+            <div className="absolute left-0 top-0 flex h-16 w-16 items-center justify-center rounded-lg bg-[#5bc9a8]">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="text-white w-10 h-10">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
               </svg>
             </div>
             {card4TitleText}
           </dt>
-          <dd class="mt-2 text-base leading-7 text-gray-600">{card4Text}</dd>
+          <dd className="mt-2 text-base leading-7 text-gray-600">{card4Text}</dd>
         </div>
       </dl>
     </div>
   </div>
 </div>
 
-        <section class="border-b">
-        <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
-            <div class="font-light text-gray-500 sm:text-lg">
-                <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">{forStudentsTitleText}</h2>
-                <p class="mb-4">{ourPriorityText}</p>
+        <section className="border-b">
+        <div className="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
+            <div className="font-light text-gray-500 sm:text-lg">
+                <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">{forStudentsTitleText}</h2>
+                <p className="mb-4">{ourPriorityText}</p>
                 <p>We are strategists, designers and developers. Innovators and problem solvers. Small enough to be simple and quick.</p>
             </div>
-            <div class="grid grid-cols-2 gap-4 mt-8 delay-[300ms] duration-[600ms] taos:translate-x-[200px] taos:opacity-0">
-                <img class="w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png" alt="office content 1"></img>
-                <img class="mt-4 w-full lg:mt-10 rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-1.png" alt="office content 2"></img>
+            <div className="grid grid-cols-2 gap-4 mt-8 delay-[300ms] duration-[600ms] taos:translate-x-[200px] taos:opacity-0">
+                <img className="w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png" alt="office content 1"></img>
+                <img className="mt-4 w-full lg:mt-10 rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-1.png" alt="office content 2"></img>
             </div>
         </div>
       </section>
-      <div class="py-24 sm:py-32 border-b">
-  <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <dl class="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
-      <div class="mx-auto flex max-w-xs flex-col gap-y-4">
-        <dt class="text-base leading-7 text-gray-600">Transactions every 24 hours</dt>
-        <dd class="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl">44 million</dd>
+      <div className="py-24 sm:py-32 border-b">
+  <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
+      <div className="mx-auto flex max-w-xs flex-col gap-y-4">
+        <dt className="text-base leading-7 text-gray-600">Transactions every 24 hours</dt>
+        <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl">44 million</dd>
       </div>
-      <div class="mx-auto flex max-w-xs flex-col gap-y-4">
-        <dt class="text-base leading-7 text-gray-600">Assets under holding</dt>
-        <dd class="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl">$119 trillion</dd>
+      <div className="mx-auto flex max-w-xs flex-col gap-y-4">
+        <dt className="text-base leading-7 text-gray-600">Assets under holding</dt>
+        <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl">$119 trillion</dd>
       </div>
-      <div class="mx-auto flex max-w-xs flex-col gap-y-4">
-        <dt class="text-base leading-7 text-gray-600">New users annually</dt>
-        <dd class="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl">46,000</dd>
+      <div className="mx-auto flex max-w-xs flex-col gap-y-4">
+        <dt className="text-base leading-7 text-gray-600">New users annually</dt>
+        <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl">46,000</dd>
       </div>
     </dl>
   </div>
 </div>
-<section class="">
-  <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
-      <div class="mx-auto max-w-screen-sm">
-          <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">Testimonials</h2>
-          <p class="mb-8 font-light text-gray-500 lg:mb-16 sm:text-xl">Explore the whole collection of open-source web components and elements built with the utility classes from Tailwind</p>
+<section className="">
+  <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
+      <div className="mx-auto max-w-screen-sm">
+          <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">Testimonials</h2>
+          <p className="mb-8 font-light text-gray-500 lg:mb-16 sm:text-xl">Explore the whole collection of open-source web components and elements built with the utility classes from Tailwind</p>
       </div> 
-      <div class="grid mb-8 lg:mb-12 lg:grid-cols-2">
-          <figure class="flex flex-col justify-center items-center p-8 text-center bg-gray-50 border-b border-gray-200 md:p-12 lg:border-r">
-              <blockquote class="mx-auto mb-8 max-w-2xl text-gray-500">
-                  <h3 class="text-lg font-semibold text-gray-900">Speechless with how easy this was to integrate</h3>
-                  <p class="my-4">"I recently got my hands on Flowbite Pro, and holy crap, I'm speechless with how easy this was to integrate within my application. Most templates are a pain, code is scattered, and near impossible to theme.</p>
-                  <p class="my-4">Flowbite has code in one place and I'm not joking when I say it took me a matter of minutes to copy the code, customise it and integrate within a Laravel + Vue application.</p>
-                  <p class="my-4">If you care for your time, I hands down would go with this."</p>
+      <div className="grid mb-8 lg:mb-12 lg:grid-cols-2">
+          <figure className="flex flex-col justify-center items-center p-8 text-center bg-gray-50 border-b border-gray-200 md:p-12 lg:border-r">
+              <blockquote className="mx-auto mb-8 max-w-2xl text-gray-500">
+                  <h3 className="text-lg font-semibold text-gray-900">Speechless with how easy this was to integrate</h3>
+                  <p className="my-4">"I recently got my hands on Flowbite Pro, and holy crap, I'm speechless with how easy this was to integrate within my application. Most templates are a pain, code is scattered, and near impossible to theme.</p>
+                  <p className="my-4">Flowbite has code in one place and I'm not joking when I say it took me a matter of minutes to copy the code, customise it and integrate within a Laravel + Vue application.</p>
+                  <p className="my-4">If you care for your time, I hands down would go with this."</p>
               </blockquote>
-              <figcaption class="flex justify-center items-center space-x-3">
-                  <img class="w-9 h-9 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/karen-nelson.png" alt="profile picture"></img>
-                  <div class="space-y-0.5 font-medium">
+              <figcaption className="flex justify-center items-center space-x-3">
+                  <img className="w-9 h-9 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/karen-nelson.png" alt="profile picture"></img>
+                  <div className="space-y-0.5 font-medium">
                       <div>Bonnie Green</div>
-                      <div class="text-sm font-light text-gray-500">Parent</div>
+                      <div className="text-sm font-light text-gray-500">Parent</div>
                   </div>
               </figcaption>    
           </figure>
-          <figure class="flex flex-col justify-center items-center p-8 text-center bg-gray-50 border-b border-gray-200 md:p-12">
-              <blockquote class="mx-auto mb-8 max-w-2xl text-gray-500">
-                  <h3 class="text-lg font-semibold text-gray-900">Solid foundation for any project</h3>
-                  <p class="my-4">"FlowBite provides a robust set of design tokens and components based on the popular Tailwind CSS framework. From the most used UI components like forms and navigation bars to the whole app screens designed both for desktop and mobile, this UI kit provides a solid foundation for any project.</p>
-                  <p class="my-4">Designing with Figma components that can be easily translated to the utility classes of Tailwind CSS is a huge timesaver!"</p>
+          <figure className="flex flex-col justify-center items-center p-8 text-center bg-gray-50 border-b border-gray-200 md:p-12">
+              <blockquote className="mx-auto mb-8 max-w-2xl text-gray-500">
+                  <h3 className="text-lg font-semibold text-gray-900">Solid foundation for any project</h3>
+                  <p className="my-4">"FlowBite provides a robust set of design tokens and components based on the popular Tailwind CSS framework. From the most used UI components like forms and navigation bars to the whole app screens designed both for desktop and mobile, this UI kit provides a solid foundation for any project.</p>
+                  <p className="my-4">Designing with Figma components that can be easily translated to the utility classes of Tailwind CSS is a huge timesaver!"</p>
               </blockquote>
-              <figcaption class="flex justify-center items-center space-x-3">
-                  <img class="w-9 h-9 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/roberta-casas.png" alt="profile picture"></img>
-                  <div class="space-y-0.5 font-medium">
+              <figcaption className="flex justify-center items-center space-x-3">
+                  <img className="w-9 h-9 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/roberta-casas.png" alt="profile picture"></img>
+                  <div className="space-y-0.5 font-medium">
                       <div>Roberta Casas</div>
-                      <div class="text-sm font-light text-gray-500">Professor at University of Ottawa</div>
+                      <div className="text-sm font-light text-gray-500">Professor at University of Ottawa</div>
                   </div>
               </figcaption>    
           </figure>
-          <figure class="flex flex-col justify-center items-center p-8 text-center bg-gray-50 border-b border-gray-200 lg:border-b-0 md:p-12 lg:border-r">
-              <blockquote class="mx-auto mb-8 max-w-2xl text-gray-500">
-                  <h3 class="text-lg font-semibold text-gray-900">Mindblowing workflow and variants</h3>
-                  <p class="my-4">"As someone who mainly designs in the browser, I've been a casual user of Figma, but as soon as I saw and started playing with FlowBite my mind was 🤯.</p>
-                  <p class="my-4">Everything is so well structured and simple to use (I've learnt so much about Figma by just using the toolkit).</p>
-                  <p class="my-4">Aesthetically, the well designed components are beautiful and will undoubtedly level up your next application."</p>
+          <figure className="flex flex-col justify-center items-center p-8 text-center bg-gray-50 border-b border-gray-200 lg:border-b-0 md:p-12 lg:border-r">
+              <blockquote className="mx-auto mb-8 max-w-2xl text-gray-500">
+                  <h3 className="text-lg font-semibold text-gray-900">Mindblowing workflow and variants</h3>
+                  <p className="my-4">"As someone who mainly designs in the browser, I've been a casual user of Figma, but as soon as I saw and started playing with FlowBite my mind was 🤯.</p>
+                  <p className="my-4">Everything is so well structured and simple to use (I've learnt so much about Figma by just using the toolkit).</p>
+                  <p className="my-4">Aesthetically, the well designed components are beautiful and will undoubtedly level up your next application."</p>
               </blockquote>
-              <figcaption class="flex justify-center items-center space-x-3">
-                  <img class="w-9 h-9 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png" alt="profile picture"></img>
-                  <div class="space-y-0.5 font-medium">
+              <figcaption className="flex justify-center items-center space-x-3">
+                  <img className="w-9 h-9 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png" alt="profile picture"></img>
+                  <div className="space-y-0.5 font-medium">
                       <div>Jese Leos</div>
-                      <div class="text-sm font-light text-gray-500">Student</div>
+                      <div className="text-sm font-light text-gray-500">Student</div>
                   </div>
               </figcaption>    
           </figure>
-          <figure class="flex flex-col justify-center items-center p-8 text-center bg-gray-50 border-gray-200 md:p-12">
-              <blockquote class="mx-auto mb-8 max-w-2xl text-gray-500">
-                  <h3 class="text-lg font-semibold text-gray-900">Efficient Collaborating</h3>
-                  <p class="my-4">"This is a very complex and beautiful set of elements. Under the hood it comes with the best things from 2 different worlds: Figma and Tailwind.</p>
-                  <p class="my-4">You have many examples that can be used to create a fast prototype for your team."</p>
+          <figure className="flex flex-col justify-center items-center p-8 text-center bg-gray-50 border-gray-200 md:p-12">
+              <blockquote className="mx-auto mb-8 max-w-2xl text-gray-500">
+                  <h3 className="text-lg font-semibold text-gray-900">Efficient Collaborating</h3>
+                  <p className="my-4">"This is a very complex and beautiful set of elements. Under the hood it comes with the best things from 2 different worlds: Figma and Tailwind.</p>
+                  <p className="my-4">You have many examples that can be used to create a fast prototype for your team."</p>
               </blockquote>
-              <figcaption class="flex justify-center items-center space-x-3">
-                  <img class="w-9 h-9 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/joseph-mcfall.png" alt="profile picture"></img>
-                  <div class="space-y-0.5 font-medium">
+              <figcaption className="flex justify-center items-center space-x-3">
+                  <img className="w-9 h-9 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/joseph-mcfall.png" alt="profile picture"></img>
+                  <div className="space-y-0.5 font-medium">
                       <div>Joseph McFall</div>
-                      <div class="text-sm font-light text-gray-500">Parent</div>
+                      <div className="text-sm font-light text-gray-500">Parent</div>
                   </div>
               </figcaption>    
           </figure>
@@ -326,26 +326,26 @@ export default function Home() {
     </div>
 </section>
 
-<div class="p-4 border border-gray-200 shadow-lg rounded-lg sm:p-8 m-4 bg-gray-100">
-    <h5 class="mb-2 text-3xl font-bold text-gray-900 text-center">{interestedTitleText}</h5>
-    <p class="mb-5 text-base text-gray-500 sm:text-lg text-center">{interestedSubtitleText}</p>
+<div className="p-4 border border-gray-200 shadow-lg rounded-lg sm:p-8 m-4 bg-gray-100">
+    <h5 className="mb-2 text-3xl font-bold text-gray-900 text-center">{interestedTitleText}</h5>
+    <p className="mb-5 text-base text-gray-500 sm:text-lg text-center">{interestedSubtitleText}</p>
 
-<div class="flex justify-center">
-<ol class="relative border-l border-gray-200">                  
-    <li class="mb-10 ml-4">
-        <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white"></div>
-        <time class="mb-1 text-sm font-normal leading-none text-gray-400">{step1}</time>
-        <h3 class="text-lg font-semibold text-gray-900">{step1TitleText}</h3>
-        <p class="mb-4 text-base font-normal text-gray-500">{step1SubText}</p>
-        <a href="/Courses" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 ">{searchCoursesButtonText}<svg class="w-3 h-3 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+<div className="flex justify-center">
+<ol className="relative border-l border-gray-200">                  
+    <li className="mb-10 ml-4">
+        <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white"></div>
+        <time className="mb-1 text-sm font-normal leading-none text-gray-400">{step1}</time>
+        <h3 className="text-lg font-semibold text-gray-900">{step1TitleText}</h3>
+        <p className="mb-4 text-base font-normal text-gray-500">{step1SubText}</p>
+        <a href="/Courses" className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 ">{searchCoursesButtonText}<svg className="w-3 h-3 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
   </svg></a>
     </li>
-    <li class="mb-10 ml-4">
-        <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white"></div>
-        <time class="mb-1 text-sm font-normal leading-none text-gray-400">{step2}</time>
-        <h3 class="text-lg font-semibold text-gray-900">{step2TitleText}</h3>
-        <p class="text-base font-normal text-gray-500">{step2SubText}</p>
+    <li className="mb-10 ml-4">
+        <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white"></div>
+        <time className="mb-1 text-sm font-normal leading-none text-gray-400">{step2}</time>
+        <h3 className="text-lg font-semibold text-gray-900">{step2TitleText}</h3>
+        <p className="text-base font-normal text-gray-500">{step2SubText}</p>
     </li>
 </ol>
 </div>
