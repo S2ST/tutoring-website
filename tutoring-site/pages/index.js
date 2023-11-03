@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Script from 'next/script'
 import Link from 'next/link';
 import styles from '../styles/Home.module.scss'
 import Navbar from '../components/Navbar'
@@ -117,8 +118,8 @@ export default function Home() {
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
         <link rel="manifest" href="/site.webmanifest"/>
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"/>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <script>document.documentElement.classList.add('js')</script>
+        <Script src="https://cdn.tailwindcss.com"></Script>
+        <Script>document.documentElement.classList.add('js')</Script>
         <meta name="msapplication-TileColor" content="#da532c"/>
         <meta name="theme-color" content="#ffffff"></meta>
       </Head>
@@ -136,8 +137,8 @@ export default function Home() {
         <Navbar></Navbar>
         
         {/* Container for Starting Section */}
-        <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
-        <script src="https://unpkg.com/taos@1.0.5/dist/taos.js"></script>
+        <Script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></Script>
+        <Script src="https://unpkg.com/taos@1.0.5/dist/taos.js"></Script>
       
         <div className="">
         <div className="relative isolate px-6 pt-14 lg:px-8">
