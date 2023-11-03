@@ -119,8 +119,8 @@ function EventItem({event}) {
 export default function Events({events}) {
   const isEng = useLanguageContext().language;
 
-  let titleText = "Upcoming Events";
-  let subtitleText = "Aside from regular lessons, our organization also hosts informational seminars for extra-motivated students, as well as free trial lessons if you are unsure about committing to a course. Check out our upcoming events below! ";
+  let titleText = "Learn from Success";
+  let subtitleText = "A series of free webinars for students applying to college, the IB program, or for those who want highschool life advice!";
   let eventsText = "Events";
   let noEventsText = "No Upcoming Events";
   let recordingLinkText = "Watch the University Seminar recording here!";
@@ -164,43 +164,27 @@ export default function Events({events}) {
     </div>
 <div className="grid grid-cols-3">
   <a href="#" className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 mb-2">
-      <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">University Admission Seminar</h5>
-      <p className="font-normal text-gray-700">3:00 PM, November 20</p>
+      <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">Learn from Success -  Advice from Amy and Olivia</h5>
       <br></br>
-      <p className="font-normal text-gray-700">This seminar will be discussing...</p>
+      <p className="font-normal text-gray-700">Listen to MIT and Caltech grads give advice on how to achieve a good study-life balance in highschool while getting those A’s! <a href="https://www.youtube.com/watch?v=QEdip6eqSF8&t=3937s&ab_channel=wAmy">Youtube</a></p>
   </a>
 
   <a href="#" className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 mb-2">
-      <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">UWaterloo Guide</h5>
-      <p className="font-normal text-gray-700">3:00 PM, November 20</p>
+      <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">Learn from Success - Applying to IB</h5>
       <br></br>
-      <p className="font-normal text-gray-700">This seminar will be discussing...</p>
+      <p className="font-normal text-gray-700">Listen to experienced IB students give tips for applying to the prestigious International Baccalaureate program! <a href="https://drive.google.com/drive/folders/18wjVX2t62ce0Q149X7wzpJ7aFyOoGNPl?usp=sharing">Google Drive</a></p>
   </a>
 
   <a href="#" className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 mb-2">
-      <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">IB Tips Seminar</h5>
-      <p className="font-normal text-gray-700">3:00 PM, November 20</p>
+      <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">Learn from Success - Applying to University</h5>
       <br></br>
-      <p className="font-normal text-gray-700">This seminar will be discussing...</p>
+      <p className="font-normal text-gray-700">Listen to students from Canada’s top universities (McMaster Health Sci, UWaterloo CS, Western Ivey, etc.) talk about how they were admitted to their dream schools! <a href="https://drive.google.com/file/d/1Aje9HgwBUwxBvkP6ACOoiKSTWXkP_cKk/view?usp=sharing">Google Drive</a></p>
   </a>
 
   <a href="#" className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
-      <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">US Universoty Seminar</h5>
-      <p className="font-normal text-gray-700">3:00 PM, November 20</p>
+      <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">Learn from Success - Life in IB</h5>
       <br></br>
-      <p className="font-normal text-gray-700">This seminar will be discussing...</p>
-  </a>
-  <a href="#" className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
-      <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">Competitive Math Seminar</h5>
-      <p className="font-normal text-gray-700">3:00 PM, November 20</p>
-      <br></br>
-      <p className="font-normal text-gray-700">This seminar will be discussing...</p>
-  </a>
-  <a href="#" className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
-      <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">Some Random Seminar</h5>
-      <p className="font-normal text-gray-700">3:00 PM, November 20</p>
-      <br></br>
-      <p className="font-normal text-gray-700">This seminar will be discussing...</p>
+      <p className="font-normal text-gray-700">Listen to students from Canada’s top universities (McMaster Health Sci, UWaterloo CS, Western Ivey, etc.) tell stories about their unique IB experience! <a href="https://drive.google.com/drive/folders/1Zql80iZhpFBe8PrJXr5MIOC_yTIjMyo9?usp=sharing">Google Drive</a></p>
   </a>
 </div>
   </div>
