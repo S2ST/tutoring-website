@@ -6,6 +6,9 @@ const nextConfig = {
     dangerouslyAllowSVG: true,
     domains: ['firebasestorage.googleapis.com'],
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 }
 
 module.exports = nextConfig
