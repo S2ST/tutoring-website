@@ -37,7 +37,7 @@ export default function Team() {
                             <a href="#">Anyuan Tu</a>
                         </h3>
                         <span className="text-gray-500">Founder & President</span>
-                        <p className="mt-3 mb-4 font-light text-gray-500">Anyuan is currently an IB student at Merivale High School. He founded S2S Tutoring with the aim of providing affordable and high quality education to anyone who wants to learn. Anyuan is extremely dedicated to his mission, working countless hours each week to ensure the quality and accessibility of our services.</p>
+                        <p className="mt-3 mb-4 font-light text-gray-500">Anyuan is currently an IB student at Merivale High School.</p>
                     </div>
                 </div> 
                 <div className="items-center bg-gray-50 rounded-lg shadow sm:flex">
