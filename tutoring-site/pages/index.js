@@ -36,7 +36,7 @@ export default function Home() {
   let step2 = 'Step 2';
   let step1TitleText = 'Look for a suitable course.';
   let step1SubText = 'Navigate to the “Courses” page and use the grade filter to find the courses tailored to your child’s grade.';
-  let step2TitleText = 'E-transfer the course fee to online2020courses@gmail.com, and please include student name, contact information, and the courses selected.';
+  let step2TitleText = 'Email online2020courses@gmail.com, and please include student name, contact information, and the courses selected.';
   let step2SubText = 'Find a course that is to you and your child’s liking. Click on “View details” for more information about the course.';
   let step3TitleText = 'Attend the Trial Lesson';
   let step3SubText = 'Take a lesson for free to see if the course is fit for your child. Details are under “View details” of the course.';
@@ -153,16 +153,16 @@ export default function Home() {
     <div className="-z-10 absolute inset-x-0 -top-40 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
       <div className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#04c2bf] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"></div>
     </div>
-    <section className="mt-10">
-        <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
-            <div className="mr-auto place-self-center lg:col-span-7">
-                <h1 id="app" className="max-w-2xl mb-4 text-2xl font-extrabold tracking-tight leading-none md:text-4xl xl:text-4xl text-black"></h1>
-                <p className="max-w-2xl mb-6 text-gray-600 lg:mb-8 md:text-lg lg:text-base text-sm leading-8 text-gray-600">{subtitleText}</p>
-                <a href="/Courses" className="z-30 rounded-md bg-[#5bc9a8] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#44ab8c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">{searchCoursesButtonText}</a>
+    <section className="mt-20 xl:mt-32">
+        <div className="py-8 lg:py-20">
+            <div className="flex flex-col items-center">
+                <h1 id="app" className="text-center max-w-2xl mb-4 text-2xl font-extrabold tracking-tight leading-none md:text-4xl xl:text-4xl text-black"></h1>
+                <p className="text-center max-w-2xl mb-6 text-gray-600 lg:mb-8 md:text-lg lg:text-base text-sm leading-8 text-gray-600">{subtitleText}</p>
+                <div class="flex flex-col items-center">
+                  <a href="/Courses" className="z-30 rounded-md bg-[#5bc9a8] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#44ab8c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">{searchCoursesButtonText}</a>
+                </div>
             </div>
-            <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
-                <img src="https://firebasestorage.googleapis.com/v0/b/website-d9767.appspot.com/o/Misc.%20Images%2Fmain.png?alt=media&token=d215e486-bd82-4454-879f-ba8ee27f2c38&_gl=1*1s1clx3*_ga*MTQ4ODU4NDg0NC4xNjk5MDY5Nzg0*_ga_CW55HF8NVT*MTY5OTA3MjAyMi4yLjEuMTY5OTA3NDc4NC40Ny4wLjA." alt="mockup"></img>
-            </div>                
+               
         </div>
     </section>
 

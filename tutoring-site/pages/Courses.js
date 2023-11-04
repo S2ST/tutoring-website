@@ -243,7 +243,7 @@ export default function Courses({courses}) {
   let coursesText = 'Courses';
   let searchText = 'Search...';
   let noCoursesText = 'No Courses Found';
-  let coursesTitleText = 'Courses Available';
+  let coursesTitleText = '';
   let coursesSubText = 'Interested but don’t know how to start? Click here for more info';
   let gradeText = 'Grade: ';
   let allText = 'All';
@@ -252,7 +252,7 @@ export default function Courses({courses}) {
     coursesText = '课程';
     searchText = '搜索...';
     noCoursesText = '没有找到课程';
-    coursesTitleText = '开设课程';
+    coursesTitleText = '';
     coursesSubText = '有兴趣但不知道如何开始？ 点击这里获取更多信息';
     gradeText = '年级：';
     allText = '所有';
