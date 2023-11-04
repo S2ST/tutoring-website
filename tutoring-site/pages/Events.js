@@ -52,33 +52,29 @@ export default function Events({events}) {
         </a>
       </div>
     </div>
-<div className="grid grid-cols-3">
-  <a href="#" className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 mb-2">
+<div className="grid grid-cols-4 gap-x-3">
+  <a href="https://www.youtube.com/watch?v=QEdip6eqSF8&t=3937s&ab_channel=wAmy" className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 mb-2">
       <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">Learn from Success -  Advice from Amy and Olivia</h5>
       <br></br>
       <p className="font-normal text-gray-700">Listen to MIT and Caltech grads give advice on how to achieve a good study-life balance in highschool while getting those A’s!</p>
-      <a href="https://www.youtube.com/watch?v=QEdip6eqSF8&t=3937s&ab_channel=wAmy">Youtube</a>
   </a>
 
-  <a href="#" className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 mb-2">
+  <a href="https://drive.google.com/drive/folders/18wjVX2t62ce0Q149X7wzpJ7aFyOoGNPl?usp=sharing" className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 mb-2">
       <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">Learn from Success - Applying to IB</h5>
       <br></br>
       <p className="font-normal text-gray-700">Listen to experienced IB students give tips for applying to the prestigious International Baccalaureate program!</p>
-      <a href="https://drive.google.com/drive/folders/18wjVX2t62ce0Q149X7wzpJ7aFyOoGNPl?usp=sharing">Google Drive</a>
   </a>
 
-  <a href="#" className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 mb-2">
+  <a href="https://drive.google.com/file/d/1Aje9HgwBUwxBvkP6ACOoiKSTWXkP_cKk/view?usp=sharing" className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 mb-2">
       <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">Learn from Success - Applying to University</h5>
       <br></br>
       <p className="font-normal text-gray-700">Listen to students from Canada’s top universities (McMaster Health Sci, UWaterloo CS, Western Ivey, etc.) talk about how they were admitted to their dream schools!</p>
-      <a href="https://drive.google.com/file/d/1Aje9HgwBUwxBvkP6ACOoiKSTWXkP_cKk/view?usp=sharing">Google Drive</a>
   </a>
 
-  <a href="#" className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
+  <a href="https://drive.google.com/drive/folders/1Zql80iZhpFBe8PrJXr5MIOC_yTIjMyo9?usp=sharing" className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
       <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">Learn from Success - Life in IB</h5>
       <br></br>
       <p className="font-normal text-gray-700">Listen to students from Canada’s top universities (McMaster Health Sci, UWaterloo CS, Western Ivey, etc.) tell stories about their unique IB experience!</p>
-      <a href="https://drive.google.com/drive/folders/1Zql80iZhpFBe8PrJXr5MIOC_yTIjMyo9?usp=sharing">Google Drive</a>
   </a>
 </div>
   </div>
