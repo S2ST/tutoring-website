@@ -198,6 +198,7 @@ function CourseItem({course, selectCourse, isOnPage, setOnPage}) {
 
   return (
     <>
+    <div className="mt-10">
       <Box ref={domRef}>
         <Grid container direction="row" justifyContent="center" alignItems="center" className={`${styles.courseItemBox} ${styles.fadeInSection} ${isVisible ? styles.isVisible : ''}`}>
           <div className={styles.imageContainer}>
@@ -224,6 +225,7 @@ function CourseItem({course, selectCourse, isOnPage, setOnPage}) {
           </Grid>
         </Grid>
       </Box>
+    </div>
     </>
   )
 }
