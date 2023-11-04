@@ -156,12 +156,12 @@ export default function Home() {
     <section className="mt-10">
         <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
             <div className="mr-auto place-self-center lg:col-span-7">
-                <h1 id="app" className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-black"></h1>
-                <p className="max-w-2xl mb-6 text-gray-600 lg:mb-8 md:text-lg lg:text-xl text-lg leading-8 text-gray-600">{subtitleText}</p>
+                <h1 id="app" className="max-w-2xl mb-4 text-2xl font-extrabold tracking-tight leading-none md:text-4xl xl:text-4xl text-black"></h1>
+                <p className="max-w-2xl mb-6 text-gray-600 lg:mb-8 md:text-lg lg:text-base text-sm leading-8 text-gray-600">{subtitleText}</p>
                 <a href="/Courses" className="z-30 rounded-md bg-[#5bc9a8] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#44ab8c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">{searchCoursesButtonText}</a>
             </div>
             <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
-                <Image src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png" alt="mockup"/>
+                <img src="https://firebasestorage.googleapis.com/v0/b/website-d9767.appspot.com/o/Misc.%20Images%2Fmain.png?alt=media&token=d215e486-bd82-4454-879f-ba8ee27f2c38&_gl=1*1s1clx3*_ga*MTQ4ODU4NDg0NC4xNjk5MDY5Nzg0*_ga_CW55HF8NVT*MTY5OTA3MjAyMi4yLjEuMTY5OTA3NDc4NC40Ny4wLjA." alt="mockup"></img>
             </div>                
         </div>
     </section>
@@ -178,7 +178,7 @@ export default function Home() {
   <div className="mx-auto max-w-7xl px-6 lg:px-8">
     <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
       <dl className="grid max-w-xl grid-cols-1 gap-x-24 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
-        <div className="relative pl-20">
+        <div className="relative pl-20 delay-[300ms] duration-[600ms] taos:translate-x-[-200px] taos:opacity-0">
           <dt className="text-md font-bold leading-7 text-gray-900">
             <div className="absolute left-0 top-0 flex h-16 w-16 items-center justify-center rounded-lg bg-[#5bc9a8]">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="text-white w-10 h-10">
@@ -200,7 +200,7 @@ export default function Home() {
           </dt>
           <dd className="mt-2 text-base leading-7 text-gray-600">{card2Text}</dd>
         </div>
-        <div className="relative pl-20">
+        <div className="relative pl-20 delay-[300ms] duration-[600ms] taos:translate-x-[-200px] taos:opacity-0">
           <dt className="text-md font-bold leading-7 text-gray-900">
             <div className="absolute left-0 top-0 flex h-16 w-16 items-center justify-center rounded-lg bg-[#5bc9a8]">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="text-white w-10 h-10">
@@ -229,29 +229,28 @@ export default function Home() {
 
         <section className="border-b">
         <div className="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
-            <div className="font-light text-gray-500 sm:text-lg">
+            <div className="font-light text-gray-500 sm:text-lg delay-[300ms] duration-[600ms] taos:translate-x-[-200px] taos:opacity-0">
                 <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">{forStudentsTitleText}</h2>
                 <p className="mb-4">{ourPriorityText}</p>
-                <p>We are strategists, designers and developers. Innovators and problem solvers. Small enough to be simple and quick.</p>
             </div>
-            <div className="grid grid-cols-2 gap-4 mt-8 delay-[300ms] duration-[600ms] taos:translate-x-[200px] taos:opacity-0">
-                <Image className="w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png" alt="office content 1"/>
-                <Image className="mt-4 w-full lg:mt-10 rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-1.png" alt="office content 2"/>
+            <div className="grid grid-cols-2 gap-4 mt-8">
+                <img className="w-full rounded-lg delay-[300ms] duration-[600ms] taos:translate-y-[-200px] taos:opacity-0" src="https://firebasestorage.googleapis.com/v0/b/website-d9767.appspot.com/o/Misc.%20Images%2FforStudents1.jpg?alt=media&token=a1b9d150-4daa-400a-be78-be48c6eaca93&_gl=1*15hs90k*_ga*MTQ4ODU4NDg0NC4xNjk5MDY5Nzg0*_ga_CW55HF8NVT*MTY5OTA3MjAyMi4yLjAuMTY5OTA3MjAyMi42MC4wLjA." alt="office content 1"></img>
+                <img className="mt-4 w-full lg:mt-10 rounded-lg delay-[300ms] duration-[600ms] taos:translate-y-[200px] taos:opacity-0" src="https://firebasestorage.googleapis.com/v0/b/website-d9767.appspot.com/o/Misc.%20Images%2FforStudents2.png?alt=media&token=7d9bf9a0-f1f8-4337-bd58-a6980235a2f0&_gl=1*nqsifr*_ga*MTQ4ODU4NDg0NC4xNjk5MDY5Nzg0*_ga_CW55HF8NVT*MTY5OTA3MjAyMi4yLjEuMTY5OTA3MjA5NS42MC4wLjA." alt="office content 2"></img>
             </div>
         </div>
       </section>
-      <div className="py-24 sm:py-32 border-b">
+      <div className="py-12 sm:py-16 border-b">
   <div className="mx-auto max-w-7xl px-6 lg:px-8">
     <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
-      <div className="mx-auto flex max-w-xs flex-col gap-y-4">
+      <div className="mx-auto flex max-w-xs flex-col gap-y-4 delay-[300ms] duration-[600ms] taos:translate-y-[200px] taos:opacity-0">
         <dt className="text-base leading-7 text-gray-600">Students helped</dt>
         <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl">2,000+</dd>
       </div>
-      <div className="mx-auto flex max-w-xs flex-col gap-y-4">
+      <div className="mx-auto flex max-w-xs flex-col gap-y-4 delay-[600ms] duration-[600ms] taos:translate-y-[200px] taos:opacity-0">
         <dt className="text-base leading-7 text-gray-600">Tutors hired</dt>
         <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl">100+</dd>
       </div>
-      <div className="mx-auto flex max-w-xs flex-col gap-y-4">
+      <div className="mx-auto flex max-w-xs flex-col gap-y-4 delay-[900ms] duration-[600ms] taos:translate-y-[200px] taos:opacity-0">
         <dt className="text-base leading-7 text-gray-600">Paid to tutors</dt>
         <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl">$195,000</dd>
       </div>
@@ -261,8 +260,7 @@ export default function Home() {
 <section className="">
   <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
       <div className="mx-auto max-w-screen-sm">
-          <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">Testimonials</h2>
-          <p className="mb-8 font-light text-gray-500 lg:mb-16 sm:text-xl">Explore the whole collection of open-source web components and elements built with the utility classes from Tailwind</p>
+          <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">Hear from our students and parents!</h2>
       </div> 
       <div className="grid mb-8 lg:mb-12 lg:grid-cols-2">
           <figure className="flex flex-col justify-center items-center p-8 text-center bg-gray-50 border-b border-gray-200 md:p-12 lg:border-r">
@@ -272,7 +270,7 @@ export default function Home() {
               </blockquote>
               <figcaption className="flex justify-center items-center space-x-3">
                   <div className="space-y-0.5 font-medium">
-                      <div>Parent</div>
+                      <div>Student</div>
                   </div>
               </figcaption>    
           </figure>

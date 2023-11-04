@@ -30,14 +30,14 @@ export default function Team() {
             <div className="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2">
                 <div className="items-center bg-gray-50 rounded-lg shadow sm:flex">
                     <a href="#">
-                        <img className="w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png" alt="Bonnie Avatar"></img>
+                        <img className="w-30 rounded-lg sm:rounded-none sm:rounded-l-lg" src="https://firebasestorage.googleapis.com/v0/b/website-d9767.appspot.com/o/Misc.%20Images%2Fanyuan.jpg?alt=media&token=05bfe030-66dd-4ee4-b858-a9d617dd2b12&_gl=1*donpoa*_ga*MTQ4ODU4NDg0NC4xNjk5MDY5Nzg0*_ga_CW55HF8NVT*MTY5OTA3MjAyMi4yLjEuMTY5OTA3Mjg1Ni4yMy4wLjA." alt="Bonnie Avatar"></img>
                     </a>
                     <div className="p-5">
                         <h3 className="text-xl font-bold tracking-tight text-gray-900">
                             <a href="#">Anyuan Tu</a>
                         </h3>
                         <span className="text-gray-500">Founder & President</span>
-                        <p className="mt-3 mb-4 font-light text-gray-500">Anyuan is currently an IB student at Merivale High School. He founded S2S Tutoring with the aim of providing affordable and high quality education to anyone who wants to learn. Anyuan is extremely dedicated to his mission, working countless hours each week to ensure the quality and accessibility of our services.</p>
+                        <p className="mt-3 mb-4 font-light text-gray-500">Anyuan is currently an IB student at Merivale High School.</p>
                     </div>
                 </div> 
                 <div className="items-center bg-gray-50 rounded-lg shadow sm:flex">
