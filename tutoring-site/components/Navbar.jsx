@@ -68,7 +68,7 @@ function Navbar(props) {
       <div className="flex lg:flex-1">
         <a href="#" className="-m-1.5 p-1.5">
           <span className="sr-only">Your Company</span>
-          <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt=""></img>
+          <img className="h-10 w-auto" src="https://firebasestorage.googleapis.com/v0/b/website-d9767.appspot.com/o/Misc.%20Images%2FUntitled%20design.png?alt=media&token=5daa726d-b85c-4b1e-967c-e2c58bf1fac3&_gl=1*1sdoco8*_ga*MTQ4ODU4NDg0NC4xNjk5MDY5Nzg0*_ga_CW55HF8NVT*MTY5OTE0MTcxNi40LjEuMTY5OTE0MTczMC40Ni4wLjA." alt=""></img>
         </a>
       </div>
       <div className="flex lg:hidden">
