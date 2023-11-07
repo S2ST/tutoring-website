@@ -90,9 +90,11 @@ function Navbar(props) {
       <div className="lg:flex lg:flex-1 lg:justify-end">
           <Box onClick={changeLanguage} className={styles.toggle}>
             <Grid container className={styles.languageToggle}>
-              <img class="w-2" src="https://firebasestorage.googleapis.com/v0/b/website-d9767.appspot.com/o/Misc.%20Images%2Fchina.svg?alt=media&token=390e243f-6381-424e-9de5-81e0c2f12078&_gl=1*bntw4z*_ga*MTQ4ODU4NDg0NC4xNjk5MDY5Nzg0*_ga_CW55HF8NVT*MTY5OTMyMDU2My41LjEuMTY5OTMyMDY0MS41Ni4wLjA."></img>
-              <Grid item xs={6} className={styles.china} sx={lang ? {opacity: 0.5} : {opacity: 1}}></Grid>
-              <Grid item xs={6} className={styles.canada} sx={!lang ? {opacity: 0.5} : {opacity: 1}}></Grid>
+              <div class="my-auto grid grid-cols-2 gap-x-2 mx-auto">
+                <img class="w-6" src="https://firebasestorage.googleapis.com/v0/b/website-d9767.appspot.com/o/Misc.%20Images%2Fchina.svg?alt=media&token=390e243f-6381-424e-9de5-81e0c2f12078&_gl=1*bntw4z*_ga*MTQ4ODU4NDg0NC4xNjk5MDY5Nzg0*_ga_CW55HF8NVT*MTY5OTMyMDU2My41LjEuMTY5OTMyMDY0MS41Ni4wLjA."></img>
+                <img class="w-6" src="https://firebasestorage.googleapis.com/v0/b/website-d9767.appspot.com/o/Misc.%20Images%2Fcanada.svg?alt=media&token=068482ee-5c1c-43b2-ab74-d0a91c2a5bee&_gl=1*h8fne0*_ga*MTQ4ODU4NDg0NC4xNjk5MDY5Nzg0*_ga_CW55HF8NVT*MTY5OTM4NDQxMi42LjEuMTY5OTM4NDQyMC41Mi4wLjA."></img>
+              </div>
+
             </Grid>
           </Box>
       </div>
