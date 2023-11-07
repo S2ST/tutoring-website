@@ -303,6 +303,7 @@ export default function Courses({courses}) {
       <Navbar></Navbar>
 
       {/* Top half section */}
+      <div class="mt-20">
       <Grid container className={styles.topSection} direction="column">
         <Grid item className={styles.titlesContainer}>
           <h1 className={styles.title}>
@@ -340,6 +341,7 @@ export default function Courses({courses}) {
           </Grid>
         </Grid>
       </Grid>
+      </div>
 
       {/* Bottom half section */}
     
