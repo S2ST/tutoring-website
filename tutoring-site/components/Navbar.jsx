@@ -90,6 +90,7 @@ function Navbar(props) {
       <div className="lg:flex lg:flex-1 lg:justify-end">
           <Box onClick={changeLanguage} className={styles.toggle}>
             <Grid container className={styles.languageToggle}>
+              kljhlkj
               <Grid item xs={6} className={styles.china} sx={lang ? {opacity: 0.5} : {opacity: 1}}></Grid>
               <Grid item xs={6} className={styles.canada} sx={!lang ? {opacity: 0.5} : {opacity: 1}}></Grid>
             </Grid>
