@@ -249,8 +249,8 @@ export default function Home() {
                 <p className="mb-4">{ourPriorityText}</p>
             </div>
             <div className="grid grid-cols-2 gap-4 mt-8">
-                <img className="w-full rounded-lg delay-[300ms] duration-[600ms] taos:translate-y-[-200px] taos:opacity-0" src="https://firebasestorage.googleapis.com/v0/b/website-d9767.appspot.com/o/Misc.%20Images%2FforStudents1.jpg?alt=media&token=a1b9d150-4daa-400a-be78-be48c6eaca93&_gl=1*15hs90k*_ga*MTQ4ODU4NDg0NC4xNjk5MDY5Nzg0*_ga_CW55HF8NVT*MTY5OTA3MjAyMi4yLjAuMTY5OTA3MjAyMi42MC4wLjA." alt="office content 1"></img>
-                <img className="mt-4 w-full lg:mt-10 rounded-lg delay-[300ms] duration-[600ms] taos:translate-y-[200px] taos:opacity-0" src="https://firebasestorage.googleapis.com/v0/b/website-d9767.appspot.com/o/Misc.%20Images%2FforStudents2.png?alt=media&token=7d9bf9a0-f1f8-4337-bd58-a6980235a2f0&_gl=1*nqsifr*_ga*MTQ4ODU4NDg0NC4xNjk5MDY5Nzg0*_ga_CW55HF8NVT*MTY5OTA3MjAyMi4yLjEuMTY5OTA3MjA5NS42MC4wLjA." alt="office content 2"></img>
+                <img className="h-96 w-full rounded-lg delay-[300ms] duration-[600ms] taos:translate-y-[-200px] taos:opacity-0" src="https://firebasestorage.googleapis.com/v0/b/website-d9767.appspot.com/o/Misc.%20Images%2Fimage.png?alt=media&token=07c99a91-8606-41f6-bc89-d1bb7b13189d" alt="office content 1"></img>
+                <img className="h-96 mt-4 w-full lg:mt-10 rounded-lg delay-[300ms] duration-[600ms] taos:translate-y-[200px] taos:opacity-0" src="https://firebasestorage.googleapis.com/v0/b/website-d9767.appspot.com/o/Misc.%20Images%2FforStudents2.png?alt=media&token=7d9bf9a0-f1f8-4337-bd58-a6980235a2f0&_gl=1*nqsifr*_ga*MTQ4ODU4NDg0NC4xNjk5MDY5Nzg0*_ga_CW55HF8NVT*MTY5OTA3MjAyMi4yLjEuMTY5OTA3MjA5NS42MC4wLjA." alt="office content 2"></img>
             </div>
         </div>
       </section>

@@ -38,6 +38,7 @@ export default function Contact() {
       <Navbar></Navbar>
 
       <Grid container className={styles.contactContainer} alignItems="center">
+      <Image src="https://firebasestorage.googleapis.com/v0/b/website-d9767.appspot.com/o/Misc.%20Images%2Fundraw_contact_us_re_4qqt%20(1).svg?alt=media&token=805c3ee4-b84a-444a-8418-4efc35be2f89" layout="raw" width={100} height={100} className={styles.pencilDude}></Image>
         <Grid item container xs={12} md={6} spacing={2} className={styles.innerContainer}>
           <Grid item xs={12}>
             <h1 className={styles.title}>{contactTitleText}</h1>
@@ -48,9 +49,9 @@ export default function Contact() {
             <a href="https://wechat.com" class="text-white bg-[#5bc9a8] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2">WeChat</a>
             <a href="https://www.facebook.com/people/StudentstoStudents-Tutoring/100079228365424/" class="text-white bg-[#5bc9a8] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2">Facebook</a>
           </div>
-          
         </Grid>
       </Grid>
+  
 
     </div>
   )
