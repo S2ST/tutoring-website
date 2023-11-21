@@ -110,10 +110,10 @@ export default function Home() {
     typewriter
       .pauseFor(1000)
       .typeString('Welcome to <span style="color: #5bc9a8;">S2S Tutoring</span>.')
-      .pauseFor(300)
+      .pauseFor(900)
       .deleteChars(24)
       .typeString('For students. ')
-      .pauseFor(300)
+      .pauseFor(800)
       .typeString('<span style="color: #5bc9a8;">By students.</span>')
       .pauseFor(1000)
       .start();
@@ -171,8 +171,8 @@ export default function Home() {
     <section className="mt-20 xl:mt-32">
         <div className="py-8 lg:py-20">
             <div className="flex flex-col items-center">
-                <h1 id="app" className="text-center max-w-2xl mb-4 text-2xl font-extrabold tracking-tight leading-none md:text-4xl xl:text-4xl text-black"></h1>
-                <p className="text-center max-w-2xl mb-6 text-gray-600 lg:mb-8 md:text-lg lg:text-base text-sm leading-8 text-gray-600">{subtitleText}</p>
+                <h1 id="app" className="text-center max-w-2xl mb-4 text-5xl font-extrabold tracking-tight leading-none text-black"></h1>
+                <p className="text-center max-w-2xl mb-6 text-gray-600 lg:mb-8 md:text-xl lg:text-xl text-sm leading-8 text-gray-600">{subtitleText}</p>
                 <div class="flex flex-col items-center">
                   <a href="/Courses" className="z-30 rounded-md bg-[#5bc9a8] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#44ab8c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">{searchCoursesButtonText}</a>
                 </div>
