@@ -21,7 +21,7 @@ export default function Calendar() {
       </Head>
 
       <Navbar></Navbar>
-
+      <div class="mt-8">
       <Grid container alignItems="center" justifyContent="center" direction="row" className={styles.calendarContainer}>
         <Grid item className={styles.calendar} xs={12}>
           {
@@ -31,6 +31,7 @@ export default function Calendar() {
         </Grid>
       </Grid>
       <Footer></Footer>
+      </div>
     </>
   )
 }

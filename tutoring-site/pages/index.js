@@ -15,20 +15,24 @@ export default function Home() {
 
   let homeText = 'Home';
   let titleText = 'S2S Tutoring';
-  let subtitleText = "We are committed to providing high quality education to as many students as possible.";
+  let subtitleText = "High-quality, affordable online courses for ALL.";
   let searchCoursesButtonText = 'Search Courses';
   let enrollTitleText = 'Enroll your child now!';
   let missionText = 'Our mission is to provide extracurricular education to as many students as possible at an affordable price.';
-  let card1TitleText ='From Student to Student';
+  let card1TitleText ='From Students to Students';
   let card2TitleText='Affordable for All';
   let card3TitleText='Qualified Tutors';
   let card4TitleText='Any Course, Any Age';
-  let card1Text = 'We understand the struggles of being a student. That’s why we’re here to help.';
-  let card2Text = 'Our courses are by far the most affordable. And all our revenue goes to students who need it.';
-  let card3Text = 'Our tutors are from the most prestigious universities in Canada. You can ask them anything.';
-  let card4Text= 'We have academic and interest courses for students G1-12. Learn whatever you want to learn.';
-  let forStudentsTitleText = 'For students, by students.';
+  let card1Text = 'We understand what it’s like to be a student. That’s why we’re here to help.';
+  let card2Text = 'Our courses are affordable for all incomes–with revenue going back to our highschool or university student tutors.';
+  let card3Text = 'Our tutors are from the most prestigious universities in Canada and the US with years of teaching experience.';
+  let card4Text= 'We have both academic and interest courses for students G1-12, of all class sizes. Check them out under the “Courses” tab!';
+  let forStudentsTitleText = 'Created for students, by students.';
   let ourPriorityText = 'Students to Students (S2S) Tutoring informally launched in April of 2020 during the coronavirus pandemic with the aim of providing affordable extracurricular to as many students as possible. Our courses soon gained recognition across social media, thanks to their high quality and affordability. Since then, we have worked with over one hundred tutors, including those from Harvard, MIT, Brown, Caltech, University of Toronto, McGill, UBC, Waterloo, McMaster and from the prestigious International Baccalaureate Program. We hope to continue inspiring a love for learning in students for the years to come.';
+  let helped ='STUDENTS HELPED';
+  let taught='HOURS TAUGHT';
+  let paid='PAID TO STUDENT TUTORS';
+  let hear='Hear from the S2S community!'
   let interestedTitleText = 'Interested in getting started?';
   let interestedSubtitleText = 'Simple. Just follow these two steps:';
   
@@ -51,22 +55,33 @@ export default function Home() {
   if (!isEng) {
     homeText = '主页';
     titleText = '学生学习辅导';
-    subtitleText = '我们致力于为尽可能多的学生提供高质量的教育。';
+    subtitleText = '适合所有人的高质量低价格的在线课程。';
     searchCoursesButtonText = '搜索课程';
     enrollTitleText = '欢迎大家报名！';
     missionText = '我们的宗旨是以便宜的价格为尽可能多的学生提供课外教育。';
-    card1Text = '价格实惠！每节课45-60分钟，学费只要$6-12加元。';
-    card2Text = '我们的课程可以提高您孩子的学习水平。每门课程 8-12 节课。';
-    card3Text = '我们的课程适合中小学生，包括英语，法语，数学，电脑编程和其他兴趣班。';
-    forStudentsTitleText = '知识的传递，从学生到学生';
-    ourPriorityText = '学生对学生 (S2S) 辅导于 2020 年 4 月冠状病毒大流行后非正式启动，旨在为尽可能多的学生提供负担得起的课外活动。由于其高质量和实惠，我们的课程很快在社交媒体上获得了认可。从那时起，我们已经与一百多名导师合作，包括来自哈佛大学、麻省理工学院、布朗大学、加州理工学院、多伦多大学、麦吉尔大学、英属哥伦比亚大学、滑铁卢大学、麦克马斯特大学以及著名的国际文凭课程的导师。我们希望在未来的岁月里继续激发学生对学习的热爱。';
+    card1TitleText ='从学生到学生';
+    card2TitleText='人人都能负担得起';
+    card3TitleText='最佳导师';
+    card4TitleText='任何课程、任何年龄';
+    card1Text = '作为学生，我们理解学生的感受，所以我们愿意为学生们提供帮助！';
+    card2Text = '我们的课程适合所有收入人群。';
+    card3Text = '我们的导师来自加拿大和美国最负盛名的大学，拥有多年的教学经验。';
+    card4Text = '我们为 1到12年级G1-12 学生提供各类学术和兴趣课程，请点击“课程”选项卡查看。';
+    forStudentsTitleText = '我们的任务';
+    ourPriorityText = 'S2S (StudentstoStudents) Tutoring 机构于 2020 年 4 月在新冠大流行期间正式启动，旨在为尽可能多的学生提供负担得起的课外活动。由于其高质量和实惠的价格，我们的课程很快在获得了学生和家长的认可。至今，我们与来自哈佛大学、麻省理工学院、加州理工学院、多伦多大学、麦吉尔大学、UBC大学、滑铁卢大学、麦克马斯特大学的一百多名导师合作。我们希望培养学生对学习的热爱。';
+    helped ='学生';
+    taught='授课时间';
+    paid='支付给学生导师';
+    hear='Hear from the S2S community!'
     interestedTitleText = '如何注册课程？';
     interestedSubtitleText = '很简单，只需完成下面两个步骤：';
 
     step1 = '步骤1';
     step2 = '第2步';
     step1TitleText = '到 “课程” 页面查找合适的课程。';
-    step2TitleText = 'E-transfer学费到 online2020courses@gmail.com，请注明学生名字，联系方式和所选课程。'
+    step1SubText = '导航到“课程”页面并使用成绩过滤器查找适合您孩子成绩的课程。';
+    step2TitleText = 'E-transfer学费到 online2020courses@gmail.com，请注明学生名字，联系方式和所选课程。';
+    step2SubText = '找到一门适合您和您孩子喜欢的课程。点击“查看详细信息”了解有关课程的更多信息';
 
     // step1TitleText = '浏览我们提供的课程';
     // step1SubText = '导航到 “课程” 页面并使用 “年级” 过滤器查找适合您孩子的课程。';
@@ -243,15 +258,15 @@ export default function Home() {
   <div className="mx-auto max-w-7xl px-6 lg:px-8">
     <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
       <div className="mx-auto flex max-w-xs flex-col gap-y-4 delay-[300ms] duration-[600ms] taos:translate-y-[200px] taos:opacity-0">
-        <dt className="text-base leading-7 text-gray-600">Students helped</dt>
+        <dt className="text-base leading-7 text-gray-600">{helped}</dt>
         <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl">2,000+</dd>
       </div>
       <div className="mx-auto flex max-w-xs flex-col gap-y-4 delay-[600ms] duration-[600ms] taos:translate-y-[200px] taos:opacity-0">
-        <dt className="text-base leading-7 text-gray-600">Tutors hired</dt>
-        <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl">100+</dd>
+        <dt className="text-base leading-7 text-gray-600">{taught}</dt>
+        <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl">5500+</dd>
       </div>
       <div className="mx-auto flex max-w-xs flex-col gap-y-4 delay-[900ms] duration-[600ms] taos:translate-y-[200px] taos:opacity-0">
-        <dt className="text-base leading-7 text-gray-600">Paid to tutors</dt>
+        <dt className="text-base leading-7 text-gray-600">{paid}</dt>
         <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl">$195,000</dd>
       </div>
     </dl>
@@ -260,12 +275,21 @@ export default function Home() {
 <section className="">
   <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
       <div className="mx-auto max-w-screen-sm">
-          <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">Hear from our students and parents!</h2>
+          <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">{hear}</h2>
       </div> 
       <div className="grid mb-8 lg:mb-12 lg:grid-cols-2">
           <figure className="flex flex-col justify-center items-center p-8 text-center bg-gray-50 border-b border-gray-200 md:p-12 lg:border-r">
+              <blockquote className="mx-auto mb-5 max-w-2xl text-gray-500">
+                  <p className="my-4">我家儿子喜歡這个小老师！他说比我每个月送他去$500块钱一个月的补习学校的老師那还教的更有兴趣些！</p>
+              </blockquote>
+          </figure>
+          <figure className="flex flex-col justify-center items-center p-8 text-center bg-gray-50 border-b border-gray-200 md:p-12">
+              <blockquote className="mx-auto mb-5 max-w-2xl text-gray-500">
+                  <p className="my-4">"你好，今天孩子收到IB录收通知书，我們非常開心，謝謝你们為我们所做的一切。謝謝</p>
+              </blockquote> 
+          </figure>
+          <figure className="flex flex-col justify-center items-center p-8 text-center bg-gray-50 border-b border-gray-200 md:p-12 lg:border-r">
               <blockquote className="mx-auto mb-8 max-w-2xl text-gray-500">
-                  <h3 className="text-lg font-semibold text-gray-900">Amazing!</h3>
                   <p className="my-4">Thank you so so much to all the organizers for taking the time for everything. I am in 10th grade and I feel like so many of my queries have been solved. Your courses made me feel motivated in going towards my strengths, my goals, and my passions. Thank you 😊</p>
               </blockquote>
               <figcaption className="flex justify-center items-center space-x-3">
@@ -276,12 +300,31 @@ export default function Home() {
           </figure>
           <figure className="flex flex-col justify-center items-center p-8 text-center bg-gray-50 border-b border-gray-200 md:p-12">
               <blockquote className="mx-auto mb-8 max-w-2xl text-gray-500">
-                  <h3 className="text-lg font-semibold text-gray-900">Great tutors!</h3>
                   <p className="my-4">"My daughter loves your courses! She especially likes being taught by tutors that can relate to her, and she’s learned so much from them! Keep up your work! 🙏🙏🙏</p>
               </blockquote>
               <figcaption className="flex justify-center items-center space-x-3">
                   <div className="space-y-0.5 font-medium">
                       <div>Parent</div>
+                  </div>
+              </figcaption>    
+          </figure>
+          <figure className="flex flex-col justify-center items-center p-8 text-center bg-gray-50 border-b border-gray-200 md:p-12 lg:border-r">
+              <blockquote className="mx-auto mb-8 max-w-2xl text-gray-500">
+                  <p className="my-4">S2S Tutoring is an outstanding student organization that I wholeheartedly recommend. Their team of dedicated tutors, flexibility in teaching style, and low pricing make them a top choice for anyone seeking academic support. I am genuinely impressed with their commitment to empowering students, and I am grateful for the assistance they provided my son for the past three years. You’ve made a positive impact on the educational journeys of so many students!</p>
+              </blockquote>
+              <figcaption className="flex justify-center items-center space-x-3">
+                  <div className="space-y-0.5 font-medium">
+                      <div>Parent</div>
+                  </div>
+              </figcaption>    
+          </figure>
+          <figure className="flex flex-col justify-center items-center p-8 text-center bg-gray-50 border-b border-gray-200 md:p-12">
+              <blockquote className="mx-auto mb-8 max-w-2xl text-gray-500">
+                  <p className="my-4">"I just received my IB acceptance letter!!! Your webinar inspired me to apply and taught me so much about the program! Thank you so much :)</p>
+              </blockquote>
+              <figcaption className="flex justify-center items-center space-x-3">
+                  <div className="space-y-0.5 font-medium">
+                      <div>Student</div>
                   </div>
               </figcaption>    
           </figure>

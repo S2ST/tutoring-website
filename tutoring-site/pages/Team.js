@@ -34,7 +34,7 @@ export default function Team() {
                     </a>
                     <div className="p-5">
                         <h3 className="text-xl font-bold tracking-tight text-gray-900">
-                            <a href="#">Anyuan Tu</a>
+                            <a href="#">{isEng ? 'Anyuan Tu - Founder & President' : '屠安元 - 创始人兼总裁'}</a>
                         </h3>
                         <span className="text-gray-500">Founder & President</span>
                         <p className="mt-3 mb-4 font-light text-gray-500">Anyuan is currently an IB student at Merivale High School. He founded S2S Tutoring with the aim of providing affordable and high quality education to anyone who wants to learn. Anyuan is extremely dedicated to his mission, working countless hours each week to ensure the quality and accessibility of our services.</p>
