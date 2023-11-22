@@ -41,10 +41,10 @@ export default function Contact() {
       <Image src="https://firebasestorage.googleapis.com/v0/b/website-d9767.appspot.com/o/Misc.%20Images%2Fundraw_contact_us_re_4qqt%20(1).svg?alt=media&token=805c3ee4-b84a-444a-8418-4efc35be2f89" layout="raw" width={100} height={100} className={styles.pencilDude}></Image>
         <Grid item container xs={12} md={6} spacing={2} className={styles.innerContainer}>
           <Grid item xs={12}>
-            <h1 className={styles.title}>{contactTitleText}</h1>
-            <p className={styles.subtitle}>{contactSubText}</p>
+          <h1 class="mb-4 text-3xl font-extrabold text-gray-900 md:text-5xl lg:text-6xl"><span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">{contactTitleText}</span></h1>
+<p class="text-lg font-normal text-gray-800 lg:text-xl">{contactSubText}</p>
           </Grid>
-          <div class="mx-auto grid grid-cols-3">
+          <div class="ml-5 mt-10 grid grid-cols-3">
             <a href="mailto:online2020courses@gmail.com" class="text-white bg-[#5bc9a8] hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2">Email</a>
             <a href="https://wechat.com" class="text-white bg-[#5bc9a8] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2">WeChat</a>
             <a href="https://www.facebook.com/people/StudentstoStudents-Tutoring/100079228365424/" class="text-white bg-[#5bc9a8] hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2">Facebook</a>

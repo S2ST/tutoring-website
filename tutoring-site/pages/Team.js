@@ -117,7 +117,7 @@ export default function Team() {
                         <h3 className="text-xl font-bold tracking-tight text-gray-900">
                             <a href="#">Jason Chu</a>
                         </h3>
-                        <span className="text-gray-500">Head of French</span>
+                        <span className="text-gray-500">Project Manager</span>
                         <p className="mt-3 mb-4 font-light text-gray-500">{isEng? 'Jason is an IB student at Merivale High School. He has been an innovator and a leader at S2S Tutoring since our founding, constantly pushing for new and creative courses like debating and video editing. Jason is committed to our mission of affordable education and has been a dedicated tutor himself for over four years.' : 'Jason 是 Merivale 高中的 IB 学生。自 S2S Tutoring 成立以来，他一直是创新者和领导者，不断推动辩论和视频编辑等新的创意课程。 Jason 致力于实现我们低价高质的教育的使命，并且自己担任导师已有四年多了。'}</p>
                         
                     </div>

@@ -249,8 +249,8 @@ export default function Home() {
                 <p className="mb-4">{ourPriorityText}</p>
             </div>
             <div className="grid grid-cols-2 gap-4 mt-8">
-                <img className="h-96 w-full rounded-lg delay-[300ms] duration-[600ms] taos:translate-y-[-200px] taos:opacity-0" src="https://firebasestorage.googleapis.com/v0/b/website-d9767.appspot.com/o/Misc.%20Images%2Fimage.png?alt=media&token=07c99a91-8606-41f6-bc89-d1bb7b13189d" alt="office content 1"></img>
-                <img className="h-96 mt-4 w-full lg:mt-10 rounded-lg delay-[300ms] duration-[600ms] taos:translate-y-[200px] taos:opacity-0" src="https://firebasestorage.googleapis.com/v0/b/website-d9767.appspot.com/o/Misc.%20Images%2FforStudents2.png?alt=media&token=7d9bf9a0-f1f8-4337-bd58-a6980235a2f0&_gl=1*nqsifr*_ga*MTQ4ODU4NDg0NC4xNjk5MDY5Nzg0*_ga_CW55HF8NVT*MTY5OTA3MjAyMi4yLjEuMTY5OTA3MjA5NS42MC4wLjA." alt="office content 2"></img>
+                <img className="w-96 rounded-lg delay-[300ms] duration-[600ms] taos:translate-y-[-200px] taos:opacity-0" src="https://firebasestorage.googleapis.com/v0/b/website-d9767.appspot.com/o/Misc.%20Images%2Fconnie.jpg?alt=media&token=550c12a0-43bf-4260-8c2d-719cb5682098" alt="office content 1"></img>
+                <img className="w-96 mt-4 w-full lg:mt-10 rounded-lg delay-[300ms] duration-[600ms] taos:translate-y-[200px] taos:opacity-0" src="https://firebasestorage.googleapis.com/v0/b/website-d9767.appspot.com/o/Misc.%20Images%2Fwanying.png?alt=media&token=76a326c8-90b7-4e8b-8f26-8a5184269901" alt="office content 2"></img>
             </div>
         </div>
       </section>
@@ -274,7 +274,7 @@ export default function Home() {
 </div>
 <section className="">
   <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
-      <div className="mx-auto max-w-screen-sm">
+      <div className="mx-auto">
           <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">{hear}</h2>
       </div> 
       <div className="grid mb-8 lg:mb-12 lg:grid-cols-2">
